@@ -91,7 +91,7 @@ export default function DocumentationPage() {
                 </h1>
 
                 <p className="text-xl text-gray-300 mb-8">
-                  Welcome to the LoopPay developer documentation. Here you'll find comprehensive guides and
+                  Welcome to the LoopPay developer documentation. Here you&apos;ll find comprehensive guides and
                   documentation to help you start working with LoopPay as quickly as possible.
                 </p>
 
@@ -181,7 +181,7 @@ async function createPayment() {
                 </h2>
                 <p>
                   The Payments API allows you to create, retrieve, update, and list payments. A payment represents a
-                  charge on a customer's payment method.
+                  charge on a customer&apos;s payment method.
                 </p>
 
                 <h3 className="text-xl font-semibold mt-6 mb-3">Creating a Payment</h3>
@@ -254,4 +254,3 @@ function CodeBlock({ language = "bash", children }) {
     </div>
   )
 }
-
