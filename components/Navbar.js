@@ -45,10 +45,14 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-           
-            <div className="flex items-center space-x-4">
+            <div className="flex-1"></div>
+            <div className="flex items-center space-x-8">
+              <NavLink href="/team">Team</NavLink>
+              {/* <NavLink href="/documentation">Documentation</NavLink> */}
+            </div>
+            <div className="flex-1 flex justify-end">
               <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">
-              <Link href="/signin">Sign In</Link>
+                <Link href="/signin">Sign In</Link>
               </Button>
             </div>
           </nav>
@@ -76,10 +80,16 @@ export default function Navbar() {
           className="md:hidden bg-gray-900 border-t border-gray-800"
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-           
+            <MobileNavLink href="/team" onClick={() => setIsMobileMenuOpen(false)}>
+              Team
+            </MobileNavLink>
+            {/* <MobileNavLink href="/documentation" onClick={() => setIsMobileMenuOpen(false)}>
+              Documentation
+            </MobileNavLink> */}
+
             <div className="pt-4 border-t border-gray-800 flex flex-col space-y-3">
               <Button asChild className="w-full border-gray-700 text-gray-300 hover:bg-gray-800">
-              <Link href="/signin" onClick={() => setIsMobileMenuOpen(false)}>
+                <Link href="/signin" onClick={() => setIsMobileMenuOpen(false)}>
                   Sign In
                 </Link>
               </Button>
