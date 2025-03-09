@@ -280,7 +280,7 @@ function ReviewCard({ name, role, rating, review, image, delay }) {
           <Star key={i} size={18} className={i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-600"} />
         ))}
       </div>
-      <p className="text-gray-300 mb-6 italic">"{review}"</p>
+      <p className="text-gray-300 mb-6 italic">&quot;{review}&quot;</p>
       <div className="flex items-center gap-4">
         <Image src={image || "/placeholder.svg"} width={50} height={50} alt={name} className="rounded-full" />
         <div>
@@ -295,13 +295,24 @@ function ReviewCard({ name, role, rating, review, image, delay }) {
 // Animated Particles Component - Simplified
 /** @param {{ count?: number }} props */
 function Particles({ count = 20 }) {
-  const particles = Array.from({ length: count }).map((_, i) => ({
-    id: i,
-    size: Math.random() * 20 + 5,
-    initialX: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1000),
-    initialY: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 1000),
-    duration: Math.random() * 15 + 15,
-  }))
+  // Use empty array initially and calculate values on client side only
+  const [particles, setParticles] = useState([])
+
+  useEffect(() => {
+    // Initialize particles only on client side
+    const windowWidth = window.innerWidth
+    const windowHeight = window.innerHeight
+    
+    const particlesArray = Array.from({ length: count }).map((_, i) => ({
+      id: i,
+      size: Math.random() * 20 + 5,
+      initialX: Math.random() * windowWidth,
+      initialY: Math.random() * windowHeight,
+      duration: Math.random() * 15 + 15,
+    }))
+    
+    setParticles(particlesArray)
+  }, [count])
 
   return (
     <div className="absolute inset-0 overflow-hidden">
@@ -454,45 +465,55 @@ function PaymentOrbitingElement({ icon, delay, duration, distance }) {
 
 // Floating Transaction Animation
 function FloatingTransactions() {
+  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 })
+  
+  useEffect(() => {
+    setWindowDimensions({ width: window.innerWidth, height: window.innerHeight })
+  }, [])
+  
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute flex items-center gap-2 bg-gray-900/40 backdrop-blur-sm p-2 rounded-lg border border-gray-800 shadow-lg"
-          initial={{
-            x: Math.random() < 0.5 ? -100 : window.innerWidth + 100,
-            y: 100 + Math.random() * (window.innerHeight - 200),
-            opacity: 0,
-          }}
-          animate={{
-            x: Math.random() < 0.5 ? window.innerWidth + 100 : -100,
-            opacity: [0, 1, 1, 0],
-          }}
-          transition={{
-            duration: 10 + Math.random() * 15,
-            delay: i * 3,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-          }}
-        >
-          <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
-            <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
-              {i % 3 === 0 ? (
-                <Shield size={16} className="text-emerald-400" />
-              ) : i % 3 === 1 ? (
-                <Zap size={16} className="text-yellow-400" />
-              ) : (
-                <RefreshCw size={16} className="text-blue-400" />
-              )}
-            </motion.div>
-          </div>
-          <div className="text-xs">
-            <div className="text-white font-medium">Payment ${1000 + i}</div>
-            <div className="text-green-400">✓ Secured</div>
-          </div>
-        </motion.div>
-      ))}
+      {[...Array(5)].map((_, i) => {
+        if (windowDimensions.width === 0) return null
+        
+        return (
+          <motion.div
+            key={i}
+            className="absolute flex items-center gap-2 bg-gray-900/40 backdrop-blur-sm p-2 rounded-lg border border-gray-800 shadow-lg"
+            initial={{
+              x: Math.random() < 0.5 ? -100 : windowDimensions.width + 100,
+              y: 100 + Math.random() * (windowDimensions.height - 200),
+              opacity: 0,
+            }}
+            animate={{
+              x: Math.random() < 0.5 ? windowDimensions.width + 100 : -100,
+              opacity: [0, 1, 1, 0],
+            }}
+            transition={{
+              duration: 10 + Math.random() * 15,
+              delay: i * 3,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+          >
+            <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+              <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
+                {i % 3 === 0 ? (
+                  <Shield size={16} className="text-emerald-400" />
+                ) : i % 3 === 1 ? (
+                  <Zap size={16} className="text-yellow-400" />
+                ) : (
+                  <RefreshCw size={16} className="text-blue-400" />
+                )}
+              </motion.div>
+            </div>
+            <div className="text-xs">
+              <div className="text-white font-medium">Payment ${1000 + i}</div>
+              <div className="text-green-400">✓ Secured</div>
+            </div>
+          </motion.div>
+        )
+      })}
     </div>
   )
 }
@@ -531,4 +552,3 @@ function BlockchainElement() {
     </svg>
   )
 }
-
