@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "LoopPay",
+  title: "RecurX",
   description: "A Decentralized Subscription Payment Gateway",
 };
 
