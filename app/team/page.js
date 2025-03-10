@@ -5,18 +5,26 @@ import { Card, CardContent } from "@/components/ui/card"
 import { motion } from "framer-motion"
 
 const teamMembers = [
+  
+  {
+    name: "Mani Pal",
+    role: "Founder",
+    image: "/mani.jpg",
+    bio: "Mani Pal, a seasoned developer with 5+ years of experience in coding and blockchain, designed and built his entire startup from the ground up. Combining expertise in Next.js, Prisma, PostgreSQL, and Web3 technologies, he created a cutting-edge platform that integrates AI, crypto payments, and automation to deliver innovative solutions.",
+  },
   {
     name: "Ishita Gupta",
-    role: "CEO & Co-Founder",
+    role: "Co-Founder",
     image: "/ishita.jpeg",
     bio: "Ishita has over 5 years of experience in fintech and blockchain technology.",
   },
-  // {
-  //   name: "Mani Pal",
-  //   role: "CTO & Co-Founder",
-  //   image: "/mani.jpeg",
-  //   bio: "Mani leads our engineering team with expertise in distributed systems and cryptography.",
-  // },
+  {
+    name: "Yug Rathod",
+    role: "Co-Founder",
+    image: "/yug.jpeg",
+    bio: "Yug Managing our team with expertise in distributed systems and cryptography.",
+  },
+  
   
 ]
 

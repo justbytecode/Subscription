@@ -98,7 +98,7 @@ export default function Page() {
               WebkitTextFillColor: "transparent",
             }}
           >
-            LoopPay
+            RecurX
           </motion.h1>
 
           {/* Tagline */}
