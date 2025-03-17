@@ -59,6 +59,7 @@ CREATE TABLE "SubscriptionPlan" (
     "duration" INTEGER DEFAULT 30,
     "trialDays" INTEGER DEFAULT 0,
     "contractAddress" TEXT NOT NULL,
+    "planId" TEXT NOT NULL,
     "status" TEXT NOT NULL DEFAULT 'ACTIVE',
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
@@ -98,6 +99,7 @@ CREATE TABLE "Transaction" (
     "amount" DOUBLE PRECISION NOT NULL,
     "txHash" TEXT NOT NULL,
     "status" TEXT NOT NULL DEFAULT 'PENDING',
+    "refundAmount" DOUBLE PRECISION,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

@@ -65,11 +65,12 @@ model SubscriptionPlan {
   userId          String
   name            String
   price           Float
-  interval        String
-  duration        Int?          @default(30) // Default duration in days (e.g., 30 for monthly)
-  trialDays       Int?          @default(0)  // Default to 0 trial days
-  contractAddress String        // Made non-nullable since every plan needs a contract
-  status          String        @default("ACTIVE") // Added status (e.g., ACTIVE, INACTIVE)
+  interval        String        // e.g., "monthly", "daily"
+  duration        Int?          @default(30) // Duration in days (e.g., 30 for monthly, 1 for daily)
+  trialDays       Int?          @default(0)  // Number of free trial days
+  contractAddress String        // Single deployed contract address
+  planId          String        // On-chain plan ID from the smart contract
+  status          String        @default("ACTIVE") // e.g., ACTIVE, INACTIVE, CANCELLED
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
   user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -102,7 +103,8 @@ model Transaction {
   planId         String
   amount         Float
   txHash         String            @unique
-  status         String            @default("PENDING") // Added status (e.g., PENDING, COMPLETED, FAILED)
+  status         String            @default("PENDING") // e.g., PENDING, COMPLETED, FAILED, CANCELLED
+  refundAmount   Float?            // Amount refunded (if cancelled)
   createdAt      DateTime          @default(now())
   updatedAt      DateTime          @updatedAt
   user           User              @relation(fields: [userId], references: [id], onDelete: Cascade)

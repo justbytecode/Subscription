@@ -69,14 +69,14 @@ export default function Sidebar() {
             isCollapsed && !isMobile ? "justify-center p-4" : ""
           )}>
             {isCollapsed && !isMobile ? (
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-3xl">L</span>
+              <span className="bg-gradient-to-r from-gray-200 to-purple-500 text-3xl">L</span>
             ) : (
               
             <motion.span
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-200"
             >
-              LoopPay
+              RecurX
             </motion.span>
         
             )}

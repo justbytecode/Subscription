@@ -1,3 +1,4 @@
+// /dashboard/plans/server.js
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
@@ -35,7 +36,14 @@ export default async function PlansServer() {
     // Fetch plans data
     plans = await prisma.subscriptionPlan.findMany({
       where: { userId: userId },
-      select: { id: true, name: true, price: true, interval: true, contractAddress: true },
+      select: {
+        id: true,
+        name: true,
+        price: true,
+        interval: true,
+        contractAddress: true,
+        planId: true,
+      },
     });
 
     console.log("PlansServer - Fetched plans for userId:", userId, "Plans:", plans);

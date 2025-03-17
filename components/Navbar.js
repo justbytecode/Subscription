@@ -48,7 +48,7 @@ export default function Navbar() {
             <div className="flex-1"></div>
             <div className="flex items-center space-x-8">
               <NavLink href="/team">Team</NavLink>
-              {/* <NavLink href="/documentation">Documentation</NavLink> */}
+              <NavLink href="/documentation">Documentation</NavLink>
             </div>
             <div className="flex-1 flex justify-end">
               <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">
@@ -83,9 +83,9 @@ export default function Navbar() {
             <MobileNavLink href="/team" onClick={() => setIsMobileMenuOpen(false)}>
               Team
             </MobileNavLink>
-            {/* <MobileNavLink href="/documentation" onClick={() => setIsMobileMenuOpen(false)}>
+            <MobileNavLink href="/documentation" onClick={() => setIsMobileMenuOpen(false)}>
               Documentation
-            </MobileNavLink> */}
+            </MobileNavLink>
 
             <div className="pt-4 border-t border-gray-800 flex flex-col space-y-3">
               <Button asChild className="w-full border-gray-700 text-gray-300 hover:bg-gray-800">

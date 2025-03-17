@@ -87,19 +87,19 @@ export default function DocumentationPage() {
                   id="introduction"
                   className="text-3xl md:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
                 >
-                  LoopPay Developer Documentation
+                  Recurx Developer Documentation
                 </h1>
 
                 <p className="text-xl text-gray-300 mb-8">
-                  Welcome to the LoopPay developer documentation. Here you&apos;ll find comprehensive guides and
-                  documentation to help you start working with LoopPay as quickly as possible.
+                  Welcome to the RecurX developer documentation. Here you&apos;ll find comprehensive guides and
+                  documentation to help you start working with RecurX as quickly as possible.
                 </p>
 
                 <h2 id="installation" className="text-2xl font-bold mt-12 mb-4">
                   Installation
                 </h2>
                 <p className="mb-4">
-                  Get started with LoopPay by installing our SDK using your preferred package manager:
+                  Get started with RecurX by installing our SDK using your preferred package manager:
                 </p>
 
                 <div className="relative mb-6">
@@ -110,13 +110,13 @@ export default function DocumentationPage() {
                       <TabsTrigger value="pnpm">pnpm</TabsTrigger>
                     </TabsList>
                     <TabsContent value="npm" className="mt-2">
-                      <CodeBlock>npm install @looppay/sdk</CodeBlock>
+                      <CodeBlock>npm install @recurx/sdk</CodeBlock>
                     </TabsContent>
                     <TabsContent value="yarn" className="mt-2">
-                      <CodeBlock>yarn add @looppay/sdk</CodeBlock>
+                      <CodeBlock>yarn add @recurx/sdk</CodeBlock>
                     </TabsContent>
                     <TabsContent value="pnpm" className="mt-2">
-                      <CodeBlock>pnpm add @looppay/sdk</CodeBlock>
+                      <CodeBlock>pnpm add @recurx/sdk</CodeBlock>
                     </TabsContent>
                   </Tabs>
                 </div>
@@ -124,13 +124,13 @@ export default function DocumentationPage() {
                 <h2 id="quick-start" className="text-2xl font-bold mt-12 mb-4">
                   Quick Start
                 </h2>
-                <p className="mb-4">Initialize the LoopPay client with your API key:</p>
+                <p className="mb-4">Initialize the RecurX client with your API key:</p>
 
                 <CodeBlock language="javascript">
-                  {`import { LoopPay } from '@looppay/sdk';
+                  {`import { RecurX } from '@recurx/sdk';
 
 // Initialize the client
-const looppay = new LoopPay({
+const recurx = new Recurx({
   apiKey: 'your_api_key',
   environment: 'sandbox' // or 'production'
 });
@@ -138,7 +138,7 @@ const looppay = new LoopPay({
 // Create a payment
 async function createPayment() {
   try {
-    const payment = await looppay.payments.create({
+    const payment = await recurx.payments.create({
       amount: 1000, // $10.00
       currency: 'USD',
       description: 'Order #1234',
@@ -158,13 +158,13 @@ async function createPayment() {
                   Authentication
                 </h2>
                 <p>
-                  All requests to the LoopPay API require authentication. You can authenticate your requests by
+                  All requests to the Recurx API require authentication. You can authenticate your requests by
                   including your API key in the Authorization header:
                 </p>
 
                 <CodeBlock language="bash">
                   {`curl -X GET \\
-  https://api.looppay.io/v1/payments \\
+  https://api.recurx.io/v1/payments \\
   -H "Authorization: Bearer your_api_key"`}
                 </CodeBlock>
 
@@ -172,7 +172,7 @@ async function createPayment() {
                   <h3 className="text-blue-400 text-lg font-medium mb-2">Security Note</h3>
                   <p className="text-gray-300 mb-0">
                     Never expose your API keys in client-side code. Always use a backend service to make authenticated
-                    requests to the LoopPay API.
+                    requests to the Recurx API.
                   </p>
                 </div>
 
@@ -188,7 +188,7 @@ async function createPayment() {
                 <p className="mb-4">To create a payment, you need to specify at least the amount and currency:</p>
 
                 <CodeBlock language="javascript">
-                  {`const payment = await looppay.payments.create({
+                  {`const payment = await RecurX.payments.create({
   amount: 2000, // $20.00
   currency: 'USD',
   description: 'Premium subscription',
@@ -201,13 +201,13 @@ async function createPayment() {
                   Webhooks
                 </h2>
                 <p>
-                  Webhooks allow you to receive real-time notifications about events that happen in your LoopPay
+                  Webhooks allow you to receive real-time notifications about events that happen in your RecurX
                   account. For example, you can use webhooks to be notified when a payment is successful or when a
                   subscription is canceled.
                 </p>
 
                 <p className="mt-4">
-                  To use webhooks, you need to create a webhook endpoint on your server and register it in the LoopPay
+                  To use webhooks, you need to create a webhook endpoint on your server and register it in the RecurX
                   dashboard.
                 </p>
               </div>

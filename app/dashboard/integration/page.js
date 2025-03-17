@@ -1,3 +1,4 @@
+// /dashboard/integration/page.js
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -29,7 +30,7 @@ export default function IntegrationClient({ plans: initialPlans }) {
 
       const userId = session.user.id;
       const urlParams = new URLSearchParams(window.location.search);
-      const planId = urlParams.get("planId");
+      const planId = urlParams.get("planId"); // This is the database plan.id
 
       try {
         const response = await fetch(`/api/plans?userId=${userId}`);
@@ -54,7 +55,7 @@ export default function IntegrationClient({ plans: initialPlans }) {
 
   const generateJsCodeSnippet = (plan) => {
     return `
-<button onclick="subscribe('${plan.contractAddress}', '${plan.id}')">Subscribe to ${plan.name}</button>
+<button onclick="subscribe('${plan.contractAddress}', ${plan.planId})">Subscribe to ${plan.name}</button>
 <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
 <script>
   async function subscribe(contractAddress, planId) {
@@ -87,7 +88,7 @@ import { ethers } from "ethers";
 const subscriptionABI = ${JSON.stringify(subscriptionABI, null, 2)};
 
 // Function to subscribe to a plan
-async function subscribe(contractAddress: string, planId: string): Promise<void> {
+async function subscribe(contractAddress: string, planId: number): Promise<void> {
   if (!window.ethereum) {
     alert("Please install MetaMask to subscribe");
     return;
@@ -108,7 +109,7 @@ async function subscribe(contractAddress: string, planId: string): Promise<void>
 }
 
 // Usage in your React component
-<button onClick={() => subscribe('${plan.contractAddress}', '${plan.id}')}>
+<button onClick={() => subscribe('${plan.contractAddress}', ${plan.planId})}>
   Subscribe to ${plan.name}
 </button>
     `.trim();
@@ -128,7 +129,8 @@ fetch('/api/subscribe', {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    planId: '${plan.id}',
+    planId: '${plan.id}', // Database plan ID
+    onChainPlanId: ${plan.planId}, // On-chain plan ID
     userWalletAddress: 'YOUR_USER_WALLET_ADDRESS',
   }),
 })
@@ -138,7 +140,8 @@ fetch('/api/subscribe', {
 
 # Example using Axios (JavaScript)
 axios.post('/api/subscribe', {
-  planId: '${plan.id}',
+  planId: '${plan.id}', // Database plan ID
+  onChainPlanId: ${plan.planId}, // On-chain plan ID
   userWalletAddress: 'YOUR_USER_WALLET_ADDRESS',
 }, {
   headers: {
@@ -178,6 +181,7 @@ axios.post('/api/subscribe', {
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-gray-600 mb-2">Smart Contract Address: {plan.contractAddress}</p>
+                <p className="text-sm text-gray-600 mb-2">On-Chain Plan ID: {plan.planId}</p>
                 <Tabs defaultValue="javascript" className="w-full">
                   <TabsList className="grid w-full grid-cols-3">
                     <TabsTrigger value="javascript">JavaScript</TabsTrigger>

@@ -1,3 +1,4 @@
+// /dashboard/wallet/page.js
 "use client";
 
 import { useState, useEffect } from "react";
@@ -6,7 +7,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { connectWallet, disconnectWallet } from "@/actions/wallet";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { ethers } from "ethers";
 
@@ -25,12 +25,10 @@ export default function WalletClient({ wallet: initialWallet }) {
   useEffect(() => {
     console.log("WalletClient - Initial wallet prop:", initialWallet);
 
-    // If initialWallet is provided (from server), prioritize it
     if (initialWallet) {
       setWallet(initialWallet);
       localStorage.setItem("connectedWallet", JSON.stringify(initialWallet));
     } else {
-      // Otherwise, check local storage for a previously connected wallet
       const storedWallet = localStorage.getItem("connectedWallet");
       if (storedWallet) {
         const parsedWallet = JSON.parse(storedWallet);
@@ -69,8 +67,9 @@ export default function WalletClient({ wallet: initialWallet }) {
       console.log("WalletClient - User ID from session:", session.user.id);
     } else if (status === "unauthenticated") {
       setError("User authentication failed. Please sign in again.");
+      router.push("/signin");
     }
-  }, [session, status]);
+  }, [session, status, router]);
 
   const handleConnect = async () => {
     setIsConnecting(true);
@@ -100,6 +99,10 @@ export default function WalletClient({ wallet: initialWallet }) {
 
       const address = accounts[0];
       console.log("Connecting wallet with userId:", userId, "address:", address);
+
+      if (!userId) {
+        throw new Error("User not authenticated. Please sign in.");
+      }
 
       const result = await connectWallet(userId, address);
       if (!result.success) {
@@ -145,6 +148,10 @@ export default function WalletClient({ wallet: initialWallet }) {
       const address = accounts[0];
       console.log("Switching wallet with userId:", userId, "address:", address);
 
+      if (!userId) {
+        throw new Error("User not authenticated. Please sign in.");
+      }
+
       const result = await connectWallet(userId, address);
       if (!result.success) {
         throw new Error(result.message || "Failed to switch account");
@@ -178,6 +185,10 @@ export default function WalletClient({ wallet: initialWallet }) {
         }
       }
 
+      if (!userId) {
+        throw new Error("User not authenticated. Please sign in.");
+      }
+
       const result = await disconnectWallet(userId);
       if (!result.success) {
         throw new Error(result.message || "Failed to disconnect wallet");
@@ -197,18 +208,6 @@ export default function WalletClient({ wallet: initialWallet }) {
 
   if (status === "loading") {
     return <div>Loading...</div>;
-  }
-
-  if (status === "unauthenticated") {
-    return (
-      <div className="space-y-6">
-        <h1 className="text-3xl font-bold text-gray-800">Wallet Management</h1>
-        <p className="text-red-600">User authentication failed. Please sign in again.</p>
-        <Button asChild variant="link" className="text-blue-600">
-          <Link href="/signin">Sign In</Link>
-        </Button>
-      </div>
-    );
   }
 
   return (
