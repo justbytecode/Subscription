@@ -9,7 +9,7 @@ import { Twitter, Linkedin, Github, Globe, X } from "lucide-react"
 const teamMembers = [
   {
     name: "Mani Pal",
-    role: "Founder & CEO",
+    role: "Founder & CTO",
     image: "/mani.jpg",
     bio: "Mani is a visionary developer with over 5 years of experience in software engineering and blockchain technology. He single-handedly designed and built RecurX from the ground up, leveraging his expertise in Next.js, Prisma, PostgreSQL, and Web3 technologies. His passion for innovation has led to the creation of a cutting-edge platform that seamlessly integrates AI, cryptocurrency payments, and automation to solve real-world problems.",
     social: {
@@ -21,7 +21,7 @@ const teamMembers = [
   },
   {
     name: "Ishita Gupta",
-    role: "Co-Founder & COO",
+    role: "Co-Founder & CEO",
     image: "/ishita.jpeg",
     bio: "Ishita brings over 5 years of invaluable experience in fintech and blockchain technology to RecurX. With a keen eye for operational excellence and strategic planning, she oversees the company's day-to-day operations and long-term growth strategies. Her deep understanding of financial systems and regulatory frameworks has been instrumental in positioning RecurX at the forefront of compliant blockchain payment solutions.",
     social: {
@@ -32,7 +32,7 @@ const teamMembers = [
   },
   {
     name: "Yug Rathod",
-    role: "Co-Founder & CTO",
+    role: "Co-Founder & COO",
     image: "/yug.jpeg",
     bio: "Yug leads our technical team with unparalleled expertise in distributed systems and cryptography. With a background in computer science and a passion for blockchain technology, he architects the robust infrastructure that powers RecurX. His innovative approach to solving complex technical challenges ensures our platform remains secure, scalable, and at the cutting edge of payment technology.",
     social: {
