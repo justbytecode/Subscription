@@ -37,7 +37,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center">
             <motion.span
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500"
+              className="text-2xl font-bold bg-clip-text text-transparent bg-white"
             >
               RecurX
             </motion.span>

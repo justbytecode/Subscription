@@ -137,7 +137,7 @@ export default function Page() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose LoopPay?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose RecurX ?</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Our platform combines the best of blockchain technology with user-friendly design to revolutionize
             subscription payments.
@@ -166,61 +166,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Reviews Section */}
-      <section className="container mx-auto px-4 py-20 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Users Say</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who have transformed their subscription management with LoopPay.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <ReviewCard
-            name="Sarah Johnson"
-            role="CEO, TechStart"
-            rating={5}
-            review="LoopPay has completely transformed how we handle our SaaS subscriptions. The blockchain integration gives us peace of mind and the interface is incredibly intuitive."
-            image="/placeholder.svg?height=80&width=80"
-            delay={0.3}
-          />
-          <ReviewCard
-            name="Michael Chen"
-            role="Freelance Developer"
-            rating={5}
-            review="As a developer, I appreciate the technical excellence behind LoopPay. The API is well-documented and the payment processing is lightning fast."
-            image="/placeholder.svg?height=80&width=80"
-            delay={0.4}
-          />
-          <ReviewCard
-            name="Elena Rodriguez"
-            role="Finance Director, GrowthCorp"
-            rating={4}
-            review="Managing recurring payments used to be a nightmare for our accounting team. LoopPay has streamlined everything and saved us countless hours each month."
-            image="/placeholder.svg?height=80&width=80"
-            delay={0.5}
-          />
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="flex justify-center mt-12"
-        >
-          <Link
-            href="#testimonials"
-            className="text-blue-400 hover:text-blue-300 flex items-center gap-2 transition-colors"
-          >
-            View all testimonials <ArrowRight size={16} />
-          </Link>
-        </motion.div>
-      </section>
+     
 
       {/* Floating blockchain elements - simplified */}
       <div className="absolute top-1/4 -left-20 opacity-10 animate-pulse">
