@@ -30,17 +30,17 @@ const teamMembers = [
       github: "#",
     },
   },
-  // {
-  //   name: "Yug Rathod",
-  //   role: "Co-Founder & CTO",
-  //   image: "/yug.jpeg",
-  //   bio: "Yug leads our technical team with unparalleled expertise in distributed systems and cryptography. With a background in computer science and a passion for blockchain technology, he architects the robust infrastructure that powers RecurX. His innovative approach to solving complex technical challenges ensures our platform remains secure, scalable, and at the cutting edge of payment technology.",
-  //   social: {
-  //     twitter: "#",
-  //     linkedin: "#",
-  //     github: "#",
-  //   },
-  // },
+  {
+    name: "Yug Rathod",
+    role: "Co-Founder & CTO",
+    image: "/yug.jpeg",
+    bio: "Yug leads our technical team with unparalleled expertise in distributed systems and cryptography. With a background in computer science and a passion for blockchain technology, he architects the robust infrastructure that powers RecurX. His innovative approach to solving complex technical challenges ensures our platform remains secure, scalable, and at the cutting edge of payment technology.",
+    social: {
+      twitter: "#",
+      linkedin: "#",
+      github: "#",
+    },
+  },
 ]
 
 const container = {
