@@ -28,13 +28,16 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-black/80 backdrop-blur-md shadow-lg" : "bg-transparent"
+      className={`fixed z-50 transition-all duration-300 w-full px-4 border-none ${
+        isScrolled
+          ? "bg-black-500 backdrop-blur-sm shadow-sm border-none "
+          : "bg-transparent"
       }`}
+      
     >
-      <div className="container mx-auto max-w-6xl px-4">
+      <div className="w-full">
         <div className="flex justify-between items-center h-16 md:h-20">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center px-4">
             <motion.span
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold bg-clip-text text-transparent bg-white"
@@ -49,9 +52,12 @@ export default function Navbar() {
             <div className="flex items-center space-x-8">
               <NavLink href="/team">Team</NavLink>
               <NavLink href="/documentation">Documentation</NavLink>
+              <NavLink href="/career">career</NavLink>
+              <NavLink href="/blogs">blogs</NavLink>
+              <NavLink href="/fees">Fees</NavLink>
             </div>
             <div className="flex-1 flex justify-end">
-              <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-gray-800">
+              <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110">
                 <Link href="/signin">Sign In</Link>
               </Button>
             </div>
@@ -85,6 +91,10 @@ export default function Navbar() {
             </MobileNavLink>
             <MobileNavLink href="/documentation" onClick={() => setIsMobileMenuOpen(false)}>
               Documentation
+            </MobileNavLink>
+
+            <MobileNavLink href="mailto:career@recurx.com" onClick={() => setIsMobileMenuOpen(false)}>
+              career
             </MobileNavLink>
 
             <div className="pt-4 border-t border-gray-800 flex flex-col space-y-3">
