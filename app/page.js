@@ -593,7 +593,7 @@ function FloatingTransactions() {
                 ease: "easeInOut" 
               }}
             >
-              <img src={item.img} alt="Crypto Icon" />
+              <Image src={item.img} alt="Crypto Icon" />
             </motion.div>
           </div>
           <div className="text-xs">

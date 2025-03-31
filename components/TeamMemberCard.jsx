@@ -1,5 +1,6 @@
 import React from 'react';
 import { Twitter, Linkedin, Github, Mail, Globe, X } from "lucide-react";
+import Image from 'next/image';
 
 export const TeamMemberCard = ({ member }) => {
   const { name, role, image, bio, social } = member;
@@ -9,7 +10,7 @@ export const TeamMemberCard = ({ member }) => {
       <div 
         className="w-56 h-56 mb-4 overflow-hidden rounded-full border-1 border-blue-600 transition-transform duration-300 ease-in-out group-hover:scale-105"
       >
-        <img 
+        <Image 
           src={image} 
           alt={name} 
           className="w-full h-full object-cover"

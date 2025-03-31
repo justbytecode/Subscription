@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 function FeatureCard({ imageSource }) {
   return (
 
-      <img 
+      <Image 
         src={imageSource} 
         alt="Cryptocurrency" 
         className="h-24 object-contain mx-8"  // Standardized height and width

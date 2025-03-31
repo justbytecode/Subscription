@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from "framer-motion";
+import Image from 'next/image';
 
 const FeatureQr = () => {
   return (
@@ -71,7 +72,7 @@ const FeatureQr = () => {
                   transition={{ delay: 0.6, duration: 0.6 }}
                 >
                   <div className="w-40 h-40 bg-gray-700 flex items-center justify-center">
-                  <img src="/qr.png" alt="" className='h-42 rounded-lg' />
+                  <Image src="/qr.png" alt="" className='h-42 rounded-lg' />
                   </div>
                 </motion.div>
               </div>

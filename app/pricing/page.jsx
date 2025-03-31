@@ -2,11 +2,12 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion';
 import { Tabs } from '@/components/Tab';
+import Image from 'next/image';
 
 const currencies = [
   {
     symbol: 'BTC',
-    img: <img src="./supportedCoins/bitcoin.svg" alt="Bitcoin" className="w-8 h-8 rounded-full" />,
+    img: <Image src="./supportedCoins/bitcoin.svg" alt="Bitcoin" className="w-8 h-8 rounded-full" />,
     details: {
       transactionFees: '0.5%',
       processingFee: '$5',
