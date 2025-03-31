@@ -24,10 +24,17 @@ export const Tabs = ({
   const [hovering, setHovering] = useState(false);
 
   return (
-    <>
-      <div
+    <motion.div 
+    className="lg:py-24 md:py-16 py-10 xl:px-0 px-10 w-full"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5, delay: 0.3 }}>
+      <motion.div
+       initial={{ opacity: 0 }}
+       animate={{ opacity: 1 }}
+       transition={{ duration: 0.5, delay: 0.3 }}
         className={cn(
-          "flex flex-row items-center justify-start relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-ful cursor-pointer",
+          "flex flex-row items-center justify-center relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-ful cursor-pointer",
           containerClassName
         )}>
         {propTabs.map((tab, idx) => (
@@ -57,14 +64,14 @@ export const Tabs = ({
             </span>
           </button>
         ))}
-      </div>
+      </motion.div>
       <FadeInDiv
         tabs={tabs}
         active={active}
         key={active.value}
         hovering={hovering}
         className={cn("mt-32", contentClassName)} />
-    </>
+    </motion.div>
   );
 };
 

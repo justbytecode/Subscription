@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-  import { Card, CardContent } from "@/components/ui/card"
 import { motion, AnimatePresence } from "framer-motion"
 import { Twitter, Linkedin, Github, Globe, X } from "lucide-react"
 import { TeamMemberCard } from "@/components/TeamMemberCard"
@@ -15,7 +14,7 @@ const teamMembers = [{
   bio: "With 5+ years in software engineering and blockchain, Mani leads RecurX’s technical vision. He architects AI-driven, cryptocurrency-integrated solutions, ensuring seamless automation and innovation.",
   social: {
     twitter: "#",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/mani-pal-68b570163",
     github: "#",
     website: "#",
   },
@@ -26,8 +25,8 @@ const teamMembers = [{
   image: "/ishita.jpeg",
   bio: "With 5+ years in fintech and blockchain, Ishita drives RecurX’s growth and operations. She ensures compliance while shaping innovative payment solutions.",
   social: {
-    twitter: "#",
-    linkedin: "#",
+    twitter: "https://x.com/Ishita2210",
+    linkedin: "https://www.linkedin.com/in/ishita-gupta-846853168/",
   },
 },
 
@@ -37,8 +36,8 @@ const teamMembers = [{
   image: "/yug.jpeg",
   bio: "With expertise in distributed systems and cryptography, Yug ensures RecurX’s security and scalability. He drives technical strategy while advancing blockchain-powered payment infrastructure.",
   social: {
-    twitter: "#",
-    linkedin: "#",
+    twitter: "https://x.com/YugRath77227664",
+    linkedin: "https://www.linkedin.com/in/yugrathod/",
   },
 },
 ];
@@ -101,7 +100,7 @@ export default function TeamPage() {
         transition={{ duration: 0.5 }}
       >
         <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl sm:text-3xl xl:text-7xl font-bold leading-tight mb-8">
-            Meet the <span className='text-blue-600'>Mind's</span> 👩‍💻<br/> Behind <span className='text-blue-600'>RecurX!</span>
+            Meet the <span className='text-blue-600'>Mind's</span> <br/> Behind <span className='text-blue-600'>RecurX!</span>
         </div>
         <p className="text-white text-center text-2xl font-normal leading-7">
           At RecurX, we embrace agility and innovation, allowing us to stay ahead of market trends, <br />

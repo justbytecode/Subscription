@@ -180,7 +180,7 @@ const Fees = () => {
       </div>
 
       {/* Header Section */}
-      <header className="container mx-auto relative z-10 px-4">
+      {/* <header className="container mx-auto relative z-10 px-4">
         <div className="flex flex-col items-center justify-center mt-12 md:mt-50 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -205,12 +205,57 @@ const Fees = () => {
             Explore the transparent fee structure of <span>RecurX</span>. Know transaction and processing fees on different crypto transactions.
           </motion.p>
         </div>
-      </header>
+      </header> */}
+
+<motion.div
+        className="xl:py-42 md:py-20 py-10 xl:px-0 px-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl sm:text-3xl xl:text-7xl font-bold leading-tight mb-8 text-center">
+        Transparent Pricing Structure<br/> at  <span className='text-blue-600'>RecurX!</span>        </div>
+        <p className="text-white text-center text-3xl font-normal leading-7">
+        Fair, Clear, and Predictable Fees <br/> Unlocking Value with RecurX’s Transparent Pricing!
+        </p>
+      </motion.div>
 
       {/* Tabs Section for Price Comparison*/}
-      <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-7xl w-full m-auto mt-12 md:mt-24 items-start justify-start px-4 h-full ">
+      <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-7xl w-full m-auto  items-start justify-start px-4 h-full ">
         <Tabs tabs={tabs} />
       </div>
+
+<motion.div className='xl:max-w-7xl w-auto mx-auto pt-28 xl:px-0 px-10 relative mt-24'>
+
+
+      <motion.div
+          className="lg:mt-24 mt-10 bg-gradient-to-l from-violet-600 to-indigo-600 p-12 rounded-2xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          >
+          <div className="lg:flex items-center justify-between gap-6">
+            <div className="lg:mb-0 mb-10">
+              <h3 className="text-white font-manrope lg:text-4xl text-3xl font-semibold leading-10 mb-5">
+              Let's Talk – Get the Best Pricing for Your Needs!
+              </h3>
+              <p className="text-indigo-100 text-xl font-normal leading-8">
+              Connect with our sales team to explore tailored pricing solutions that fit your business.
+              </p>
+            </div>
+            <motion.a
+            href='mailto:sales@recurx.xyz'
+            className="px-6 py-4 h-14 flex items-center justify-center text-indigo-600 text-lg font-semibold leading-7 gap-2 rounded-full bg-white whitespace-nowrap cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            >
+              Contact Sales
+            </motion.a>
+          </div>
+        </motion.div>
+
+      
+              </motion.div>
     </div>
   )
 }

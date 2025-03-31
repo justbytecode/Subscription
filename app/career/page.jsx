@@ -46,7 +46,7 @@ export default function CareerPage() {
           Join the RecurX Team
         </span>
         <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl sm:text-3xl xl:text-7xl font-bold leading-tight mb-8">
-          Your next big opportunity starts <br /> here at <span className='text-blue-600'>RecurX!</span> 🚀
+          Your next big opportunity starts <br /> here at <span className='text-blue-600'>RecurX!</span> 
         </div>
         <p className="text-white text-center text-2xl font-normal leading-7">
           At RecurX, we embrace agility and innovation, allowing us to stay ahead of market trends, <br />

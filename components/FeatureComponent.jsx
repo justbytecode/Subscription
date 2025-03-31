@@ -57,13 +57,7 @@ const FeatureComponent = () => {
   }, [text, isDeleting, wordIndex, words]);
 
   const paymentOptions = [
-    {
-      id: 'invoices',
-      title: 'Invoices',
-      description: 'Send professional invoices to your clients for one-time payments.',
-      defaultOpen: false,
-      component: "INVOICES"
-    },
+
     {
       id: 'recurring',
       title: 'Recurring payments',
@@ -87,11 +81,18 @@ const FeatureComponent = () => {
       description: 'Create shareable payment links for your products or services.',
       defaultOpen: true,
       component: "INVOICES"
+    },
+    {
+      id: 'invoices',
+      title: 'Invoices',
+      description: 'Send professional invoices to your clients for one-time payments.',
+      defaultOpen: false,
+      component: "INVOICES"
     }
   ];
 
   const toggleItem = (id) => {
-    setOpenItem(openItem === id ? null : id);
+    setOpenItem(openItem === id ? "recurring" : id);
   };
 
   // Animation variants for accordion items
@@ -119,7 +120,7 @@ const FeatureComponent = () => {
           case "links":
         return <FeatureLinks/>;
       default:
-        return <div>Component not found</div>
+        return <FeatureQr/>
     }
   }
 

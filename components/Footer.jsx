@@ -2,6 +2,7 @@
 import React from 'react';
 import { Twitter, Linkedin, Github, X } from "lucide-react";
 import Background from './Background';
+import { URLS } from './Constant';
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
       <div className="mx-auto p-4 py-6 lg:py-8 relative">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <a href="https://recurx.xyz" className="flex items-center">
+            <a href={URLS.WEBSITE} className="flex items-center">
               <span className="self-center text-2xl font-semibold whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500">RecurX</span>
             </a>
           </div>
@@ -19,7 +20,7 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-white uppercase">Resources</h2>
               <ul className="text-gray-300 font-medium">
                 <li className="mb-4">
-                  <a href="https://recurx.xyz" className="hover:text-blue-400 transition-colors">RecurX</a>
+                  <a href={URLS.WEBSITE}className="hover:text-blue-400 transition-colors">RecurX</a>
                 </li>
                 <li>
                   <a href="/documentation"  className="hover:text-blue-400 transition-colors">Documentation</a>
@@ -30,10 +31,10 @@ const Footer = () => {
               <h2 className="mb-6 text-sm font-semibold text-white uppercase">Follow us</h2>
               <ul className="text-gray-300 font-medium">
                 <li className="mb-4">
-                  <a href="https://github.com/themesberg/flowbite" className="hover:text-blue-400 transition-colors">Github</a>
+                  <a href="https://x.com/PayRecurx" className="hover:text-blue-400 transition-colors">X</a>
                 </li>
-                <li>
-                  <a href="https://discord.gg/4eeurUVvTy" className="hover:text-blue-400 transition-colors">Discord</a>
+                <li className="mb-4">
+                  <a href={URLS.LINKEDIN_RECURX} className="hover:text-blue-400 transition-colors">Linkedin</a>
                 </li>
               </ul>
             </div>
@@ -52,7 +53,7 @@ const Footer = () => {
         </div>
         <hr className="my-6 border-gray-700 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-300 sm:text-center">© 2025 <a href="https://recurx.xyz" className="hover:text-blue-400 transition-colors">RecurX</a>. All Rights Reserved.
+          <span className="text-sm text-gray-300 sm:text-center">© 2025 <a href={URLS.WEBSITE} className="hover:text-blue-400 transition-colors">RecurX</a>. All Rights Reserved.
           </span>
           <div className="flex mt-4 sm:justify-center sm:mt-0">
             <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors p-2 bg-gray-800/50 rounded-full hover:bg-gray-700/50 ms-5">

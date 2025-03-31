@@ -50,11 +50,12 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center space-x-8">
             <div className="flex-1"></div>
             <div className="flex items-center space-x-8">
-              <NavLink href="/team">Team</NavLink>
+              <NavLink href="/product">Product</NavLink>
               <NavLink href="/documentation">Documentation</NavLink>
-              <NavLink href="/career">career</NavLink>
-              <NavLink href="/blogs">blogs</NavLink>
-              <NavLink href="/fees">Fees</NavLink>
+              <NavLink href="/pricing">Pricing</NavLink>
+              <NavLink href="/career">Career</NavLink>
+              <NavLink href="/blogs">Blogs</NavLink>
+              <NavLink href="/team">About us</NavLink>
             </div>
             <div className="flex-1 flex justify-end">
               <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110">

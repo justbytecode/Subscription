@@ -132,7 +132,7 @@ export default function BlogGrid() {
         transition={{ duration: 0.5 }}
       >
         <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl sm:text-3xl xl:text-7xl font-bold leading-tight mb-8">
-        Insights & Updates <br/> Stay Ahead with Our <span className='text-blue-600'>Blog</span> 📖
+        Insights & Updates <br/> Stay Ahead with Our <span className='text-blue-600'>Blog</span>
         </div>
         <p className="text-white text-center text-2xl font-normal leading-7">
         At RecurX, we share insights, trends, and innovations <br/>to keep you informed and ahead of the curve.

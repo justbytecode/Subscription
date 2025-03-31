@@ -26,27 +26,27 @@ export const TeamMemberCard = ({ member }) => {
       {/* Social Icons at the Bottom */}
       <div className="flex space-x-4 mt-auto">
         {social.twitter && (
-          <a href={social.twitter} className="p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition hover:-translate-y-1 hover:scale-110">
+          <a href={social.twitter} target='_blank' className="p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition hover:-translate-y-1 hover:scale-110">
             {social.twitter.includes('x.com') ? <X size={20} /> : <Twitter size={20} />}
           </a>
         )}
         {social.linkedin && (
-          <a href={social.linkedin} className="p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition hover:-translate-y-1 hover:scale-110">
+          <a href={social.linkedin} target='_blank' className="p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition hover:-translate-y-1 hover:scale-110">
             <Linkedin size={20} />
           </a>
         )}
         {social.github && (
-          <a href={social.github} className="p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition hover:-translate-y-1 hover:scale-110">
+          <a href={social.github} target='_blank' className="p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition hover:-translate-y-1 hover:scale-110">
             <Github size={20} />
           </a>
         )}
         {social.email && (
-          <a href={`mailto:${social.email}`} className="p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition hover:-translate-y-1 hover:scale-110">
+          <a href={`mailto:${social.email}`} target='_blank'  className="p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition hover:-translate-y-1 hover:scale-110">
             <Mail size={20} />
           </a>
         )}
         {social.website && (
-          <a href={social.website} className="p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition hover:-translate-y-1 hover:scale-110">
+          <a href={social.website} target='_blank' className="p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition hover:-translate-y-1 hover:scale-110">
             <Globe size={20} />
           </a>
         )}
