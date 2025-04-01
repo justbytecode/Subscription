@@ -5,10 +5,83 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { ArrowRight, Shield, Zap, RefreshCw, Star } from "lucide-react"
+import FeatureComponent from "@/components/FeatureComponent"
+import Docs from "@/components/Docs"
+import InfiniteMovingCards from "@/components/InfiniteMovingCards"
+import SupportedTokens from "@/components/SupportedTokens"
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
+const randomDecimal =() =>  (Math.random() * 0.99 + 0.01).toFixed(2);
+
+const particlesAnimationArray = [
+  {
+    uint: "btc",
+    img: "./supportedCoins/bitcoin.svg",
+    amt: randomDecimal()
+  },
+  {
+    uint: "eth",
+    img: "./supportedCoins/ethereum.svg",
+    amt: randomDecimal()
+  },
+  {
+    uint: "usdc",
+    img: "/supportedCoins/tether.svg",
+    amt: randomDecimal()
+
+  },
+  {
+    uint: "btc",
+    img: "./supportedCoins/bitcoin.svg",
+    amt: randomDecimal()
+
+  },
+  {
+    uint: "eth",
+    img: "./supportedCoins/ethereum.svg",
+    amt: randomDecimal()
+
+  },
+  {
+    uint: "usdc",
+    img: "/supportedCoins/tether.svg",
+    amt: randomDecimal()
+
+  },
+  {
+    uint: "btc",
+    img: "./supportedCoins/bitcoin.svg",
+    amt: randomDecimal()
+
+  },
+  {
+    uint: "eth",
+    img: "./supportedCoins/ethereum.svg",
+    amt: randomDecimal()
+
+  },
+  {
+    uint: "usdc",
+    img: "/supportedCoins/tether.svg",
+    amt: randomDecimal()
+
+  },
+]
 
 export default function Page() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+    useEffect(() => {
+      const script = document.createElement("script");
+      script.src = "https://embed.tawk.to/67e50a774040b31908c84848/default";
+      script.async = true;
+      script.charset = "UTF-8";
+      script.setAttribute("crossorigin", "*");
+      document.body.appendChild(script);
+  
+      return () => {
+        document.body.removeChild(script); // Cleanup on unmount
+      };
+    }, []);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -42,6 +115,31 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden relative">
+<div className="relative"> 
+
+        <TawkMessengerReact
+          onBeforeLoad={() => { }}
+          onStatusChange={() => { }}
+          onLoad={() => {}}
+          onChatMaximized={() => {}}
+          onChatMinimized={() => {}}
+          onChatHidden={() => {}}
+          onChatStarted={() => {}}
+          onChatEnded={() => {}}
+          onPrechatSubmit={() => {}}
+          onOfflineSubmit={() => {}}
+          onChatMessageVisitor={() => {}}
+          onChatMessageAgent={() => {}}
+          onChatMessageSystem={() => {}}
+          onAgentJoinChat={() => {}}
+          onAgentLeaveChat={() => {}}
+          onChatSatisfaction={() => {}}
+          onVisitorNameChanged={() => {}}
+          onTagsUpdated={() => {}}
+          onUnreadCountChanged={() => {}}
+          propertyId="67e50a774040b31908c84848"
+          widgetId="1injsi3ti" />
+</div>
       {/* Subtle animated background gradient */}
       <div
         className="absolute inset-0 opacity-20"
@@ -67,7 +165,7 @@ export default function Page() {
       <Particles count={12} />
 
       {/* Safe Payment Animations */}
-      <SafePaymentAnimation />
+      {/* <SafePaymentAnimation /> */}
       <FloatingTransactions />
       <SecurePaymentBadge />
 
@@ -91,7 +189,7 @@ export default function Page() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-blue-600"
             style={{
               background: "linear-gradient(to right, #3b82f6, #8b5cf6, #10b981)",
               WebkitBackgroundClip: "text",
@@ -137,36 +235,46 @@ export default function Page() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose RecurX ?</h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <h2     className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
+            style={{
+              background: "linear-gradient(to right, #3b82f6, #8b5cf6, #10b981)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}>Why Choose RecurX ?</h2>
+          <p className="text-gray-300 max-w-3xl mx-auto text-xl">
             Our platform combines the best of blockchain technology with user-friendly design to revolutionize
             subscription payments.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <FeatureCard
-            icon={<Zap className="text-yellow-400" />}
-            title="Lightning Fast"
-            description="Process payments instantly with our optimized blockchain integration"
-            delay={0.3}
-          />
-          <FeatureCard
-            icon={<Shield className="text-emerald-400" />}
-            title="Secure & Private"
-            description="End-to-end encryption and decentralized architecture for maximum security"
-            delay={0.4}
-          />
-          <FeatureCard
-            icon={<RefreshCw className="text-blue-400" />}
-            title="Recurring Payments"
-            description="Set up and manage subscription plans with flexible payment schedules"
-            delay={0.5}
-          />
-        </div>
+        <InfiniteMovingCards/>
       </section>
 
-     
+
+{/* Supported Coin Section */}
+
+      <section className="container mx-auto px-4 py-16 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
+            style={{
+              background: "linear-gradient(to right, #3b82f6, #8b5cf6, #10b981)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}>Supported Tokens ?</h2>
+   <p className="text-gray-300 max-w-3xl mx-auto text-xl">
+          Our platform supports a wide range of cryptocurrencies, making subscription payments accessible and flexible for users worldwide.
+          </p>
+        </motion.div>
+
+        <SupportedTokens/>
+      </section>
+
+
 
       {/* Floating blockchain elements - simplified */}
       <div className="absolute top-1/4 -left-20 opacity-10 animate-pulse">
@@ -175,6 +283,11 @@ export default function Page() {
       <div className="absolute bottom-1/4 -right-20 opacity-10 animate-pulse" style={{ animationDelay: "1s" }}>
         <BlockchainElement />
       </div>
+
+            {/* Feature Component */}
+
+      <FeatureComponent />
+      <Docs/>
     </div>
   )
 }
@@ -248,7 +361,7 @@ function Particles({ count = 20 }) {
     // Initialize particles only on client side
     const windowWidth = window.innerWidth
     const windowHeight = window.innerHeight
-    
+
     const particlesArray = Array.from({ length: count }).map((_, i) => ({
       id: i,
       size: Math.random() * 20 + 5,
@@ -256,7 +369,7 @@ function Particles({ count = 20 }) {
       initialY: Math.random() * windowHeight,
       duration: Math.random() * 15 + 15,
     }))
-    
+
     setParticles(particlesArray)
   }, [count])
 
@@ -411,58 +524,88 @@ function PaymentOrbitingElement({ icon, delay, duration, distance }) {
 
 // Floating Transaction Animation
 function FloatingTransactions() {
-  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 })
-  
+  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 });
+
   useEffect(() => {
-    setWindowDimensions({ width: window.innerWidth, height: window.innerHeight })
-  }, [])
-  
+    // Set initial dimensions
+    updateDimensions();
+    
+    // Add debounced resize listener
+    let timeoutId = null;
+    
+    function handleResize() {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(updateDimensions, 200);
+    }
+    
+    function updateDimensions() {
+      setWindowDimensions({ 
+        width: window.innerWidth, 
+        height: window.innerHeight 
+      });
+    }
+    
+    window.addEventListener("resize", handleResize);
+    
+    // Clean up
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Early return if dimensions aren't set yet
+  if (windowDimensions.width === 0) return null;
+
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {[...Array(5)].map((_, i) => {
-        if (windowDimensions.width === 0) return null
-        
-        return (
-          <motion.div
-            key={i}
-            className="absolute flex items-center gap-2 bg-gray-900/40 backdrop-blur-sm p-2 rounded-lg border border-gray-800 shadow-lg"
-            initial={{
-              x: Math.random() < 0.5 ? -100 : windowDimensions.width + 100,
-              y: 100 + Math.random() * (windowDimensions.height - 200),
-              opacity: 0,
-            }}
-            animate={{
-              x: Math.random() < 0.5 ? windowDimensions.width + 100 : -100,
-              opacity: [0, 1, 1, 0],
-            }}
-            transition={{
-              duration: 10 + Math.random() * 15,
-              delay: i * 3,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
-          >
-            <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
-              <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
-                {i % 3 === 0 ? (
-                  <Shield size={16} className="text-emerald-400" />
-                ) : i % 3 === 1 ? (
-                  <Zap size={16} className="text-yellow-400" />
-                ) : (
-                  <RefreshCw size={16} className="text-blue-400" />
-                )}
-              </motion.div>
-            </div>
-            <div className="text-xs">
-              <div className="text-white font-medium">Payment ${1000 + i}</div>
-              <div className="text-green-400">✓ Secured</div>
-            </div>
-          </motion.div>
-        )
-      })}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {particlesAnimationArray.map((item, i) => (
+        <motion.div
+          key={i}
+          className="absolute flex items-center gap-2 bg-gray-900/40 backdrop-blur-sm p-2 rounded-lg border border-gray-800 shadow-lg will-change-transform"
+          style={{ 
+            willChange: "transform, opacity",
+            translateZ: 0
+          }}
+          initial={{
+            x: Math.random() < 0.5 ? -100 : windowDimensions.width + 100,
+            y: 50 + Math.random() * (windowDimensions.height - 200),
+            opacity: 0,
+          }}
+          animate={{
+            x: Math.random() < 0.5 ? windowDimensions.width + 100 : -100,
+            opacity: [0, 1, 1, 0],
+          }}
+          transition={{
+            duration: 10 + Math.random() * 15,
+            delay: Math.random() * 5, // Add randomized delays
+            repeat: Infinity,
+            ease: "linear",
+            repeatDelay: Math.random() * 2
+          }}
+        >
+          <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+            <motion.div 
+              animate={{ scale: [1, 1.2, 1] }} 
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity,
+                ease: "easeInOut" 
+              }}
+            >
+              <Image src={item.img} alt="Crypto Icon" />
+            </motion.div>
+          </div>
+          <div className="text-xs">
+            <div className="text-white font-medium">Payment {item.amt || 0.01} {(item.uint).toUpperCase()}</div>
+            <div className="text-green-400">✓ Secured</div>
+          </div>
+        </motion.div>
+      ))}
     </div>
-  )
+  );
 }
+
 
 // Secure Payment Badge
 function SecurePaymentBadge() {

@@ -67,9 +67,9 @@ export default function SignIn() {
         )}
       </div>
 
-      <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-black md:border-l md:border-purple-900/30 h-full">
+      <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-black md:border-l md:border-purple-900/30 h-full p-none">
         <div className="w-full max-w-md mt-16 md:mt-0">
-          <Card className="w-full max-w-md shadow-xl border border-purple-900/20 bg-black/80 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-900/20">
+          <Card className="w-full max-w-md shadow-xl border border-purple-900/20 bg-black/80 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-900/20 pt-0" style={{"paddingTop":"-10px"}}>
             <CardHeader className="space-y-1 text-center bg-gradient-to-r from-purple-900/80 to-blue-900/80 text-white p-4 border-b border-purple-800/30">
               <div className="flex justify-center mb-2">
                 <div className="bg-black/50 p-2 rounded-full border border-purple-500/30">
