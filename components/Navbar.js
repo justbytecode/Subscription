@@ -56,6 +56,7 @@ export default function Navbar() {
               <NavLink href="/career">Career</NavLink>
               <NavLink href="/blogs">Blogs</NavLink>
               <NavLink href="/team">About us</NavLink>
+              <NavLink href="/contact-us">Contact us</NavLink>
             </div>
             <div className="flex-1 flex justify-end">
               <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110">
