@@ -8,6 +8,8 @@ function FeatureCard({ imageSource }) {
       <Image 
         src={imageSource} 
         alt="Cryptocurrency" 
+        height={100}
+        width={100}
         className="h-24 object-contain mx-8"  // Standardized height and width
       />
   );
