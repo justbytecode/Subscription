@@ -88,9 +88,6 @@ export default function Navbar() {
           className="md:hidden bg-gray-900 border-t border-gray-800"
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <MobileNavLink href="/team" onClick={() => setIsMobileMenuOpen(false)}>
-              Team
-            </MobileNavLink>
             <MobileNavLink href="/documentation" onClick={() => setIsMobileMenuOpen(false)}>
               Documentation
             </MobileNavLink>
@@ -98,6 +95,12 @@ export default function Navbar() {
             <MobileNavLink href="mailto:career@recurx.com" onClick={() => setIsMobileMenuOpen(false)}>
               career
             </MobileNavLink>
+              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/documentation">Documentation</MobileNavLink>
+              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/pricing">Pricing</MobileNavLink>
+              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/career">Career</MobileNavLink>
+              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/blogs">Blogs</MobileNavLink>
+              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/team">About us</MobileNavLink>
+              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/contact-us">Contact us</MobileNavLink>
 
             <div className="pt-4 border-t border-gray-800 flex flex-col space-y-3">
               <Button asChild className="w-full border-gray-700 text-gray-300 hover:bg-gray-800">
