@@ -11,54 +11,56 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 
+const features = [
+  {
+    title: "Built for developers",
+    description:
+      "Built for engineers, developers, dreamers, thinkers and doers.",
+    icon: <Terminal className="w-6 h-6 text-blue-400" />,
+  },
+  {
+    title: "Ease of use",
+    description:
+      "It's as easy as using an Apple, and as expensive as buying one.",
+    icon: <Wand2 className="w-6 h-6 text-blue-400" />,
+  },
+  {
+    title: "Pricing like no other",
+    description:
+      "Our prices are best in the market. No cap, no lock, no credit card required.",
+    icon: <DollarSign className="w-6 h-6 text-blue-400" />,
+  },
+  {
+    title: "100% Uptime guarantee",
+    description: "We just cannot be taken down by anyone.",
+    icon: <Cloud className="w-6 h-6 text-blue-400" />,
+  },
+  {
+    title: "Multi-tenant Architecture",
+    description: "You can simply share passwords instead of buying new seats",
+    icon: <Route className="w-6 h-6 text-blue-400" />,
+  },
+  {
+    title: "24/7 Customer Support",
+    description:
+      "We are available a 100% of the time. Atleast our AI Agents are.",
+    icon: <HelpCircle className="w-6 h-6 text-blue-400" />,
+  },
+  {
+    title: "Money back guarantee",
+    description:
+      "If you donot like EveryAI, we will convince you to like us.",
+    icon: <Settings className="w-6 h-6 text-blue-400" />,
+  },
+  {
+    title: "And everything else",
+    description: "I just ran out of copy ideas. Accept my sincere apologies",
+    icon: <Heart className="w-6 h-6 text-blue-400" />,
+  },
+];
+
 export function Products() {
-  const features = [
-    {
-      title: "Built for developers",
-      description:
-        "Built for engineers, developers, dreamers, thinkers and doers.",
-      icon: <Terminal className="w-6 h-6 text-blue-400" />,
-    },
-    {
-      title: "Ease of use",
-      description:
-        "It's as easy as using an Apple, and as expensive as buying one.",
-      icon: <Wand2 className="w-6 h-6 text-blue-400" />,
-    },
-    {
-      title: "Pricing like no other",
-      description:
-        "Our prices are best in the market. No cap, no lock, no credit card required.",
-      icon: <DollarSign className="w-6 h-6 text-blue-400" />,
-    },
-    {
-      title: "100% Uptime guarantee",
-      description: "We just cannot be taken down by anyone.",
-      icon: <Cloud className="w-6 h-6 text-blue-400" />,
-    },
-    {
-      title: "Multi-tenant Architecture",
-      description: "You can simply share passwords instead of buying new seats",
-      icon: <Route className="w-6 h-6 text-blue-400" />,
-    },
-    {
-      title: "24/7 Customer Support",
-      description:
-        "We are available a 100% of the time. Atleast our AI Agents are.",
-      icon: <HelpCircle className="w-6 h-6 text-blue-400" />,
-    },
-    {
-      title: "Money back guarantee",
-      description:
-        "If you donot like EveryAI, we will convince you to like us.",
-      icon: <Settings className="w-6 h-6 text-blue-400" />,
-    },
-    {
-      title: "And everything else",
-      description: "I just ran out of copy ideas. Accept my sincere apologies",
-      icon: <Heart className="w-6 h-6 text-blue-400" />,
-    },
-  ];
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto px-6">
       {features.map((feature, index) => (

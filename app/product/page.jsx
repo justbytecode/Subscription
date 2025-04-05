@@ -7,10 +7,10 @@ export default function CareerPage() {
   const [selectedPosition, setSelectedPosition] = useState(null)
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden relative font-manrope">
+    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden relative font-manrope ">
       {/* Career Header */}
       <motion.div
-        className="xl:py-42 md:py-20 py-10 xl:px-0 px-10"
+        className="xl:py-42 md:py-20 py-10 xl:px-0 mt-10 px-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -18,10 +18,10 @@ export default function CareerPage() {
         <span className="w-fit mx-auto flex items-center justify-center bg-emerald-900 rounded-full text-emerald-400 text-center text-xl font-medium leading-5 px-5 py-3 mb-5">
           Discover RecurX
         </span>
-        <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl sm:text-3xl xl:text-7xl font-bold leading-tight mb-8">
+        <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl text-3xl xl:text-7xl font-bold leading-tight mb-8">
           Powerful <span className='text-blue-600'>Solutions</span><br />for Modern Businesses
         </div>
-        <p className="text-white text-center text-2xl font-normal leading-7">
+        <p className="text-white text-center text-lg md:text-xl lg:text-2xl font-normal leading-7">
           Enterprise-grade technology that scales with your ambitions
         </p>
       </motion.div>
@@ -32,7 +32,7 @@ export default function CareerPage() {
       {/* contact sales */}
       <div className='xl:max-w-7xl w-auto mx-auto pt-28 xl:px-0 px-10 relative mb-24'>
         <motion.div
-          className="lg:mt-24 mt-10 bg-gradient-to-l from-violet-600 to-blue-600 p-12 rounded-2xl"
+          className="lg:mt-24 mt-10 bg-gradient-to-l from-violet-600 to-blue-600 p-8 rounded-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -52,7 +52,7 @@ export default function CareerPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Schedule a Consultation
+              Schedule a Demo
             </motion.a>
           </div>
         </motion.div>

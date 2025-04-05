@@ -76,10 +76,10 @@ const ContactUs = () => {
       {/* Contact Header */}
       <section className="relative z-10 pb-20 lg:pb-24">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap lg:justify-between items-center mx-4 p-10">
+          <div className="flex flex-wrap lg:justify-between ">
             {/* Left column - Contact info */}
             <motion.div
-              className="w-full px-4 lg:w-1/2 xl:w-6/12"
+              className="w-full px-4 lg:w-1/2 xl:w-6/12 pt-8"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -126,7 +126,7 @@ const ContactUs = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="relative rounded-lg p-8 shadow-xl sm:p-12">
+              <div className="relative rounded-lg p-8 shadow-xl">
                 <form onSubmit={handleSubmit}>
                   <motion.div
                     className="mb-6"

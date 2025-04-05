@@ -1,28 +1,25 @@
 "use client";
+import { sendEmail } from "@/app/_actions.js/sendEmail";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { Resend } from "resend";
-
-const resend = new Resend('re_L1XQeTsV_5B7A3Q1agz6KEraTgH5dt2rz');
-
 function useSendEmail() {
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [response, setResponse] = useState(null);
 
-  const sendEmail = async ({from,to,subject,html}) => {
-    if (!resend) {
-      throw new Error("Resend API key is not configured");
-    }
+  const sendEmailAction = async ({ from, to, subject, html }) => {
+    setLoading(true); 
+    setError(null); 
 
     try {
-      const result = await resend.emails.send({
-        from, to, subject, html
-      });
+      const result = await sendEmail({ from, to, subject, html }); 
 
-      setResponse(result);
-      toast.success('RecurX has been informed.', {
+      if (!result.success) {
+        throw new Error(result.error);
+      }
+
+      setResponse(result.data);
+      toast.success("RecurX has been informed.", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -32,10 +29,10 @@ function useSendEmail() {
         progress: undefined,
         theme: "dark",
       });
-      return result;
+      return result.data;
     } catch (error) {
-      setError(error.message || "Failed To Send Email");
-      toast.warn('Failed to inform RecurX.', {
+      setError(error.message || "Failed to send email");
+      toast.warn("Failed to inform RecurX.", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -45,12 +42,13 @@ function useSendEmail() {
         progress: undefined,
         theme: "dark",
       });
+      throw error; 
+    } finally {
+      setLoading(false); 
     }
-  }
+  };
 
-
-  return { sendEmail, loading, error, response };
+  return { sendEmail: sendEmailAction, loading, error, response };
 }
-
 
 export default useSendEmail;

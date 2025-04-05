@@ -99,10 +99,10 @@ export default function TeamPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl sm:text-3xl xl:text-7xl font-bold leading-tight mb-8">
+        <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl text-3xl xl:text-7xl font-bold leading-tight mb-8">
             Meet the <span className='text-blue-600'>Minds</span> <br/> Behind <span className='text-blue-600'>RecurX!</span>
         </div>
-        <p className="text-white text-center text-2xl font-normal leading-7">
+        <p className="text-white text-center text-lg md:text-xl lg:text-2xl font-normal leading-7">
           At RecurX, we embrace agility and innovation, allowing us to stay ahead of market trends, <br />
           adapt to customer needs, and create cutting-edge solutions.
         </p>

@@ -47,7 +47,7 @@ const socialIcons = [
 
 const Footer = () => {
   return (
-    <footer className="px-10 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white relative border-t-1 border-gray-700 border-opacity-10">
+    <footer className="px-10 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white border-t-1 border-gray-700 border-opacity-10">
       <Background />
       <div className="mx-auto p-4 py-6 lg:py-8 relative">
         <div className="md:flex md:justify-between">
