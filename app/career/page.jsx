@@ -37,7 +37,7 @@ export default function CareerPage() {
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden relative font-manrope">
       {/* Career Header */}
       <motion.div
-        className="xl:py-42 md:py-20 py-10 xl:px-0 px-10"
+        className="xl:py-42 md:py-20 py-10 xl:px-0 mt-10 px-10" 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -45,10 +45,10 @@ export default function CareerPage() {
         <span className="w-fit mx-auto flex items-center justify-center bg-emerald-900 rounded-full text-emerald-400 text-center text-xl font-medium leading-5 px-5 py-3 mb-5">
           Join the RecurX Team
         </span>
-        <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl sm:text-3xl xl:text-7xl font-bold leading-tight mb-8">
+        <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl text-3xl xl:text-7xl font-bold leading-tight mb-8">
           Your next big opportunity starts <br /> here at <span className='text-blue-600'>RecurX!</span> 
         </div>
-        <p className="text-white text-center text-2xl font-normal leading-7">
+        <p className="text-white text-center text-lg md:text-xl lg:text-2xl font-normal leading-7">
           At RecurX, we embrace agility and innovation, allowing us to stay ahead of market trends, <br />
           adapt to customer needs, and create cutting-edge solutions.
         </p>
@@ -96,16 +96,16 @@ export default function CareerPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-blue-600 text-center lg:text-4xl md:text-3xl sm:text-3xl xl:text-5xl font-bold leading-10 mb-5">
+          <h3 className="text-blue-600 text-center font-manrope lg:text-6xl md:text-4xl text-3xl xl:text-7xl font-bold leading-tight mb-8">
             A Culture of Innovation & Excellence
           </h3>
-          <p className="text-gray-300 text-center text-xl font-normal leading-7 lg:mb-14 mb-6">
+          <p className="text-white text-center text-lg md:text-xl lg:text-2xl font-normal leading-7">
             At RecurX, we’re passionate about crafting seamless experiences and building <br />
             products that truly make a difference.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-4 lg:gap-x-8 gap-y-4 lg:pb-24 pb-10 border-b border-gray-700 max-w-lg mx-auto md:max-w-3xl lg:max-w-full">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-4 lg:gap-x-8 gap-y-4 lg:pb-24 pb-10 border-b border-gray-700 max-w-lg mx-auto md:max-w-3xl lg:max-w-full mt-10">
           {companyValues.map((value, index) => (
             <motion.div
               key={index}
@@ -137,7 +137,7 @@ export default function CareerPage() {
 
         {/* CV Submission Section */}
         <motion.div
-          className="lg:mt-24 mt-10 bg-gradient-to-l from-violet-600 to-indigo-600 p-12 rounded-2xl"
+          className="lg:mt-24 mt-10 bg-gradient-to-l from-violet-600 to-indigo-600 p-8 rounded-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}

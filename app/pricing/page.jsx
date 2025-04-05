@@ -7,7 +7,7 @@ import Image from 'next/image';
 const currencies = [
   {
     symbol: 'BTC',
-    img: <Image src="./supportedCoins/bitcoin.svg" alt="Bitcoin" className="w-8 h-8 rounded-full" />,
+    img: <Image src="./supportedCoins/bitcoin.svg" alt="Bitcoin" className="w-8 h-8 rounded-full" width={100} height={100} />,
     details: {
       transactionFees: '0.5%',
       processingFee: '$5',
@@ -16,7 +16,7 @@ const currencies = [
   },
   {
     symbol: 'ETH',
-    img: <img src="./supportedCoins/bitcoin.svg" alt="Ethereum" className="w-8 h-8 rounded-full" />,
+    img: <img src="./supportedCoins/bitcoin.svg" alt="Ethereum" className="w-8 h-8 rounded-full" width={100} height={100} />,
     details: {
       transactionFees: '0.3%',
       processingFee: '$3',
@@ -25,7 +25,7 @@ const currencies = [
   },
   {
     symbol: 'USDT',
-    img: <img src="./supportedCoins/bitcoin.svg" alt="Tether" className="w-8 h-8 rounded-full" />,
+    img: <img src="./supportedCoins/bitcoin.svg" alt="Tether" className="w-8 h-8 rounded-full" width={100} height={100} />,
     details: {
       transactionFees: '0.1%',
       processingFee: '$1',
@@ -34,7 +34,7 @@ const currencies = [
   },
   {
     symbol: 'BTC',
-    img: <img src="./supportedCoins/bitcoin.svg" alt="Bitcoin" className="w-8 h-8 rounded-full" />,
+    img: <img src="./supportedCoins/bitcoin.svg" alt="Bitcoin" className="w-8 h-8 rounded-full" width={100} height={100} />,
     details: {
       transactionFees: '0.5%',
       processingFee: '$5',
@@ -43,7 +43,7 @@ const currencies = [
   },
   {
     symbol: 'ETH',
-    img: <img src="./supportedCoins/bitcoin.svg" alt="Ethereum" className="w-8 h-8 rounded-full" />,
+    img: <img src="./supportedCoins/bitcoin.svg" alt="Ethereum" className="w-8 h-8 rounded-full" width={100} height={100} />,
     details: {
       transactionFees: '0.3%',
       processingFee: '$3',
@@ -52,7 +52,7 @@ const currencies = [
   },
   {
     symbol: 'USDT',
-    img: <img src="./supportedCoins/bitcoin.svg" alt="Tether" className="w-8 h-8 rounded-full" />,
+    img: <img src="./supportedCoins/bitcoin.svg" alt="Tether" className="w-8 h-8 rounded-full" width={100} height={100} />,
     details: {
       transactionFees: '0.1%',
       processingFee: '$1',
@@ -120,7 +120,7 @@ const DummyContent = () => {
 
 const ComponentWrapper = () => {
   return (
-    <div className="w-full overflow-hidden relative h-full bg-gray-900/50 backdrop-blur-lg p-2 md:p-8 rounded-xl border border-gray-800 transition-all duration-300 flex flex-col items-center text-center min-w-[300px] mx-2 md:mx-4 ">
+    <div className="w-full overflow-hidden relative h-full bg-gray-900/50 backdrop-blur-lg p-2 md:p-8 rounded-xl border border-gray-800 transition-all duration-300 flex flex-col items-center text-center min-w-[300px]">
       <DummyContent />
     </div>
   )
@@ -144,6 +144,7 @@ const tabs = [
   }
 ];
 
+
 const Fees = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
@@ -160,7 +161,7 @@ const Fees = () => {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden relative pb-70">
+    <div className="bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden relative pb-10">
       <div
         className="absolute inset-0 opacity-20"
         style={{
@@ -181,56 +182,33 @@ const Fees = () => {
       </div>
 
       {/* Header Section */}
-      {/* <header className="container mx-auto relative z-10 px-4">
-        <div className="flex flex-col items-center justify-center mt-12 md:mt-50 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 tracking-tight"
-            style={{
-              background: "linear-gradient(to right, #3b82f6, #8b5cf6, #10b981)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            Transparent Fee Structure
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="text-base md:text-xl text-gray-300 mb-6 md:mb-10 max-w-2xl mx-auto px-4"
-          >
-            Explore the transparent fee structure of <span>RecurX</span>. Know transaction and processing fees on different crypto transactions.
-          </motion.p>
-        </div>
-      </header> */}
 
 <motion.div
-        className="xl:py-42 md:py-20 py-10 xl:px-0 px-10"
+        className="xl:py-42 md:py-20 py-10 xl:px-0 px-10 mt-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="text-white text-center font-manrope lg:text-6xl md:text-4xl sm:text-3xl xl:text-7xl font-bold leading-tight mb-8 text-center">
+        <div className="text-white text-center font-manrope text-3xl lg:text-6xl md:text-4xl  xl:text-7xl font-bold leading-tight mb-8 text-center">
         Transparent Pricing Structure<br/> at  <span className='text-blue-600'>RecurX!</span>        </div>
-        <p className="text-white text-center text-3xl font-normal leading-7">
+        <p className="text-white text-center text-lg md:text-xl lg:text-2xl font-normal leading-7">
         Fair, Clear, and Predictable Fees <br/> Unlocking Value with RecurX’s Transparent Pricing!
         </p>
       </motion.div>
 
+      <div className='flex flex-col gap-10'>
+
+
       {/* Tabs Section for Price Comparison*/}
-      <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-7xl w-full m-auto  items-start justify-start px-4 h-full ">
+      <div className="h-[20rem] md:h-[40rem] [perspective:1000px] flex flex-col max-w-7xl w-full m-auto  items-start justify-start px-4 h-full ">
         <Tabs tabs={tabs} />
       </div>
 
-<motion.div className='xl:max-w-7xl w-auto mx-auto pt-28 xl:px-0 px-10 relative mt-24'>
+<motion.div className='xl:max-w-7xl w-auto mx-auto pt-28 xl:px-0 px-10 relative'>
 
 
       <motion.div
-          className="lg:mt-24 mt-10 bg-gradient-to-l from-violet-600 to-indigo-600 p-12 rounded-2xl"
+          className=" bg-gradient-to-l from-violet-600 to-indigo-600 p-8 rounded-2xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -257,6 +235,7 @@ const Fees = () => {
 
       
               </motion.div>
+              </div>
     </div>
   )
 }

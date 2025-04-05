@@ -25,7 +25,7 @@ export const Tabs = ({
 
   return (
     <motion.div 
-    className="lg:py-24 md:py-16 py-10 xl:px-0 px-10 w-full"
+    className=" w-full"
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 0.5, delay: 0.3 }}>
@@ -34,7 +34,7 @@ export const Tabs = ({
        animate={{ opacity: 1 }}
        transition={{ duration: 0.5, delay: 0.3 }}
         className={cn(
-          "flex flex-row items-center justify-center relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-ful cursor-pointer",
+          "flex flex-col items-center justify-center relative overflow-auto sm:overflow-visible no-visible-scrollbar max-w-full w-ful cursor-pointer sm:flex-row gap-6",
           containerClassName
         )}>
         {propTabs.map((tab, idx) => (
@@ -45,7 +45,7 @@ export const Tabs = ({
             }}
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
-            className={cn("relative  py-2  rounded-full text-white cursor-pointer", tabClassName)}
+            className={cn("relative  p-2  rounded-full text-white cursor-pointer", tabClassName)}
             style={{
               transformStyle: "preserve-3d",
             }}>
@@ -59,7 +59,7 @@ export const Tabs = ({
                 )} />
             )}
 
-            <span className="relative block text-xl px-8" >
+            <span className="relative block text-xl px-4" >
               {tab.title}
             </span>
           </button>

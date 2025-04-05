@@ -58,7 +58,7 @@ export default function Navbar() {
               <NavLink href="/team">About us</NavLink>
               <NavLink href="/contact-us">Contact us</NavLink>
             </div>
-            <div className="flex-1 flex justify-end">
+            <div className="flex-1 flex justify-end mr-5">
               <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110">
                 <Link href="/signin">Sign In</Link>
               </Button>
