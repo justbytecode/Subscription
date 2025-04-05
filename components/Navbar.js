@@ -28,7 +28,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed z-50 transition-all duration-300 w-full px-4 border-none ${
+      className={`fixed z-50 transition-all duration-300 w-full  border-none ${
         isScrolled
           ? "bg-black-500 backdrop-blur-sm shadow-sm border-none "
           : "bg-transparent"
@@ -85,16 +85,10 @@ export default function Navbar() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-gray-900 border-t border-gray-800"
+          className="md:hidden border-t border-gray-800 backdrop-blur-lg max-h-screen"
         >
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <MobileNavLink href="/documentation" onClick={() => setIsMobileMenuOpen(false)}>
-              Documentation
-            </MobileNavLink>
-
-            <MobileNavLink href="mailto:career@recurx.com" onClick={() => setIsMobileMenuOpen(false)}>
-              career
-            </MobileNavLink>
+          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4 font-medium h-[100vh]">
+              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/product">Product</MobileNavLink>
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/documentation">Documentation</MobileNavLink>
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/pricing">Pricing</MobileNavLink>
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/career">Career</MobileNavLink>
@@ -103,7 +97,7 @@ export default function Navbar() {
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/contact-us">Contact us</MobileNavLink>
 
             <div className="pt-4 border-t border-gray-800 flex flex-col space-y-3">
-              <Button asChild className="w-full border-gray-700 text-gray-300 hover:bg-gray-800">
+              <Button asChild className="w-full bg-blue-600 text-gray-300 hover:bg-blue-600">
                 <Link href="/signin" onClick={() => setIsMobileMenuOpen(false)}>
                   Sign In
                 </Link>

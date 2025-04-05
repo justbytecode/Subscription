@@ -72,7 +72,7 @@ const FeatureQr = () => {
                   transition={{ delay: 0.6, duration: 0.6 }}
                 >
                   <div className="w-40 h-40 bg-gray-700 flex items-center justify-center">
-                  <Image src="/qr.png" alt="" className='h-42 rounded-lg' />
+                  <Image src="/qr.png" alt="" className='h-42 w-42 rounded-lg' width={100} height={100} />
                   </div>
                 </motion.div>
               </div>
