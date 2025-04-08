@@ -1,7 +1,7 @@
 "use server";
 import { Resend } from "resend";
 
-const resend = new Resend('re_L1XQeTsV_5B7A3Q1agz6KEraTgH5dt2rz');
+const resend = new Resend('re_RxJRWmKx_594t4iaHBniHj21ieKwmXfni');
 
 export async function sendEmail({ from, to, subject, html }) {
   try {

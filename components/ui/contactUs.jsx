@@ -55,7 +55,7 @@ const ContactUs = () => {
     try {
       await sendEmail({
         from: 'onboarding@resend.dev',
-        to: 'pawanlode@recurx.xyz',   // Replace with your recipient email
+        to: 'contact@recurx.xyz',   // Replace with your recipient email
         subject: `Contact Form Submission from ${formData.name}`,
         html: `
           <h3>New Contact Form Submission</h3>
