@@ -181,6 +181,16 @@ const FeatureComponent = () => {
                     </div>
                   )}
                 </motion.div>
+                <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.7 }}
+          className={`w-full lg:w-1/2 mx-auto block md:hidden` }>
+          {/* Image Based on the selection */}
+          {
+           openItem===option.id &&  getComponentToRender(openItem)
+          }
+        </motion.div>
               </div>
             ))}
           </div>
@@ -190,7 +200,7 @@ const FeatureComponent = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.7 }}
-          className="w-full lg:w-1/2">
+          className="w-full lg:w-1/2 hidden md:block">
           {/* Image Based on the selection */}
           {
             getComponentToRender(openItem)
