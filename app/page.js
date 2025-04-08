@@ -167,12 +167,13 @@ export default function Page() {
       {/* Safe Payment Animations */}
       {/* <SafePaymentAnimation /> */}
       <FloatingTransactions />
-      <SecurePaymentBadge />
 
       {/* Hero Section */}
       <header className="container mx-auto px-4 py-20 relative z-10">
+      <div className="flex justify-end">    <SecurePaymentBadge /></div>
         <div className="flex flex-col items-center justify-center min-h-[70vh] text-center">
           {/* Logo/Brand */}
+
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -611,7 +612,7 @@ function FloatingTransactions() {
 function SecurePaymentBadge() {
   return (
     <motion.div
-      className="absolute top-20 right-20 bg-gray-900/50 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-800 flex items-center gap-2"
+      className="bg-gray-900/50 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-800 flex items-center gap-2"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1, duration: 0.5 }}
