@@ -10,6 +10,7 @@ import Docs from "@/components/Docs"
 import InfiniteMovingCards from "@/components/InfiniteMovingCards"
 import SupportedTokens from "@/components/SupportedTokens"
 import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
+import ShuffleCardSection from "@/components/shuffleCard/FeatureCard"
 const randomDecimal =() =>  (Math.random() * 0.99 + 0.01).toFixed(2);
 
 const particlesAnimationArray = [
@@ -247,6 +248,9 @@ export default function Page() {
             subscription payments.
           </p>
         </motion.div>
+{/* shuffle card */}
+        {/* TODO: complete the ui - pawan  */}
+{/* <ShuffleCardSection /> */}
 
         <InfiniteMovingCards/>
       </section>
