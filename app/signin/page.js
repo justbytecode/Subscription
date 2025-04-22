@@ -313,7 +313,7 @@ export default function SignIn() {
               </Button>
               
               <div className="text-white text-center mt-4">
-                Don't have an account? <span className="text-purple-400 cursor-pointer hover:underline inline-flex items-center gap-1" onClick={() => { router.push('/signup') }}>
+                Don&apos;t have an account? <span className="text-purple-400 cursor-pointer hover:underline inline-flex items-center gap-1" onClick={() => { router.push('/signup') }}>
                   <UserPlus size={14} />
                   Sign up
                 </span> now to get started!
