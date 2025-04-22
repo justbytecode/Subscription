@@ -3,6 +3,9 @@
 import { signIn } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
 import {
   Card,
   CardContent,
@@ -11,12 +14,32 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ShoppingBag, ArrowRight, DollarSign, Bitcoin } from "lucide-react";
+import { 
+  ShoppingBag, 
+  ArrowRight, 
+  Eye, 
+  EyeOff, 
+  Mail, 
+  Lock,
+  HelpCircle,
+  ExternalLink,
+  UserPlus,
+  AlertCircle
+} from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function SignIn() {
   const [mounted, setMounted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [loginError, setLoginError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-  
+  const router = useRouter();
+
   useEffect(() => {
     setMounted(true);
 
@@ -29,19 +52,99 @@ export default function SignIn() {
     };
   }, []);
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      setEmailError("Email is required");
+      return false;
+    } else if (!emailRegex.test(email)) {
+      setEmailError("Please enter a valid email address");
+      return false;
+    }
+    setEmailError("");
+    return true;
+  };
+
+  const validatePassword = (password) => {
+    if (!password) {
+      setPasswordError("Password is required");
+      return false;
+    } else if (password.length < 6) {
+      setPasswordError("Password must be at least 6 characters");
+      return false;
+    }
+    setPasswordError("");
+    return true;
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    if (value) {
+      validateEmail(value);
+    } else {
+      setEmailError("");
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+    if (value) {
+      validatePassword(value);
+    } else {
+      setPasswordError("");
+    }
+  };
+
+  const handleEmailLogin = async (e) => {
+    e.preventDefault();
+    
+    // Validate inputs before proceeding
+    const isEmailValid = validateEmail(email);
+    const isPasswordValid = validatePassword(password);
+    
+    if (!isEmailValid || !isPasswordValid) {
+      return;
+    }
+    
+    setIsLoading(true);
+    setLoginError("");
+
+    // Alert the values (for demonstration purposes)
+    alert(`Login attempt with:\nEmail: ${email}\nPassword: ${password}`);
+
+    try {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
+
+      if (result?.error) {
+        setLoginError("Invalid email or password");
+      } else {
+        router.push("/dashboard");
+      }
+    } catch (error) {
+      setLoginError("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row overflow-hidden bg-black w-full h-screen">
-      {/* Left side - Animation and Heading - Hidden on mobile */}
-      <div className="hidden md:flex w-full md:w-1/2 p-4 md:p-8 flex-col justify-center items-center text-white relative overflow-hidden h-full">
-        {/* Logo at the top */}
-
-        {/* Animated background */}
+      <div className="hidden md:flex w-full md:w-1/2 p-4 md:p-8 flex-col justify-center items-center text-white overflow-hidden h-full">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-950"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(120,50,255,0.15),transparent_65%)]"></div>
         </div>
 
-        {/* Grid lines */}
         <div className="absolute inset-0 z-0 grid-lines"></div>
 
         <div className="relative z-10 max-w-xl text-center md:text-left px-4 md:px-0 flex flex-col h-full justify-center">
@@ -67,9 +170,9 @@ export default function SignIn() {
         )}
       </div>
 
-      <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-black md:border-l md:border-purple-900/30 h-full p-none">
+      <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-black md:border-l md:border-purple-900/30 h-full p-none relative z-40">
         <div className="w-full max-w-md mt-16 md:mt-0">
-          <Card className="w-full max-w-md shadow-xl border border-purple-900/20 bg-black/80 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-900/20 pt-0" style={{"paddingTop":"-10px"}}>
+          <Card className="w-full max-w-md shadow-xl border border-purple-900/20 bg-black/80 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-900/20 pt-0">
             <CardHeader className="space-y-1 text-center bg-gradient-to-r from-purple-900/80 to-blue-900/80 text-white p-4 border-b border-purple-800/30">
               <div className="flex justify-center mb-2">
                 <div className="bg-black/50 p-2 rounded-full border border-purple-500/30">
@@ -83,13 +186,105 @@ export default function SignIn() {
                 Sign in to access your merchant dashboard
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-4 pt-6 space-y-3">
-              <div className="text-center text-sm text-gray-400 mb-4">
+            <CardContent className="p-4 pt-6 space-y-4">
+              <div className="text-center text-sm text-gray-400 mb-2">
                 Welcome back! Please sign in to continue to your account.
               </div>
+              
+              {/* Email and Password Form */}
+              <form onSubmit={handleEmailLogin} className="space-y-3">
+                <div className="space-y-1">
+                  <Label htmlFor="email" className="text-gray-200 flex items-center gap-1">
+                    <Mail size={14} className="text-purple-400" />
+                    Email
+                  </Label>
+                  <div className="relative">
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="name@example.com"
+                      value={email}
+                      onChange={handleEmailChange}
+                      onBlur={() => validateEmail(email)}
+                      required
+                      className={`bg-black/50 border-purple-900/30 text-white focus:border-purple-500 h-10 ${
+                        emailError ? "border-red-500" : ""
+                      }`}
+                    />
+                  </div>
+                  {emailError && (
+                    <div className="text-xs text-red-500 flex items-center gap-1 mt-1">
+                      <AlertCircle size={12} />
+                      {emailError}
+                    </div>
+                  )}
+                </div>
+                
+                <div className="space-y-1">
+                  <div className="flex justify-between">
+                    <Label htmlFor="password" className="text-gray-200 flex items-center gap-1">
+                      <Lock size={14} className="text-purple-400" />
+                      Password
+                    </Label>
+                    {/* <a href="/forgot-password" className="text-xs text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                      <HelpCircle size={12} />
+                      Forgot password?
+                    </a> */}
+                  </div>
+                  <div className="relative">
+                    <Input
+                      id="password"
+                      type={showPassword ? "text" : "password"} 
+                      placeholder="••••••••"
+                      value={password}
+                      onChange={handlePasswordChange}
+                      onBlur={() => validatePassword(password)}
+                      required
+                      className={`bg-black/50 border-purple-900/30 text-white focus:border-purple-500 h-10 pr-10 ${
+                        passwordError ? "border-red-500" : ""
+                      }`}
+                    />
+                    <button
+                      type="button"
+                      onClick={togglePasswordVisibility}
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-300"
+                    >
+                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                    </button>
+                  </div>
+                  {passwordError && (
+                    <div className="text-xs text-red-500 flex items-center gap-1 mt-1">
+                      <AlertCircle size={12} />
+                      {passwordError}
+                    </div>
+                  )}
+                </div>
+                
+                {loginError && (
+                  <div className="text-sm text-red-500 flex items-center gap-1 mt-1">
+                    <AlertCircle size={14} />
+                    {loginError}
+                  </div>
+                )}
+                
+                <Button 
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white h-10 transition-all duration-200 flex items-center justify-center gap-2"
+                >
+                  {isLoading ? "Signing in..." : "Sign in with Email"}
+                  <ArrowRight size={16} />
+                </Button>
+              </form>
+              
+              <div className="relative flex items-center justify-center my-4">
+                <Separator className="bg-purple-900/30" />
+                <span className="bg-black px-2 text-xs text-gray-400 absolute">OR</span>
+              </div>
+              
               <Button
                 onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
-                className="w-full bg-black hover:bg-gray-900 text-white border border-purple-500/30 flex items-center justify-center gap-2 h-11 transition-all duration-200 hover:shadow-md hover:shadow-purple-900/20"
+                className="w-full bg-black hover:bg-gray-900 text-white border border-purple-500/30 flex items-center justify-center gap-2 h-10 transition-all duration-200 hover:shadow-md hover:shadow-purple-900/20"
                 variant="outline"
               >
                 <svg
@@ -116,22 +311,31 @@ export default function SignIn() {
                 </svg>
                 Sign in with Google
               </Button>
+              
+              <div className="text-white text-center mt-4">
+                Don't have an account? <span className="text-purple-400 cursor-pointer hover:underline inline-flex items-center gap-1" onClick={() => { router.push('/signup') }}>
+                  <UserPlus size={14} />
+                  Sign up
+                </span> now to get started!
+              </div>
             </CardContent>
             <CardFooter className="px-4 py-3 bg-black/50 border-t border-purple-900/30 flex flex-col space-y-1">
               <div className="text-xs text-center text-gray-400">
                 By signing in, you agree to our
                 <a
                   href="/termsofservice"
-                  className="text-purple-400 hover:text-purple-300 hover:underline mx-1"
+                  className="text-purple-400 hover:text-purple-300 hover:underline mx-1 inline-flex items-center"
                 >
                   Terms of Service
+                  <ExternalLink size={10} className="ml-1" />
                 </a>
                 and
                 <a
                   href="privacy-policy"
-                  className="text-purple-400 hover:text-purple-300 hover:underline mx-1"
+                  className="text-purple-400 hover:text-purple-300 hover:underline mx-1 inline-flex items-center"
                 >
                   Privacy Policy
+                  <ExternalLink size={10} className="ml-1" />
                 </a>
               </div>
             </CardFooter>
@@ -140,9 +344,10 @@ export default function SignIn() {
             Need help?{" "}
             <a
               href="/contact"
-              className="text-purple-400 hover:text-purple-300 hover:underline"
+              className="text-purple-400 hover:text-purple-300 hover:underline inline-flex items-center"
             >
               Contact support
+              <HelpCircle size={12} className="ml-1" />
             </a>
           </p>
         </div>
