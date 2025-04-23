@@ -42,14 +42,7 @@ export default function SignIn() {
 
   useEffect(() => {
     setMounted(true);
-
-    // Prevent scrolling on the body
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      // Restore scrolling when component unmounts
-      document.body.style.overflow = "auto";
-    };
+    // Removed the code that prevents scrolling
   }, []);
 
   const validateEmail = (email) => {
@@ -138,9 +131,9 @@ export default function SignIn() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row overflow-hidden bg-black w-full h-screen">
-      <div className="hidden md:flex w-full md:w-1/2 p-4 md:p-8 flex-col justify-center items-center text-white overflow-hidden h-full">
-        <div className="absolute inset-0 z-0">
+    <div className="min-h-screen flex flex-col md:flex-row bg-black w-full">
+      <div className="hidden md:flex w-full md:w-1/2 p-4 md:p-8 flex-col justify-center items-center text-white relative">
+        <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-950"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(120,50,255,0.15),transparent_65%)]"></div>
         </div>
@@ -148,12 +141,12 @@ export default function SignIn() {
         <div className="absolute inset-0 z-0 grid-lines"></div>
 
         <div className="relative z-10 max-w-xl text-center md:text-left px-4 md:px-0 flex flex-col h-full justify-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl mt-25 mb-12 lg:text-5xl font-bold tracking-tight leading-tight animate-fade-in">
-            <span className="text-transparent ml-25 bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl mb-12 lg:text-5xl font-bold tracking-tight leading-tight animate-fade-in">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
               RECURX
             </span>
             <br />
-            <span className="text-transparent mt-30 ml-10 bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
               Decentralized
             </span>
             <br />
@@ -162,17 +155,11 @@ export default function SignIn() {
             </span>
           </h1>
         </div>
-
-        {mounted && (
-          <div className="absolute bottom-0 left-0 right-0 h-40 z-0">
-            <div className="h-px w-full bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
-          </div>
-        )}
       </div>
 
-      <div className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-8 bg-black md:border-l md:border-purple-900/30 h-full p-none relative z-40">
-        <div className="w-full max-w-md mt-16 md:mt-0">
-          <Card className="w-full max-w-md shadow-xl border border-purple-900/20 bg-black/80 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-900/20 pt-0">
+      <div className="w-full md:w-1/2 flex items-start md:items-center justify-center p-4 md:p-8 bg-black md:border-l md:border-purple-900/30 min-h-screen">
+        <div className="w-full max-w-md py-4 md:py-8 z-40">
+          <Card className="w-full shadow-xl border border-purple-900/20 bg-black/80 backdrop-blur-sm overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-purple-900/20 mt-9 sm:mt-0">
             <CardHeader className="space-y-1 text-center bg-gradient-to-r from-purple-900/80 to-blue-900/80 text-white p-4 border-b border-purple-800/30">
               <div className="flex justify-center mb-2">
                 <div className="bg-black/50 p-2 rounded-full border border-purple-500/30">
