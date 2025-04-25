@@ -474,7 +474,7 @@ export default function Fees() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-black to-gray-900 text-white min-h-screen overflow-hidden relative pb-20">
+    <div className="bg-gradient-to-b from-black to-gray-900 text-white min-h-screen overflow-hidden relative pb-20 z-50">
       <div className="absolute inset-0 opacity-20" style={{ background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 211, 238, 0.3) 0%, rgba(124, 58, 237, 0.1) 25%, transparent 50%)`, transition: "background 0.3s ease" }} />
       <div className="absolute inset-0 opacity-5">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -500,15 +500,15 @@ export default function Fees() {
             <motion.div className="absolute inset-0 -z-10 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 blur-xl rounded-full" animate={{ opacity: [0.5, 0.8, 0.5], scale: [0.95, 1.05, 0.95] }} transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }} />
             <TabsList className="w-full max-w-2xl mx-auto grid grid-cols-3 mb-12 bg-gray-800/50 p-1 backdrop-blur-md">
               <TabsTrigger value="recurx" className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-cyan-500 data-[state=active]:to-blue-600", "data-[state=active]:text-white text-base py-3 px-4 rounded-md transition-all duration-300", "data-[state=active]:shadow-lg relative overflow-hidden")}>
-                {activeTab === "recurx" && <motion.div className="absolute inset-0 -z-10 bg-gradient-to-r from-cyan-500 to-blue-600" layoutId="activeTabBackground" transition={{ type: "spring", duration: 0.5 }} />}
+                {activeTab === "recurx" && <motion.div className="absolute inset-0 -z-10 bg-gradient-to-r from-cyan-500 to-blue-600" layoutId="activeTabBackground" transition={{ type: "spring", duration: 0.5 }}  onClick={() => setActiveTab("recurx")}/>}
                 <span className="relative z-10">RecurX</span>
               </TabsTrigger>
               <TabsTrigger value="decentralized" className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-violet-600", "data-[state=active]:text-white text-base py-3 px-4 rounded-md transition-all duration-300", "data-[state=active]:shadow-lg relative overflow-hidden")}>
-                {activeTab === "decentralized" && <motion.div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-500 to-violet-600" layoutId="activeTabBackground" transition={{ type: "spring", duration: 0.5 }} />}
+                {activeTab === "decentralized" && <motion.div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-500 to-violet-600" layoutId="activeTabBackground" transition={{ type: "spring", duration: 0.5 }} onClick={() => setActiveTab("decentralized")} />}
                 <span className="relative z-10">Decentralized</span>
               </TabsTrigger>
-              <TabsTrigger value="traditional" className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-rose-500 data-[state=active]:to-red-600", "data-[state=active]:text-white text-base py-3 px-4 rounded-md transition-all duration-300", "data-[state=active]:shadow-lg relative overflow-hidden")}>
-                {activeTab === "traditional" && <motion.div className="absolute inset-0 -z-10 bg-gradient-to-r from-rose-500 to-red-600" layoutId="activeTabBackground" transition={{ type: "spring", duration: 0.5 }} />}
+              <TabsTrigger value="traditional" className={cn("data-[state=active]:bg-gradient-to-r data-[state=active]:from-rose-500 data-[state=active]:to-red-600", "data-[state=active]:text-white text-base py-3 px-4 rounded-md transition-all duration-300", "data-[state=active]:shadow-lg relative overflow-hidden") }>
+                {activeTab === "traditional" && <motion.div className="absolute inset-0 -z-10 bg-gradient-to-r from-rose-500 to-red-600" layoutId="activeTabBackground" transition={{ type: "spring", duration: 0.5 }}  onClick={() => setActiveTab("traditional")} />}
                 <span className="relative z-10">Traditional</span>
               </TabsTrigger>
             </TabsList>
@@ -554,36 +554,6 @@ export default function Fees() {
         </div>
       </div>
       <motion.div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}>
-        <div className="bg-gradient-to-r from-cyan-600 to-blue-700 rounded-2xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden opacity-10">
-            <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
-                  <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#smallGrid)" />
-            </svg>
-          </div>
-          <motion.div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300" animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }} transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, repeatType: "loop" }} style={{ backgroundSize: "200% 200%" }} />
-          <div className="lg:flex items-center justify-between gap-6 relative z-10">
-            <div className="lg:mb-0 mb-8">
-              <motion.h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-4" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-                Let's Talk – Get the Best Pricing for Your Needs!
-              </motion.h3>
-              <motion.p className="text-blue-100 text-lg" initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-                Connect with our sales team to explore tailored pricing solutions that fit your business.
-              </motion.p>
-            </div>
-            <motion.a href="mailto:sales@recurx.xyz" className="inline-flex items-center justify-center px-6 py-4 rounded-full bg-white text-cyan-600 font-semibold text-lg shadow-lg whitespace-nowrap cursor-pointer relative overflow-hidden group" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                Contact Sales
-                <ArrowRight className="ml-2 w-5 h-5 inline-block" />
-              </span>
-              <motion.div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" initial={{ x: "-100%" }} whileHover={{ x: 0 }} transition={{ duration: 0.3 }} />
-            </motion.a>
-          </div>
-        </div>
       </motion.div>
     </div>
   )
