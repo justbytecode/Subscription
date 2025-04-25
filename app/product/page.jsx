@@ -40,8 +40,16 @@ export default function ProductPage() {
         "Accept payments from anywhere in the world with instant settlement and no currency conversion fees.",
       icon: "🌎",
     },
+    {
+      id: 6,
+      title: "Instant Settlements",
+      description: "Instant settlements (<10 seconds)",
+      icon: "💰",
+    },
   ]
 
+
+  // Instant settlements (<10 seconds)
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === features.length - 1 ? 0 : prevIndex + 1))
   }
