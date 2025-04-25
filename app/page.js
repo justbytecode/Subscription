@@ -4,84 +4,77 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ArrowRight, Shield, Zap, RefreshCw, Star } from "lucide-react"
+import { ArrowRight, Shield, RefreshCw, Star } from "lucide-react"
 import FeatureComponent from "@/components/FeatureComponent"
 import Docs from "@/components/Docs"
 import InfiniteMovingCards from "@/components/InfiniteMovingCards"
 import SupportedTokens from "@/components/SupportedTokens"
-import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
-const randomDecimal =() =>  (Math.random() * 0.99 + 0.01).toFixed(2);
+import TawkMessengerReact from "@tawk.to/tawk-messenger-react"
+const randomDecimal = () => (Math.random() * 0.99 + 0.01).toFixed(2)
 
 const particlesAnimationArray = [
   {
     uint: "btc",
     img: "./supportedCoins/bitcoin.svg",
-    amt: randomDecimal()
+    amt: randomDecimal(),
   },
   {
     uint: "eth",
     img: "./supportedCoins/ethereum.svg",
-    amt: randomDecimal()
+    amt: randomDecimal(),
   },
   {
     uint: "usdc",
     img: "/supportedCoins/tether.svg",
-    amt: randomDecimal()
-
+    amt: randomDecimal(),
   },
   {
     uint: "btc",
     img: "./supportedCoins/bitcoin.svg",
-    amt: randomDecimal()
-
+    amt: randomDecimal(),
   },
   {
     uint: "eth",
     img: "./supportedCoins/ethereum.svg",
-    amt: randomDecimal()
-
+    amt: randomDecimal(),
   },
   {
     uint: "usdc",
     img: "/supportedCoins/tether.svg",
-    amt: randomDecimal()
-
+    amt: randomDecimal(),
   },
   {
     uint: "btc",
     img: "./supportedCoins/bitcoin.svg",
-    amt: randomDecimal()
-
+    amt: randomDecimal(),
   },
   {
     uint: "eth",
     img: "./supportedCoins/ethereum.svg",
-    amt: randomDecimal()
-
+    amt: randomDecimal(),
   },
   {
     uint: "usdc",
     img: "/supportedCoins/tether.svg",
-    amt: randomDecimal()
-
+    amt: randomDecimal(),
   },
 ]
 
 export default function Page() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-    useEffect(() => {
-      const script = document.createElement("script");
-      script.src = "https://embed.tawk.to/67e50a774040b31908c84848/default";
-      script.async = true;
-      script.charset = "UTF-8";
-      script.setAttribute("crossorigin", "*");
-      document.body.appendChild(script);
-  
-      return () => {
-        document.body.removeChild(script); // Cleanup on unmount
-      };
-    }, []);
+  useEffect(() => {
+    const script = document.createElement("script")
+    script.src = "https://embed.tawk.to/67e50a774040b31908c84848/default"
+    script.async = true
+    script.charset = "UTF-8"
+    script.setAttribute("crossorigin", "*")
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script) // Cleanup on unmount
+    }
+  }, [])
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -115,11 +108,10 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden relative">
-<div className="relative"> 
-
+      <div className="relative">
         <TawkMessengerReact
-          onBeforeLoad={() => { }}
-          onStatusChange={() => { }}
+          onBeforeLoad={() => {}}
+          onStatusChange={() => {}}
           onLoad={() => {}}
           onChatMaximized={() => {}}
           onChatMinimized={() => {}}
@@ -138,8 +130,9 @@ export default function Page() {
           onTagsUpdated={() => {}}
           onUnreadCountChanged={() => {}}
           propertyId="67e50a774040b31908c84848"
-          widgetId="1injsi3ti" />
-</div>
+          widgetId="1injsi3ti"
+        />
+      </div>
       {/* Subtle animated background gradient */}
       <div
         className="absolute inset-0 opacity-20"
@@ -170,7 +163,10 @@ export default function Page() {
 
       {/* Hero Section */}
       <header className="container mx-auto px-4 py-20 relative z-10">
-      <div className="flex justify-end">    <SecurePaymentBadge /></div>
+        <div className="flex justify-end">
+          {" "}
+          <SecurePaymentBadge />
+        </div>
         <div className="flex flex-col items-center justify-center min-h-[70vh] text-center">
           {/* Logo/Brand */}
 
@@ -207,7 +203,8 @@ export default function Page() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto"
           >
-            Create and manage decentralized subscription plans with ease, powered by blockchain technology.
+            Create and manage your payments with Recurx,with<br /> 
+            <span className="font-extrabold"> 0% Transaction fee</span>, powered by blockchain technology.
           </motion.p>
 
           {/* CTA Button */}
@@ -236,23 +233,26 @@ export default function Page() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-center mb-16"
         >
-          <h2     className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
+          <h2
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
             style={{
               background: "linear-gradient(to right, #3b82f6, #8b5cf6, #10b981)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-            }}>Why Choose RecurX ?</h2>
+            }}
+          >
+            Why Choose RecurX ?
+          </h2>
           <p className="text-gray-300 max-w-3xl mx-auto text-xl">
             Our platform combines the best of blockchain technology with user-friendly design to revolutionize
             subscription payments.
           </p>
         </motion.div>
 
-        <InfiniteMovingCards/>
+        <InfiniteMovingCards />
       </section>
 
-
-{/* Supported Coin Section */}
+      {/* Supported Coin Section */}
 
       <section className="container mx-auto px-4 py-16 relative z-10">
         <motion.div
@@ -261,21 +261,24 @@ export default function Page() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
+          <h2
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
             style={{
               background: "linear-gradient(to right, #3b82f6, #8b5cf6, #10b981)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-            }}>Supported Tokens ?</h2>
-   <p className="text-gray-300 max-w-3xl mx-auto text-xl">
-          Our platform supports a wide range of cryptocurrencies, making subscription payments accessible and flexible for users worldwide.
+            }}
+          >
+            Supported Tokens ?
+          </h2>
+          <p className="text-gray-300 max-w-3xl mx-auto text-xl">
+            Our platform supports a wide range of cryptocurrencies, making subscription payments accessible and flexible
+            for users worldwide.
           </p>
         </motion.div>
 
-        <SupportedTokens/>
+        <SupportedTokens />
       </section>
-
-
 
       {/* Floating blockchain elements - simplified */}
       <div className="absolute top-1/4 -left-20 opacity-10 animate-pulse">
@@ -285,10 +288,10 @@ export default function Page() {
         <BlockchainElement />
       </div>
 
-            {/* Feature Component */}
+      {/* Feature Component */}
 
       <FeatureComponent />
-      <Docs/>
+      <Docs />
     </div>
   )
 }
@@ -525,38 +528,38 @@ function PaymentOrbitingElement({ icon, delay, duration, distance }) {
 
 // Floating Transaction Animation
 function FloatingTransactions() {
-  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 });
+  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 })
 
   useEffect(() => {
     // Set initial dimensions
-    updateDimensions();
-    
+    updateDimensions()
+
     // Add debounced resize listener
-    let timeoutId = null;
-    
+    let timeoutId = null
+
     function handleResize() {
-      clearTimeout(timeoutId);
-      timeoutId = setTimeout(updateDimensions, 200);
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(updateDimensions, 200)
     }
-    
+
     function updateDimensions() {
-      setWindowDimensions({ 
-        width: window.innerWidth, 
-        height: window.innerHeight 
-      });
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      })
     }
-    
-    window.addEventListener("resize", handleResize);
-    
+
+    window.addEventListener("resize", handleResize)
+
     // Clean up
     return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+      clearTimeout(timeoutId)
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   // Early return if dimensions aren't set yet
-  if (windowDimensions.width === 0) return null;
+  if (windowDimensions.width === 0) return null
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -564,9 +567,9 @@ function FloatingTransactions() {
         <motion.div
           key={i}
           className="absolute flex items-center gap-2 bg-gray-900/40 backdrop-blur-sm p-2 rounded-lg border border-gray-800 shadow-lg will-change-transform"
-          style={{ 
+          style={{
             willChange: "transform, opacity",
-            translateZ: 0
+            translateZ: 0,
           }}
           initial={{
             x: Math.random() < 0.5 ? -100 : windowDimensions.width + 100,
@@ -580,33 +583,34 @@ function FloatingTransactions() {
           transition={{
             duration: 10 + Math.random() * 15,
             delay: Math.random() * 5, // Add randomized delays
-            repeat: Infinity,
+            repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
-            repeatDelay: Math.random() * 2
+            repeatDelay: Math.random() * 2,
           }}
         >
           <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
-            <motion.div 
-              animate={{ scale: [1, 1.2, 1] }} 
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity,
-                ease: "easeInOut" 
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{
+                duration: 2,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
               }}
             >
-              <Image src={item.img} alt="Crypto Icon" height={100} width={100} />
+              <Image src={item.img || "/placeholder.svg"} alt="Crypto Icon" height={100} width={100} />
             </motion.div>
           </div>
           <div className="text-xs">
-            <div className="text-white font-medium">Payment {item.amt || 0.01} {(item.uint).toUpperCase()}</div>
+            <div className="text-white font-medium">
+              Payment {item.amt || 0.01} {item.uint.toUpperCase()}
+            </div>
             <div className="text-green-400">✓ Secured</div>
           </div>
         </motion.div>
       ))}
     </div>
-  );
+  )
 }
-
 
 // Secure Payment Badge
 function SecurePaymentBadge() {
