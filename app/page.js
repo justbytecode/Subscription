@@ -154,12 +154,12 @@ export default function Page() {
         </svg>
       </div>
 
-      {/* Simplified particles */}
-      <Particles count={12} />
+      
+      {/* <Particles count={12} /> */}
 
       {/* Safe Payment Animations */}
       {/* <SafePaymentAnimation /> */}
-      <FloatingTransactions />
+      {/* <FloatingTransactions /> */}
 
       {/* Hero Section */}
       <header className="container mx-auto px-4 py-20 relative z-10">
@@ -186,7 +186,7 @@ export default function Page() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight text-blue-600"
+            className="text-5xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight text-blue-600"
             style={{
               background: "linear-gradient(to right, #3b82f6, #8b5cf6, #10b981)",
               WebkitBackgroundClip: "text",
@@ -527,90 +527,90 @@ function PaymentOrbitingElement({ icon, delay, duration, distance }) {
 }
 
 // Floating Transaction Animation
-function FloatingTransactions() {
-  const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 })
+// function FloatingTransactions() {
+//   const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 })
 
-  useEffect(() => {
-    // Set initial dimensions
-    updateDimensions()
+//   useEffect(() => {
+//     // Set initial dimensions
+//     updateDimensions()
 
-    // Add debounced resize listener
-    let timeoutId = null
+//     // Add debounced resize listener
+//     let timeoutId = null
 
-    function handleResize() {
-      clearTimeout(timeoutId)
-      timeoutId = setTimeout(updateDimensions, 200)
-    }
+//     function handleResize() {
+//       clearTimeout(timeoutId)
+//       timeoutId = setTimeout(updateDimensions, 200)
+//     }
 
-    function updateDimensions() {
-      setWindowDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      })
-    }
+//     function updateDimensions() {
+//       setWindowDimensions({
+//         width: window.innerWidth,
+//         height: window.innerHeight,
+//       })
+//     }
 
-    window.addEventListener("resize", handleResize)
+//     window.addEventListener("resize", handleResize)
 
-    // Clean up
-    return () => {
-      clearTimeout(timeoutId)
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
+//     // Clean up
+//     return () => {
+//       clearTimeout(timeoutId)
+//       window.removeEventListener("resize", handleResize)
+//     }
+//   }, [])
 
-  // Early return if dimensions aren't set yet
-  if (windowDimensions.width === 0) return null
+//   // Early return if dimensions aren't set yet
+//   if (windowDimensions.width === 0) return null
 
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {particlesAnimationArray.map((item, i) => (
-        <motion.div
-          key={i}
-          className="absolute flex items-center gap-2 bg-gray-900/40 backdrop-blur-sm p-2 rounded-lg border border-gray-800 shadow-lg will-change-transform"
-          style={{
-            willChange: "transform, opacity",
-            translateZ: 0,
-          }}
-          initial={{
-            x: Math.random() < 0.5 ? -100 : windowDimensions.width + 100,
-            y: 50 + Math.random() * (windowDimensions.height - 200),
-            opacity: 0,
-          }}
-          animate={{
-            x: Math.random() < 0.5 ? windowDimensions.width + 100 : -100,
-            opacity: [0, 1, 1, 0],
-          }}
-          transition={{
-            duration: 10 + Math.random() * 15,
-            delay: Math.random() * 5, // Add randomized delays
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "linear",
-            repeatDelay: Math.random() * 2,
-          }}
-        >
-          <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
-              }}
-            >
-              <Image src={item.img || "/placeholder.svg"} alt="Crypto Icon" height={100} width={100} />
-            </motion.div>
-          </div>
-          <div className="text-xs">
-            <div className="text-white font-medium">
-              Payment {item.amt || 0.01} {item.uint.toUpperCase()}
-            </div>
-            <div className="text-green-400">✓ Secured</div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-  )
-}
+//   return (
+//     <div className="absolute inset-0 overflow-hidden pointer-events-none">
+//       {particlesAnimationArray.map((item, i) => (
+//         <motion.div
+//           key={i}
+//           className="absolute flex items-center gap-2 bg-gray-900/40 backdrop-blur-sm p-2 rounded-lg border border-gray-800 shadow-lg will-change-transform"
+//           style={{
+//             willChange: "transform, opacity",
+//             translateZ: 0,
+//           }}
+//           initial={{
+//             x: Math.random() < 0.5 ? -100 : windowDimensions.width + 100,
+//             y: 50 + Math.random() * (windowDimensions.height - 200),
+//             opacity: 0,
+//           }}
+//           animate={{
+//             x: Math.random() < 0.5 ? windowDimensions.width + 100 : -100,
+//             opacity: [0, 1, 1, 0],
+//           }}
+//           transition={{
+//             duration: 10 + Math.random() * 15,
+//             delay: Math.random() * 5, // Add randomized delays
+//             repeat: Number.POSITIVE_INFINITY,
+//             ease: "linear",
+//             repeatDelay: Math.random() * 2,
+//           }}
+//         >
+//           <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+//             <motion.div
+//               animate={{ scale: [1, 1.2, 1] }}
+//               transition={{
+//                 duration: 2,
+//                 repeat: Number.POSITIVE_INFINITY,
+//                 ease: "easeInOut",
+//               }}
+//             >
+//               <Image src={item.img || "/placeholder.svg"} alt="Crypto Icon" height={100} width={100} />
+//             </motion.div>
+//           </div>
+//           <div className="text-xs">
+//             <div className="text-white font-medium">
+//               Payment {item.amt || 0.01} {item.uint.toUpperCase()}
+//             </div>
+//             <div className="text-green-400">✓ Secured</div>
+//           </div>
+//         </motion.div>
+//       ))}
+//     </div>
+//   )
+// }
 
 // Secure Payment Badge
 function SecurePaymentBadge() {
