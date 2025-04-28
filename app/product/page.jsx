@@ -350,6 +350,168 @@ export default function ProductPage() {
           </motion.div>
         </motion.div>
       </motion.div>
+         
+
+        {/* QR Code Demo Section - New Section */}
+      <div className="py-20 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.div
+              className="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-violet-600/20 to-purple-600/20 text-violet-400 mb-4 backdrop-blur-sm border border-violet-500/20"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              New Feature
+            </motion.div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">QR Code Payment Solution</h2>
+            <p className="max-w-2xl mx-auto text-lg text-white/80">
+              Simplify in-person transactions with our dynamic QR code payment system. Perfect for retail, restaurants,
+              and events.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className="space-y-6">
+                <motion.div
+                  className="flex items-start gap-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <div className="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center shrink-0 mt-1">
+                    <Smartphone className="w-6 h-6 text-violet-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Mobile-First Experience</h3>
+                    <p className="text-white/80">
+                      Customers simply scan the QR code with their smartphone camera or wallet app to complete the
+                      payment in seconds.
+                    </p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="flex items-start gap-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <div className="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center shrink-0 mt-1">
+                    <Clock className="w-6 h-6 text-violet-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Real-Time Confirmation</h3>
+                    <p className="text-white/80">
+                      Receive instant payment confirmations on your merchant dashboard as soon as the transaction is
+                      complete.
+                    </p>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="flex items-start gap-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                >
+                  <div className="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center shrink-0 mt-1">
+                    <Shield className="w-6 h-6 text-violet-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Secure Transactions</h3>
+                    <p className="text-white/80">
+                      Each QR code is uniquely generated for the specific transaction amount and expires after use for
+                      maximum security.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              className="relative h-[400px] sm:h-[500px] rounded-2xl overflow-hidden bg-gradient-to-br from-violet-900/20 to-purple-600/10 backdrop-blur-sm border border-violet-500/20"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              whileHover={{
+                boxShadow: "0 20px 40px -20px rgba(139, 92, 246, 0.3)",
+                scale: 1.02,
+                transition: { duration: 0.3 },
+              }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  className="w-64 h-64 bg-white p-4 rounded-xl shadow-2xl"
+                  animate={{
+                    y: [0, -10, 0],
+                    boxShadow: [
+                      "0 20px 30px -10px rgba(0, 0, 0, 0.3)",
+                      "0 30px 40px -10px rgba(139, 92, 246, 0.4)",
+                      "0 20px 30px -10px rgba(0, 0, 0, 0.3)",
+                    ],
+                  }}
+                  transition={{
+                    repeat: Number.POSITIVE_INFINITY,
+                    duration: 4,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <div className="bg-violet-500 text-white p-2 rounded-t-lg text-center font-medium">
+                    RecurX Payment
+                  </div>
+                  <div className="p-4 flex flex-col items-center">
+                    <div className="text-gray-800 font-medium mb-2">Total: $100.00</div>
+                    <div className="w-44 h-44 bg-gray-100 rounded-lg flex items-center justify-center mb-2">
+                      <QrCode className="w-32 h-32 text-gray-800" />
+                    </div>
+                    <div className="text-xs text-gray-500 text-center">Scan with your crypto wallet</div>
+                  </div>
+                </motion.div>
+
+                {/* Animated particles - simplified */}
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <motion.div
+                    key={`qr-particle-${i}`}
+                    className="absolute w-2 h-2 rounded-full bg-violet-400"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: [0, 0.7, 0],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Number.POSITIVE_INFINITY,
+                      delay: i * 0.5,
+                      ease: "easeInOut",
+                    }}
+                    style={{
+                      top: `${50 + (i % 2 ? 20 : -20)}%`,
+                      left: `${50 + (i < 2 ? 20 : -20)}%`,
+                    }}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
 
       {/* Features Section with enhanced animations */}
       <div id="features" className="py-20 relative">
@@ -717,166 +879,7 @@ export default function ProductPage() {
         </div>
       </div>
 
-      {/* QR Code Demo Section - New Section */}
-      <div className="py-20 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <motion.div
-              className="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-violet-600/20 to-purple-600/20 text-violet-400 mb-4 backdrop-blur-sm border border-violet-500/20"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-            >
-              New Feature
-            </motion.div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">QR Code Payment Solution</h2>
-            <p className="max-w-2xl mx-auto text-lg text-white/80">
-              Simplify in-person transactions with our dynamic QR code payment system. Perfect for retail, restaurants,
-              and events.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="space-y-6">
-                <motion.div
-                  className="flex items-start gap-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <div className="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center shrink-0 mt-1">
-                    <Smartphone className="w-6 h-6 text-violet-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Mobile-First Experience</h3>
-                    <p className="text-white/80">
-                      Customers simply scan the QR code with their smartphone camera or wallet app to complete the
-                      payment in seconds.
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="flex items-start gap-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  <div className="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center shrink-0 mt-1">
-                    <Clock className="w-6 h-6 text-violet-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Real-Time Confirmation</h3>
-                    <p className="text-white/80">
-                      Receive instant payment confirmations on your merchant dashboard as soon as the transaction is
-                      complete.
-                    </p>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="flex items-start gap-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                >
-                  <div className="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center shrink-0 mt-1">
-                    <Shield className="w-6 h-6 text-violet-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Secure Transactions</h3>
-                    <p className="text-white/80">
-                      Each QR code is uniquely generated for the specific transaction amount and expires after use for
-                      maximum security.
-                    </p>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="relative h-[400px] sm:h-[500px] rounded-2xl overflow-hidden bg-gradient-to-br from-violet-900/20 to-purple-600/10 backdrop-blur-sm border border-violet-500/20"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              whileHover={{
-                boxShadow: "0 20px 40px -20px rgba(139, 92, 246, 0.3)",
-                scale: 1.02,
-                transition: { duration: 0.3 },
-              }}
-            >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  className="w-64 h-64 bg-white p-4 rounded-xl shadow-2xl"
-                  animate={{
-                    y: [0, -10, 0],
-                    boxShadow: [
-                      "0 20px 30px -10px rgba(0, 0, 0, 0.3)",
-                      "0 30px 40px -10px rgba(139, 92, 246, 0.4)",
-                      "0 20px 30px -10px rgba(0, 0, 0, 0.3)",
-                    ],
-                  }}
-                  transition={{
-                    repeat: Number.POSITIVE_INFINITY,
-                    duration: 4,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <div className="bg-violet-500 text-white p-2 rounded-t-lg text-center font-medium">
-                    RecurX Payment
-                  </div>
-                  <div className="p-4 flex flex-col items-center">
-                    <div className="text-gray-800 font-medium mb-2">Total: $100.00</div>
-                    <div className="w-44 h-44 bg-gray-100 rounded-lg flex items-center justify-center mb-2">
-                      <QrCode className="w-32 h-32 text-gray-800" />
-                    </div>
-                    <div className="text-xs text-gray-500 text-center">Scan with your crypto wallet</div>
-                  </div>
-                </motion.div>
-
-                {/* Animated particles - simplified */}
-                {Array.from({ length: 4 }).map((_, i) => (
-                  <motion.div
-                    key={`qr-particle-${i}`}
-                    className="absolute w-2 h-2 rounded-full bg-violet-400"
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: [0, 0.7, 0],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Number.POSITIVE_INFINITY,
-                      delay: i * 0.5,
-                      ease: "easeInOut",
-                    }}
-                    style={{
-                      top: `${50 + (i % 2 ? 20 : -20)}%`,
-                      left: `${50 + (i < 2 ? 20 : -20)}%`,
-                    }}
-                  />
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
+      
 
       {/* How It Works Section with enhanced animations */}
       <div id="how-it-works" className="py-20 relative">
