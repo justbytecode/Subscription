@@ -13,15 +13,15 @@ model User {
   email                String?          @unique
   emailVerified        DateTime?
   image                String?
+  role                 String?          // MERCHANT or USER
   accounts             Account[]
   sessions             Session[]
-  plans                SubscriptionPlan[]
   wallet               Wallet?
   walletId             String?          @unique
   notifications        Notification[]
   transactions         Transaction[]
   notificationPreference Boolean        @default(true)
-  apiKey               String?          @unique // Added for API integration
+  apiKey               String?          @unique
   createdAt            DateTime         @default(now())
   updatedAt            DateTime         @updatedAt
 }
@@ -40,7 +40,8 @@ model Account {
   id_token          String? @db.Text
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
+   createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
   @@unique([provider, providerAccountId])
 }
 
@@ -60,29 +61,13 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model SubscriptionPlan {
-  id              String        @id @default(uuid())
-  userId          String
-  name            String
-  price           Float
-  interval        String        // e.g., "monthly", "daily"
-  duration        Int?          @default(30) // Duration in days (e.g., 30 for monthly, 1 for daily)
-  trialDays       Int?          @default(0)  // Number of free trial days
-  contractAddress String        // Single deployed contract address
-  planId          String        // On-chain plan ID from the smart contract
-  status          String        @default("ACTIVE") // e.g., ACTIVE, INACTIVE, CANCELLED
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
-  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  transactions    Transaction[]
-}
-
 model Wallet {
   id        String   @id @default(uuid())
   userId    String   @unique
   address   String   @unique
+  chain     String   @default("POLYGON")
   balance   Float    @default(0.0)
-  currency  String   @default("ETH")
+  currency  String   @default("MATIC")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -98,15 +83,15 @@ model Notification {
 }
 
 model Transaction {
-  id             String            @id @default(uuid())
+  id             String   @id @default(uuid())
   userId         String
-  planId         String
+  recipientId    String?
   amount         Float
-  txHash         String            @unique
-  status         String            @default("PENDING") // e.g., PENDING, COMPLETED, FAILED, CANCELLED
-  refundAmount   Float?            // Amount refunded (if cancelled)
-  createdAt      DateTime          @default(now())
-  updatedAt      DateTime          @updatedAt
-  user           User              @relation(fields: [userId], references: [id], onDelete: Cascade)
-  subscription   SubscriptionPlan  @relation(fields: [planId], references: [id], onDelete: Cascade)
+  currency       String
+  txHash         String   @unique
+  status         String   @default("PENDING")
+  platformFee    Float    @default(0.0)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
