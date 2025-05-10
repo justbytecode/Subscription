@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./api/auth/[...nextauth]/route";
-import { SessionProvider } from "next-auth/react";
 import Provider from "@/components/Provider";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
@@ -33,9 +32,10 @@ export default async function RootLayout({ children }) {
       >
         <ToastContainer/>
         <Provider>
-       {!session && <Navbar />}
-       {children}
-          {!session && <Footer />}
+        <ToastContainer />
+        {!session && <Navbar />}
+        {children}
+        {!session && <Footer />}
        </Provider>
       </body>
     </html>
