@@ -317,7 +317,7 @@ export default function ProductPage() {
             eliminate transaction costs forever.
           </motion.p>
 
-          <motion.div className="flex flex-wrap justify-center gap-4 mb-12" variants={itemVariants}>
+          {/* <motion.div className="flex flex-wrap justify-center gap-4 mb-12" variants={itemVariants}>
             <motion.a
               href="/signin"
               className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium shadow-lg shadow-blue-600/20"
@@ -326,7 +326,7 @@ export default function ProductPage() {
             >
               Start For Free
             </motion.a>
-          </motion.div>
+          </motion.div> */}
 
           {/* Highlighted Features with improved animations */}
           <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto" variants={containerVariants}>
