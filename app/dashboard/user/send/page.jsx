@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Search } from "lucide-react";
-import { parseEther } from "ethers/lib/utils";
+import { parseEther } from "ethers";
 import { motion } from "framer-motion";
 import { toast } from "react-toastify";
 

@@ -63,7 +63,7 @@ export default function SignIn() {
               Sign in with Google
             </Button>
             <div className="text-center text-sm text-foreground/80">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <span
                 className="text-primary cursor-pointer hover:underline inline-flex items-center gap-1"
                 onClick={() => router.push("/signup")}

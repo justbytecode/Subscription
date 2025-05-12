@@ -6,6 +6,7 @@ import { authOptions } from "./api/auth/[...nextauth]/route";
 import Provider from "@/components/Provider";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
+import { ToastProvider } from "@/components/ui/toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default async function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
+        <ToastProvider>
         <ToastContainer/>
         <Provider>
         <ToastContainer />
@@ -37,6 +39,7 @@ export default async function RootLayout({ children }) {
         {children}
         {!session && <Footer />}
        </Provider>
+       </ToastProvider>
       </body>
     </html>
   );

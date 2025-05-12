@@ -107,7 +107,7 @@ export default function Page() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white overflow-hidden relative">
+    <div className="min-h-screen bg-black text-white overflow-hidden relative">
       <div className="relative">
         <TawkMessengerReact
           onBeforeLoad={() => {}}
@@ -215,11 +215,17 @@ export default function Page() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link
+            {/* <Link
               href="/signin"
               className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all duration-300 text-lg font-medium flex items-center gap-2"
             >
               Get Started <ArrowRight size={18} />
+            </Link> */}
+            <Link
+              href="/wait-list"
+              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all duration-300 text-lg font-medium flex items-center gap-2"
+            >
+              Join the Waitlist <ArrowRight size={18} />
             </Link>
           </motion.div>
         </div>

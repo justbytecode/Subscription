@@ -2,6 +2,8 @@
 import { sendEmail } from "@/app/_actions.js/sendEmail";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useState, useEffect } from "react";
+
 function useSendEmail() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -52,3 +54,20 @@ function useSendEmail() {
 }
 
 export default useSendEmail;
+
+export function useMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  return isMobile;
+}
