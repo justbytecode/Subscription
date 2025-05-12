@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { ethers } from "ethers";
+import { JsonRpcProvider } from "ethers";
 
-const provider = new ethers.providers.JsonRpcProvider(process.env.AMOY_RPC_URL);
+const provider = new JsonRpcProvider(process.env.AMOY_RPC_URL);
 
 export async function POST(request) {
   try {
