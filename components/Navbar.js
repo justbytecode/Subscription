@@ -59,8 +59,11 @@ export default function Navbar() {
               <NavLink href="/contact-us">Contact us</NavLink>
             </div>
             <div className="flex-1 flex justify-end mr-5">
-              <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110">
+              {/* <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110">
                 <Link href="/signin">Sign In</Link>
+              </Button> */}
+              <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110">
+                <Link href="/wait-list">Waitlist</Link>
               </Button>
             </div>
           </nav>
@@ -98,8 +101,11 @@ export default function Navbar() {
 
             <div className="pt-4 border-t border-gray-800 flex flex-col space-y-3">
               <Button asChild className="w-full bg-blue-600 text-gray-300 hover:bg-blue-600">
-                <Link href="/signin" onClick={() => setIsMobileMenuOpen(false)}>
+                {/* <Link href="/signin" onClick={() => setIsMobileMenuOpen(false)}>
                   Sign In
+                </Link> */}
+                <Link href="/wait-list" onClick={() => setIsMobileMenuOpen(false)}>
+                 Waitlist
                 </Link>
               </Button>
             </div>

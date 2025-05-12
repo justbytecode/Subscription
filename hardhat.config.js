@@ -6,11 +6,11 @@ module.exports = {
   solidity: "0.8.28",
   networks: {
     hardhat: {
-      chainId: 11155111,
+      chainId: 80002,
     },
-    sepolia: {
-      url: "https://eth-sepolia.g.alchemy.com/v2/oqEOSkZ6l7JzL_JyPKD6j7iOoBSPIcKE",
-      accounts: [process.env.SEPOLIA_PRIVATE_KEY],
+    amoy: {
+      url: process.env.AMOY_RPC_URL,
+      accounts: [process.env.AMOY_PRIVATE_KEY],
     },
   },
 };

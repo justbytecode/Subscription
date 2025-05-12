@@ -1,155 +1,94 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion"
-import { NavLink } from "@/components/NavLink";
-import { Button } from "@/components/ui/button";
-import { 
-  Menu, ChevronLeft, Home, List, Code, BarChart, Wallet, Bell, 
-  Settings, HelpCircle, DollarSign 
-} from 'lucide-react';
-import { cn } from "@/lib/utils";
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
+import {
+  LayoutDashboard,
+  Send,
+  Wallet,
+  BarChart2,
+  Key,
+  Settings,
+  FileText,
+  Menu,
+  X,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import { signOut } from "next-auth/react";
 
 export default function Sidebar() {
+  const pathname = usePathname();
+  const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState(false);
-  const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
-  // Check if we're on mobile
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
-        setIsOpen(true);
-      } else {
-        setIsOpen(false);
-      }
-    };
+  if (!session?.user?.role) return null;
 
-    checkIfMobile();
-    window.addEventListener("resize", checkIfMobile);
-    return () => window.removeEventListener("resize", checkIfMobile);
-  }, []);
+  const isMerchant = session.user.role === "MERCHANT";
+  const basePath = `/dashboard/${isMerchant ? "merchant" : "user"}`;
 
-  const toggleSidebar = () => {
-    if (isMobile) {
-      setIsOpen(!isOpen);
-    } else {
-      setIsCollapsed(!isCollapsed);
-    }
-  };
-
-  const menuItems = [
-    { name: "Dashboard", path: "/dashboard", icon: <Home className="h-5 w-5" /> },
-    { name: "Plans", path: "/dashboard/plans", icon: <List className="h-5 w-5" /> },
-    { name: "Integration", path: "/dashboard/integration", icon: <Code className="h-5 w-5" /> },
-    { name: "Analytics", path: "/dashboard/analytics", icon: <BarChart className="h-5 w-5" /> },
-    { name: "Wallet", path: "/dashboard/wallet", icon: <Wallet className="h-5 w-5" /> },
-    { name: "Notifications", path: "/dashboard/notifications", icon: <Bell className="h-5 w-5" /> },
-    { name: "Transactions", path: "/dashboard/transactions", icon: <DollarSign className="h-5 w-5" /> },
-    { name: "Settings", path: "/dashboard/settings", icon: <Settings className="h-5 w-5" /> },
-    { name: "Support", path: "/dashboard/support", icon: <HelpCircle className="h-5 w-5" /> },
-  ];
+  const navItems = isMerchant
+    ? [
+        { name: "Dashboard", path: basePath, icon: LayoutDashboard },
+        { name: "Send", path: `${basePath}/send`, icon: Send },
+        { name: "Analytics", path: `${basePath}/analytics`, icon: BarChart2 },
+        { name: "Plans", path: `${basePath}/plans`, icon: FileText },
+        { name: "Wallet", path: `${basePath}/wallet`, icon: Wallet },
+        { name: "API", path: `${basePath}/api`, icon: Key },
+        { name: "Transactions", path: `${basePath}/transactions`, icon: FileText },
+        { name: "Settings", path: `${basePath}/settings`, icon: Settings },
+      ]
+    : [
+        { name: "Dashboard", path: basePath, icon: LayoutDashboard },
+        { name: "Send", path: `${basePath}/send`, icon: Send },
+        { name: "Subscriptions", path: `${basePath}/subscriptions`, icon: FileText },
+        { name: "Wallet", path: `${basePath}/wallet`, icon: Wallet },
+        { name: "Transactions", path: `${basePath}/transactions`, icon: FileText },
+      ];
 
   return (
     <>
-      {/* Sidebar */}
-      <aside
-        className={cn(
-          "fixed top-0 left-0 h-full bg-gray-900 text-white transition-all duration-300 ease-in-out z-40 shadow-lg",
-          isOpen ? "translate-x-0" : "-translate-x-full",
-          isCollapsed && !isMobile ? "w-20" : "w-64",
-          "md:translate-x-0" // Always visible on desktop
-        )}
+      <button
+        className=" fixed top-4 left-4 z-20 p-2 bg-black text-white rounded-md"
+        onClick={() => setIsOpen(!isOpen)}
       >
-        {/* Sidebar Header */}
-        <div className="relative">
-          <div className={cn(
-            "p-6 text-2xl font-bold flex items-center gap-2 transition-all",
-            isCollapsed && !isMobile ? "justify-center p-4" : ""
-          )}>
-            {isCollapsed && !isMobile ? (
-              <span className="bg-gradient-to-r from-gray-200 to-purple-500 text-3xl">L</span>
-            ) : (
-              
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-200"
-            >
-              RecurX
-            </motion.span>
-        
-            )}
+        {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      </button>
+      <motion.div
+        initial={{ x: -300 }}
+        animate={{ x: isOpen ? 0 : -300 }}
+        transition={{ duration: 0.3 }}
+        className={`w-64 bg-card shadow-lg p-4 fixed top-0 left-0 h-screen z-10 lg:static lg:translate-x-0 lg:flex lg:flex-col ${
+          isOpen ? "block" : "hidden lg:flex"
+        }`}
+      >
+        <div className="flex items-center gap-2 mb-8 pt-4 lg:pt-0">
+          <div className="bg-primary/20 p-2 rounded-full">
+            <LayoutDashboard className="h-6 w-6 text-primary" />
           </div>
-
-          {/* Sidebar Toggle Button (Aligned to the Right) */}
-          <Button
-            variant="outline"
-            size="icon"
-            className={cn(
-              "absolute top-4 -right-5 z-50 bg-black border border-black shadow-md transition-all",
-              "hover:bg-black",
-              isCollapsed ? "right-5" : "right-[5px]"
-            )}
-            onClick={toggleSidebar}
-          >
-            {isCollapsed ? <h3 className="h-5 w-5">M</h3> : <ChevronLeft className="h-5 w-5" />}
-          </Button>
+          <h2 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+            RecurX
+          </h2>
         </div>
-
-        {/* Navigation Menu */}
-        <nav className="mt-4">
-          <ul className="space-y-2">
-            {menuItems.map((item) => (
-              <li key={item.name}>
-                <NavLink
-                  href={item.path}
-                  className={cn(
-                    "flex items-center py-3 text-gray-300 hover:bg-gray-800 hover:text-white transition-colors",
-                    isCollapsed && !isMobile ? "justify-center px-0" : "px-6",
-                    isCollapsed && !isMobile ? "tooltip-wrapper relative group" : ""
-                  )}
-                  activeClassName={cn(
-                    "bg-gray-800 text-white",
-                    !isCollapsed || isMobile ? "border-l-4 border-blue-500" : ""
-                  )}
-                  onClick={() => isMobile && setIsOpen(false)}
-                >
-                  <div className={cn(
-                    isCollapsed && !isMobile ? "flex justify-center items-center" : ""
-                  )}>
-                    {item.icon}
-                  </div>
-                  {(!isCollapsed || isMobile) && <span className="ml-3">{item.name}</span>}
-
-                  {/* Tooltip for collapsed state */}
-                  {isCollapsed && !isMobile && (
-                    <div className="absolute left-full ml-2 px-2 py-1 bg-gray-800 text-white text-sm rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity whitespace-nowrap">
-                      {item.name}
-                    </div>
-                  )}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+        <nav className="flex-1 space-y-2">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.path}
+              className={`flex items-center gap-2 p-2 rounded-lg transition-colors ${
+                pathname === item.path
+                  ? "bg-primary/10 text-primary font-medium"
+                  : "text-foreground/80 hover:bg-primary/5 hover:text-primary"
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              <item.icon className="h-5 w-5" />
+              {item.name}
+            </Link>
+          ))}
         </nav>
-      </aside>
-      
-      {/* Overlay for Mobile View */}
-      {isOpen && isMobile && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-30"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-      
-      {/* Main Content Padding Adjustment */}
-      <div className={cn(
-        "transition-all duration-300 ease-in-out",
-        isCollapsed && !isMobile ? "md:ml-20" : "md:ml-64"
-      )}>
-        {/* Your main content goes here */}
-      </div>
+      </motion.div>
     </>
   );
 }
