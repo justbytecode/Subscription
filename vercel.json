@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    {
+      "source": "https://www.recurx.xyz",
+      "destination": "https://recurx.xyz",
+      "permanent": true
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
