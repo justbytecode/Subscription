@@ -474,7 +474,7 @@ export default function Fees() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-black to-gray-900 text-white min-h-screen overflow-hidden relative pb-20 z-50">
+    <div className="bg-gradient-to-b from-black to-gray-900 text-white min-h-screen overflow-hidden relative pb-20 z-48">
       <div className="absolute inset-0 opacity-20" style={{ background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(34, 211, 238, 0.3) 0%, rgba(124, 58, 237, 0.1) 25%, transparent 50%)`, transition: "background 0.3s ease" }} />
       <div className="absolute inset-0 opacity-5">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">

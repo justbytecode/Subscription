@@ -51,10 +51,10 @@ export default function Navbar() {
             <div className="flex-1"></div>
             <div className="flex items-center space-x-8">
               <NavLink href="/product">Product</NavLink>
-              <NavLink href="/documentation">Documentation</NavLink>
+              {/* <NavLink href="/documentation">Documentation</NavLink> */}
               <NavLink href="/pricing">Pricing</NavLink>
               <NavLink href="/career">Career</NavLink>
-              <NavLink href="/blogs">Blogs</NavLink>
+              {/* <NavLink href="/blogs">Blogs</NavLink> */}
               <NavLink href="/team">About us</NavLink>
               <NavLink href="/contact-us">Contact us</NavLink>
             </div>
@@ -92,10 +92,10 @@ export default function Navbar() {
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4 font-medium h-[100vh]">
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/product">Product</MobileNavLink>
-              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/documentation">Documentation</MobileNavLink>
+              {/* <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/documentation">Documentation</MobileNavLink> */}
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/pricing">Pricing</MobileNavLink>
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/career">Career</MobileNavLink>
-              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/blogs">Blogs</MobileNavLink>
+              {/* <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/blogs">Blogs</MobileNavLink> */}
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/team">About us</MobileNavLink>
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/contact-us">Contact us</MobileNavLink>
 
