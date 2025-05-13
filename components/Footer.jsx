@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 const Footer = () => {
   return (
    
-    <footer className="py-12 border-white/10 min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden relative font-sans">
+    <footer className="py-12 border-white/10 bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden relative font-sans">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-1">
