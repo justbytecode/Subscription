@@ -351,7 +351,7 @@ const PricingTable = ({ type }) => {
             ))}
           </div>
         </motion.div>
-        <motion.div className={`${isRecurx ? "bg-gradient-to-br from-cyan-600/90 to-blue-700/90" : "bg-gradient-to-br from-gray-900 to-gray-800"} rounded-2xl p-6 shadow-xl border ${isRecurx ? "border-cyan-500" : "border-gray-700"} backdrop-blur-md md:col-span-2 relative overflow-hidden`} whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
+        <motion.div className={`bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 backdrop-blur-md md:col-span-2 relative overflow-hidden`} whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
           {isRecurx && (
             <motion.div className="absolute top-3 right-3 bg-white text-cyan-600 px-3 py-1 rounded-full text-sm font-bold flex items-center" initial={{ scale: 0.9 }} animate={{ scale: [0.9, 1.1, 1] }} transition={{ duration: 0.5, times: [0, 0.5, 1] }}>
               <Star className="w-4 h-4 mr-1 fill-amber-400 stroke-amber-400" />
