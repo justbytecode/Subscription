@@ -6,7 +6,7 @@ function FeatureCard({ icon, title, description }) {
   return (
     <motion.div
       whileHover={{ y: -5, transition: { duration: 0.2 } }}
-      className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 hover:border-blue-600/50 transition-all duration-300 flex flex-col items-center text-center min-w-[300px] mx-4"
+      className="bg-black backdrop-blur-sm p-8 rounded-xl border border-gray-800 hover:border-black transition-all duration-300 flex flex-col items-center text-center min-w-[300px] mx-4"
     >
       <div className="p-3 bg-blue-900/20 rounded-full w-fit mb-4">{icon}</div>
       <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>

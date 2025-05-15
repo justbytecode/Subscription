@@ -13,23 +13,23 @@ const FeatureQr = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <motion.h2 
+            {/* <motion.h2 
               className="text-green-500 text-2xl font-semibold mb-1" 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.4 }}
             >
               SCAN AND PAY
-            </motion.h2>
+            </motion.h2> */}
             
-            <motion.p 
+            {/* <motion.p 
               className="text-gray-400 text-xs mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.4 }}
             >
               Scan the QR to PAY 
-            </motion.p>
+            </motion.p> */}
             
             <div className="relative mx-auto mb-4">
               {/* Scanner frame */}

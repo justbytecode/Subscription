@@ -229,7 +229,7 @@ const ComparisonChart = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/10 to-blue-500/10 -z-10" />
         <CardContent className="p-0">
           <h3 className="text-xl font-bold text-white mb-6 flex items-center">
-            <BarChart3 className="w-5 h-5 mr-2 text-cyan-400" />
+            <BarChart3 className="w-5 h-5 mr-2 text-gray-400" />
             Payment Solutions Comparison
           </h3>
           <div className="h-[350px] w-full">
@@ -272,7 +272,7 @@ const ComparisonTable = () => {
               <thead>
                 <tr className="border-b border-gray-700">
                   <th className="py-3 px-4 text-left text-gray-300 font-medium">Feature</th>
-                  <th className="py-3 px-4 text-left text-cyan-400 font-medium">RecurX</th>
+                  <th className="py-3 px-4 text-left text-gray-800 font-medium">RecurX</th>
                   <th className="py-3 px-4 text-left text-purple-400 font-medium">Decentralized</th>
                   <th className="py-3 px-4 text-left text-rose-400 font-medium">Traditional</th>
                 </tr>
@@ -281,7 +281,7 @@ const ComparisonTable = () => {
                 {comparisonTableData.map((row, index) => (
                   <motion.tr key={index} className="border-b border-gray-800 hover:bg-gray-800/50 transition-colors" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: 0.05 * index }}>
                     <td className="py-3 px-4 text-white font-medium">{row.feature}</td>
-                    <td className="py-3 px-4 text-cyan-300">{row.recurx}</td>
+                    <td className="py-3 px-4 text-gray-800">{row.recurx}</td>
                     <td className="py-3 px-4 text-gray-300">{row.decentralized}</td>
                     <td className="py-3 px-4 text-gray-300">{row.traditional}</td>
                   </motion.tr>
@@ -338,7 +338,7 @@ const PricingTable = ({ type }) => {
           <div className="absolute inset-0 bg-grid-white/[0.02] -z-10" />
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 -z-10" />
           <h3 className="text-xl font-bold text-white mb-4 flex items-center">
-            <Coins className="w-5 h-5 mr-2 text-cyan-400" />
+            <Coins className="w-5 h-5 mr-2 text-gray-800" />
             Supported Currencies
           </h3>
           <div className="grid grid-cols-3 gap-3">
@@ -351,7 +351,7 @@ const PricingTable = ({ type }) => {
             ))}
           </div>
         </motion.div>
-        <motion.div className={`${isRecurx ? "bg-gradient-to-br from-cyan-600/90 to-blue-700/90" : "bg-gradient-to-br from-gray-900 to-gray-800"} rounded-2xl p-6 shadow-xl border ${isRecurx ? "border-cyan-500" : "border-gray-700"} backdrop-blur-md md:col-span-2 relative overflow-hidden`} whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
+        <motion.div className={`${isRecurx ? "bg-gradient-to-br from-gray-800/90 to-blue-700/90" : "bg-gradient-to-br from-gray-900 to-gray-800"} rounded-2xl p-6 shadow-xl border ${isRecurx ? "border-cyan-500" : "border-gray-700"} backdrop-blur-md md:col-span-2 relative overflow-hidden`} whileHover={{ scale: 1.01 }} transition={{ duration: 0.2 }}>
           {isRecurx && (
             <motion.div className="absolute top-3 right-3 bg-white text-cyan-600 px-3 py-1 rounded-full text-sm font-bold flex items-center" initial={{ scale: 0.9 }} animate={{ scale: [0.9, 1.1, 1] }} transition={{ duration: 0.5, times: [0, 0.5, 1] }}>
               <Star className="w-4 h-4 mr-1 fill-amber-400 stroke-amber-400" />
@@ -417,7 +417,7 @@ const PricingTable = ({ type }) => {
                   <AlertCircle className="w-5 h-5 mr-2 text-amber-400" />
                   Why Consider RecurX Instead?
                 </h3>
-                <motion.button className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-lg font-medium flex items-center" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <motion.button className="bg-gradient-to-r from-gray-800 to-blue-600 text-white px-4 py-2 rounded-lg font-medium flex items-center" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   Switch to RecurX
                   <ChevronRight className="ml-1 w-4 h-4" />
                 </motion.button>
