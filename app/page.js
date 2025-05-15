@@ -315,7 +315,7 @@ export default function Page() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="flex-1 relative hidden lg:block"
+            className="flex-1 relative "
           >
             <div className="relative w-full h-[500px]">
              
@@ -338,7 +338,7 @@ export default function Page() {
     >
       <button
         disabled
-        className="bg-gray-600 text-white px-6 py-3 rounded-xl text-base font-medium cursor-not-allowed opacity-50"
+        className="bg-gray-600 text-white px-6 py-3 mt-6 rounded-xl text-base font-medium cursor-not-allowed opacity-50"
       >
         Launching soon
       </button>
@@ -386,7 +386,7 @@ export default function Page() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.7 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+          className=" transform  flex flex-col items-center"
         >
           <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
           <motion.div
