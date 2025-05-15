@@ -15,7 +15,7 @@ export function WaitlistSignup() {
   const [waitlistCount, setWaitlistCount] = useState(0)
 
   useEffect(() => {
-    getWaitlistCount().then((count) => setWaitlistCount(count + 100))
+    getWaitlistCount().then((count) => setWaitlistCount(count + 1000))
   }, [])
 
   const handleSuccess = (count) => {

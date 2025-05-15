@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
-import { motion } from "framer-motion"
-import { ArrowRight, Shield, RefreshCw, Star } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowRight, Shield, RefreshCw, Zap, Globe, Lock, CreditCard } from "lucide-react"
 import FeatureComponent from "@/components/FeatureComponent"
-import Docs from "@/components/Docs"
 import InfiniteMovingCards from "@/components/InfiniteMovingCards"
 import SupportedTokens from "@/components/SupportedTokens"
 import TawkMessengerReact from "@tawk.to/tawk-messenger-react"
+import TokenDisplay from "@/components/token-display"
+// Docs component removed as requested
 const randomDecimal = () => (Math.random() * 0.99 + 0.01).toFixed(2)
 
 const particlesAnimationArray = [
@@ -63,6 +63,23 @@ const particlesAnimationArray = [
 export default function Page() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [activeFeature, setActiveFeature] = useState(0)
+  const [isVisible, setIsVisible] = useState(true)
+
+  const features = ["Decentralized Payments", "Zero Transaction Fees", "Blockchain Security", "Multi-chain Support"]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsVisible(false)
+      setTimeout(() => {
+        setActiveFeature((prev) => (prev + 1) % features.length)
+        setIsVisible(true)
+      }, 500)
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [features.length])
+
   useEffect(() => {
     const script = document.createElement("script")
     script.src = "https://embed.tawk.to/67e50a774040b31908c84848/default"
@@ -133,102 +150,257 @@ export default function Page() {
           widgetId="1injsi3ti"
         />
       </div>
-      {/* Subtle animated background gradient */}
+
+      {/* Enhanced animated background with multiple layers */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0 opacity-30"
         style={{
-          background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.3) 0%, rgba(16, 185, 129, 0.1) 25%, transparent 50%)`,
+          background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.4) 0%, rgba(16, 185, 129, 0.2) 25%, transparent 50%)`,
           transition: "background 0.3s ease",
         }}
       />
 
-      {/* Simplified grid pattern overlay */}
-      <div className="absolute inset-0 opacity-5">
+      {/* Animated grid pattern overlay */}
+      <div className="absolute inset-0 opacity-10">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
+            <pattern id="smallGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="white" strokeWidth="0.5" />
+            </pattern>
             <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="0.5" />
+              <rect width="80" height="80" fill="url(#smallGrid)" />
+              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="1" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
       </div>
 
-      
-      {/* <Particles count={12} /> */}
-
-      {/* Safe Payment Animations */}
-      {/* <SafePaymentAnimation /> */}
-      {/* <FloatingTransactions /> */}
+      {/* Floating particles */}
+      {/* <FloatingParticles /> */}
 
       {/* Hero Section */}
       <header className="container mx-auto px-4 py-20 relative z-10">
-        <div className="flex justify-end">
-          {" "}
-          <SecurePaymentBadge />
-        </div>
-        <div className="flex flex-col items-center justify-center min-h-[70vh] text-center">
-          {/* Logo/Brand */}
+        
 
+        <div className="flex flex-col lg:flex-row items-center justify-between mt-16 md:mt-24 gap-8 md:gap-12">
+          {/* Left side content */}
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
+            transition={{ duration: 0.7 }}
+            className="flex-1 max-w-2xl"
           >
-            <div className="inline-block p-3 bg-blue-600/20 rounded-full">
-              <RefreshCw size={32} className="text-blue-400" />
+            {/* Logo/Brand */}
+           
+
+            {/* Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 tracking-tight leading-[1.1]"
+            >
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
+                RecurX
+              </span>
+              <br />
+              <span className="text-white">The Future of</span>
+              <br />
+              <AnimatePresence mode="wait">
+                {isVisible && (
+                  <motion.span
+                    key={activeFeature}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.5 }}
+                    className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-emerald-400"
+                  >
+                    {features[activeFeature]}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </motion.h1>
+
+            {/* Tagline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-xl text-gray-300 mb-8 leading-relaxed"
+            >
+              Create and manage your payments with RecurX, with
+              <span className="relative inline-block mx-1">
+                <span className="font-extrabold text-white">0% Transaction fee</span>
+                <motion.span
+                  className="absolute -bottom-1 left-0 w-full h-[2px] bg-gradient-to-r from-blue-500 to-emerald-400"
+                  initial={{ width: 0 }}
+                  animate={{ width: "100%" }}
+                  transition={{ delay: 1, duration: 0.8 }}
+                />
+              </span>
+              powered by blockchain technology.
+            </motion.p>
+
+            {/* Feature bullets */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="mb-8 space-y-3"
+            >
+              <FeatureBullet
+                icon={<Shield className="h-4 w-4 text-emerald-400" />}
+                text="Enterprise-grade security with blockchain technology"
+              />
+              <FeatureBullet
+                icon={<Zap className="h-4 w-4 text-yellow-400" />}
+                text="Lightning-fast transactions across multiple chains"
+              />
+              <FeatureBullet
+                icon={<Globe className="h-4 w-4 text-blue-400" />}
+                text="Global payments with no borders or limitations"
+              />
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.8 }}
+              className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto"
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" }}
+                whileTap={{ scale: 0.95 }}
+                className="relative group"
+              >
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                <Link
+                  href="/wait-list"
+                  className="relative flex items-center justify-center gap-2 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-lg transition-all duration-300 text-base sm:text-lg font-medium w-full sm:w-auto"
+                >
+                  Join the Waitlist
+                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                </Link>
+              </motion.div>
+
+              {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/documentation"
+                  className="flex items-center justify-center gap-2 bg-transparent   text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 text-base sm:text-lg font-medium w-full sm:w-auto"
+                >
+                  <span>View Documentation</span>
+                </Link>
+              </motion.div> */}
+            </motion.div>
+
+            {/* Trust indicators */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2, duration: 0.7 }}
+              className="mt-10 flex items-center gap-2"
+            >
+              
+              <div className="text-sm text-gray-400">
+                Trusted by <span className="text-blue-400 font-medium">1,000+</span> Merchants worldwide
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right side - 3D visualization */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="flex-1 relative hidden lg:block"
+          >
+            <div className="relative w-full h-[500px]">
+              {/* Glowing orb in the center */}
+              {/* <span>RecurX Token</span> */}
+              <motion.h2
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.6 }}
+      className="text-2xl md:text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-emerald-400"
+    >
+      Buy Token and Get Real Life Rewards
+    </motion.h2>
+              <TokenDisplay />
+             
+              <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.8 }}
+      className="flex justify-center mt-4"
+    >
+      <button
+        disabled
+        className="bg-gray-600 text-white px-6 py-3 rounded-xl text-base font-medium cursor-not-allowed opacity-50"
+      >
+        Get Your First Token
+      </button>
+    </motion.div>
+
+              {/* Connection lines */}
+              <svg className="absolute inset-0 w-full h-full" style={{ zIndex: -1 }}>
+                <motion.path
+                  d="M200,250 C250,150 350,150 400,250"
+                  stroke="url(#blueGradient)"
+                  strokeWidth="1"
+                  fill="none"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 0.5 }}
+                  transition={{ duration: 2, delay: 1 }}
+                />
+                <motion.path
+                  d="M200,250 C150,350 250,350 400,250"
+                  stroke="url(#purpleGradient)"
+                  strokeWidth="1"
+                  fill="none"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 0.5 }}
+                  transition={{ duration: 2, delay: 1.5 }}
+                />
+                <defs>
+                  <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
+                    <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.2" />
+                  </linearGradient>
+                  <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.2" />
+                    <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.8" />
+                    <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.2" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </div>
           </motion.div>
-
-          {/* Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-5xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight text-blue-600"
-            style={{
-              background: "linear-gradient(to right, #3b82f6, #8b5cf6, #10b981)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            RecurX
-          </motion.h1>
-
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl mx-auto"
-          >
-            Create and manage your payments with Recurx,with<br /> 
-            <span className="font-extrabold"> 0% Transaction fee</span>, powered by blockchain technology.
-          </motion.p>
-
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {/* <Link
-              href="/signin"
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all duration-300 text-lg font-medium flex items-center gap-2"
-            >
-              Get Started <ArrowRight size={18} />
-            </Link> */}
-            <Link
-              href="/wait-list"
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl shadow-lg shadow-blue-600/20 transition-all duration-300 text-lg font-medium flex items-center gap-2"
-            >
-              Join the Waitlist <ArrowRight size={18} />
-            </Link>
-          </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.7 }}
+          className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        >
+          <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+            className="w-6 h-10 rounded-full border-2 border-gray-500 flex items-center justify-center"
+          >
+            <motion.div
+              animate={{ height: [5, 10, 5] }}
+              transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+              className="w-1 bg-blue-500 rounded-full"
+            />
+          </motion.div>
+        </motion.div>
       </header>
 
       {/* Features Section */}
@@ -259,7 +431,6 @@ export default function Page() {
       </section>
 
       {/* Supported Coin Section */}
-
       <section className="container mx-auto px-4 py-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -295,118 +466,105 @@ export default function Page() {
       </div>
 
       {/* Feature Component */}
-
       <FeatureComponent />
-      <Docs />
     </div>
   )
 }
 
-// Feature Card Component
-/**
- * @param {Object} props
- * @param {React.ReactNode} props.icon
- * @param {string} props.title
- * @param {string} props.description
- * @param {number} props.delay
- */
-function FeatureCard({ icon, title, description, delay }) {
+function FeatureBullet({ icon, text }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
-      className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 hover:border-blue-600/50 transition-all duration-300 flex flex-col items-center text-center"
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="flex items-center gap-2 md:gap-3"
     >
-      <div className="p-3 bg-blue-900/20 rounded-full w-fit mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-3 text-white">{title}</h3>
-      <p className="text-gray-400">{description}</p>
+      <div className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-blue-900/50 flex items-center justify-center">
+        {icon}
+      </div>
+      <span className="text-gray-300 text-sm md:text-base">{text}</span>
     </motion.div>
   )
 }
 
-// Review Card Component
-/**
- * @param {Object} props
- * @param {string} props.name
- * @param {string} props.role
- * @param {number} props.rating
- * @param {string} props.review
- * @param {string} props.image
- * @param {number} props.delay
- */
-function ReviewCard({ name, role, rating, review, image, delay }) {
+// Orbiting Element Component
+function OrbitingElement({ icon, size, distance, duration, delay, label }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-      className="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 hover:border-blue-600/20 transition-all duration-300"
+      className="absolute top-1/2 left-1/2"
+      initial={{ rotate: delay * 18 }}
+      animate={{ rotate: [delay * 18, delay * 18 + 360] }}
+      transition={{ duration, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+      style={{ width: distance * 2, height: distance * 2, marginLeft: -distance, marginTop: -distance }}
     >
-      <div className="flex items-center gap-1 mb-4">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Star key={i} size={18} className={i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-600"} />
-        ))}
-      </div>
-      <p className="text-gray-300 mb-6 italic">&quot;{review}&quot;</p>
-      <div className="flex items-center gap-4">
-        <Image src={image || "/placeholder.svg"} width={50} height={50} alt={name} className="rounded-full" />
-        <div>
-          <h4 className="font-medium text-white">{name}</h4>
-          <p className="text-sm text-gray-400">{role}</p>
+      <motion.div
+        className="absolute"
+        style={{
+          width: size,
+          height: size,
+          borderRadius: "50%",
+          top: "50%",
+          left: distance - size / 2,
+          marginTop: -size / 2,
+        }}
+        whileHover={{ scale: 1.2 }}
+      >
+        <div className="w-full h-full rounded-full bg-gray-900/80 backdrop-blur-md border border-gray-700 flex flex-col items-center justify-center">
+          {icon}
+          <span className="text-xs mt-1 text-gray-300">{label}</span>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   )
 }
 
-// Animated Particles Component - Simplified
-/** @param {{ count?: number }} props */
-function Particles({ count = 20 }) {
-  // Use empty array initially and calculate values on client side only
-  const [particles, setParticles] = useState([])
-
-  useEffect(() => {
-    // Initialize particles only on client side
-    const windowWidth = window.innerWidth
-    const windowHeight = window.innerHeight
-
-    const particlesArray = Array.from({ length: count }).map((_, i) => ({
-      id: i,
-      size: Math.random() * 20 + 5,
-      initialX: Math.random() * windowWidth,
-      initialY: Math.random() * windowHeight,
-      duration: Math.random() * 15 + 15,
-    }))
-
-    setParticles(particlesArray)
-  }, [count])
-
+// Floating Transaction Card
+function FloatingTransactionCard({ amount, status, top, left, delay }) {
   return (
-    <div className="absolute inset-0 overflow-hidden">
-      {particles.map((particle) => (
+    <motion.div
+      className="absolute bg-gray-900/70 backdrop-blur-md border border-gray-800 rounded-lg p-3 shadow-lg w-40"
+      style={{ top, left }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, duration: 0.7 }}
+    >
+      <div className="flex items-center justify-between mb-2">
+        <div className="text-sm font-medium text-gray-300">Payment</div>
+        <div className="w-2 h-2 rounded-full bg-green-500"></div>
+      </div>
+      <div className="text-lg font-bold text-white mb-1">{amount}</div>
+      <div className="text-xs text-green-400">{status}</div>
+    </motion.div>
+  )
+}
+
+// Floating Particles
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(20)].map((_, i) => (
         <motion.div
-          key={particle.id}
-          className="absolute rounded-full bg-blue-600/10"
+          key={i}
+          className="absolute rounded-full bg-blue-500/10"
           initial={{
-            x: particle.initialX,
-            y: particle.initialY,
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
             scale: Math.random() * 0.5 + 0.5,
           }}
           animate={{
-            x: [particle.initialX, particle.initialX + (Math.random() * 150 - 75), particle.initialX],
-            y: [particle.initialY, particle.initialY + (Math.random() * 150 - 75), particle.initialY],
-            opacity: [0.1, 0.2, 0.1],
+            x: [null, Math.random() * window.innerWidth],
+            y: [null, Math.random() * window.innerHeight],
+            opacity: [0.1, 0.3, 0.1],
           }}
           transition={{
-            duration: particle.duration,
+            duration: Math.random() * 20 + 10,
             repeat: Number.POSITIVE_INFINITY,
             ease: "linear",
+            repeatType: "reverse",
           }}
           style={{
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
+            width: `${Math.random() * 20 + 5}px`,
+            height: `${Math.random() * 20 + 5}px`,
           }}
         />
       ))}
@@ -414,232 +572,7 @@ function Particles({ count = 20 }) {
   )
 }
 
-// Safe Payment Animation Component
-function SafePaymentAnimation() {
-  return (
-    <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-      <motion.div
-        className="relative"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7 }}
-      >
-        {/* Outer security ring */}
-        <motion.div
-          className="absolute inset-0 rounded-full border-4 border-blue-500/30"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.5, 0.8, 0.5],
-            borderColor: ["rgba(59, 130, 246, 0.3)", "rgba(16, 185, 129, 0.3)", "rgba(59, 130, 246, 0.3)"],
-          }}
-          transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-        />
-
-        {/* Inner security pulse */}
-        <motion.div
-          className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-600/20 to-emerald-500/20 flex items-center justify-center"
-          animate={{
-            boxShadow: [
-              "0 0 0 0 rgba(59, 130, 246, 0.4)",
-              "0 0 0 10px rgba(59, 130, 246, 0)",
-              "0 0 0 0 rgba(59, 130, 246, 0.4)",
-            ],
-          }}
-          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-        >
-          <Shield size={40} className="text-blue-400" />
-        </motion.div>
-
-        {/* Orbiting elements */}
-        <PaymentOrbitingElement
-          icon={
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            >
-              💳
-            </motion.div>
-          }
-          delay={0}
-          duration={8}
-          distance={70}
-        />
-        <PaymentOrbitingElement
-          icon={
-            <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
-              🔒
-            </motion.div>
-          }
-          delay={2}
-          duration={8}
-          distance={70}
-        />
-        <PaymentOrbitingElement
-          icon={
-            <motion.div
-              animate={{ opacity: [0.7, 1, 0.7] }}
-              transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-            >
-              ⚡
-            </motion.div>
-          }
-          delay={4}
-          duration={8}
-          distance={70}
-        />
-        <PaymentOrbitingElement
-          icon={
-            <motion.div
-              animate={{ rotate: -360 }}
-              transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            >
-              🛡️
-            </motion.div>
-          }
-          delay={6}
-          duration={8}
-          distance={70}
-        />
-      </motion.div>
-    </div>
-  )
-}
-
-// Orbiting Element for Payment Animation
-function PaymentOrbitingElement({ icon, delay, duration, distance }) {
-  return (
-    <motion.div
-      className="absolute flex items-center justify-center w-10 h-10 rounded-full bg-gray-900/80 backdrop-blur-sm border border-gray-700 shadow-lg"
-      initial={{ rotate: delay * 45 }}
-      animate={{
-        rotate: [delay * 45, delay * 45 + 360],
-      }}
-      transition={{
-        duration,
-        repeat: Number.POSITIVE_INFINITY,
-        ease: "linear",
-        delay: 0,
-      }}
-      style={{
-        transformOrigin: "center center",
-        left: "calc(50% - 20px)",
-        top: "calc(50% - 20px)",
-        translate: `${distance}px 0`,
-      }}
-    >
-      {icon}
-    </motion.div>
-  )
-}
-
-// Floating Transaction Animation
-// function FloatingTransactions() {
-//   const [windowDimensions, setWindowDimensions] = useState({ width: 0, height: 0 })
-
-//   useEffect(() => {
-//     // Set initial dimensions
-//     updateDimensions()
-
-//     // Add debounced resize listener
-//     let timeoutId = null
-
-//     function handleResize() {
-//       clearTimeout(timeoutId)
-//       timeoutId = setTimeout(updateDimensions, 200)
-//     }
-
-//     function updateDimensions() {
-//       setWindowDimensions({
-//         width: window.innerWidth,
-//         height: window.innerHeight,
-//       })
-//     }
-
-//     window.addEventListener("resize", handleResize)
-
-//     // Clean up
-//     return () => {
-//       clearTimeout(timeoutId)
-//       window.removeEventListener("resize", handleResize)
-//     }
-//   }, [])
-
-//   // Early return if dimensions aren't set yet
-//   if (windowDimensions.width === 0) return null
-
-//   return (
-//     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-//       {particlesAnimationArray.map((item, i) => (
-//         <motion.div
-//           key={i}
-//           className="absolute flex items-center gap-2 bg-gray-900/40 backdrop-blur-sm p-2 rounded-lg border border-gray-800 shadow-lg will-change-transform"
-//           style={{
-//             willChange: "transform, opacity",
-//             translateZ: 0,
-//           }}
-//           initial={{
-//             x: Math.random() < 0.5 ? -100 : windowDimensions.width + 100,
-//             y: 50 + Math.random() * (windowDimensions.height - 200),
-//             opacity: 0,
-//           }}
-//           animate={{
-//             x: Math.random() < 0.5 ? windowDimensions.width + 100 : -100,
-//             opacity: [0, 1, 1, 0],
-//           }}
-//           transition={{
-//             duration: 10 + Math.random() * 15,
-//             delay: Math.random() * 5, // Add randomized delays
-//             repeat: Number.POSITIVE_INFINITY,
-//             ease: "linear",
-//             repeatDelay: Math.random() * 2,
-//           }}
-//         >
-//           <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
-//             <motion.div
-//               animate={{ scale: [1, 1.2, 1] }}
-//               transition={{
-//                 duration: 2,
-//                 repeat: Number.POSITIVE_INFINITY,
-//                 ease: "easeInOut",
-//               }}
-//             >
-//               <Image src={item.img || "/placeholder.svg"} alt="Crypto Icon" height={100} width={100} />
-//             </motion.div>
-//           </div>
-//           <div className="text-xs">
-//             <div className="text-white font-medium">
-//               Payment {item.amt || 0.01} {item.uint.toUpperCase()}
-//             </div>
-//             <div className="text-green-400">✓ Secured</div>
-//           </div>
-//         </motion.div>
-//       ))}
-//     </div>
-//   )
-// }
-
 // Secure Payment Badge
-function SecurePaymentBadge() {
-  return (
-    <motion.div
-      className="bg-gray-900/50 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-800 flex items-center gap-2"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1, duration: 0.5 }}
-    >
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          color: ["#3b82f6", "#10b981", "#3b82f6"],
-        }}
-        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY }}
-      >
-        <Shield size={20} className="text-blue-400" />
-      </motion.div>
-      <span className="text-sm font-medium text-white">100% Secure Payments</span>
-    </motion.div>
-  )
-}
 
 // Blockchain Element - Simplified
 function BlockchainElement() {

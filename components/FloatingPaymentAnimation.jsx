@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Plus, Minus, CreditCard, RefreshCw, QrCode, Globe } from "lucide-react"
-import FeatureQr from "./ui/FeatureQr"
 
 const FeatureComponent = () => {
   const [openItem, setOpenItem] = useState("links")
@@ -320,12 +319,12 @@ function QrPaymentCard() {
           <p className="text-sm text-gray-400">Amount: 50 USDT</p>
         </div>
 
-        <div className="relative mx-auto w-64 h-64 bg-transparent p-2 rounded-lg mb-4">
+        <div className="relative mx-auto w-64 h-64 bg-white p-2 rounded-lg mb-4">
           {!isComplete ? (
             <>
               <div className="w-full h-full relative">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <FeatureQr className="w-48 h-48 text-black" />
+                  <QrCode className="w-48 h-48 text-black" />
                 </div>
 
                 {isScanning && (
@@ -424,7 +423,7 @@ function PaymentLinksCard() {
               <span className="font-medium">Product Purchase</span>
               <span className="text-sm text-blue-400">Active</span>
             </div>
-            <div className="text-sm text-gray-400 mb-3">https://recurx.xyz/pay/prod-12345</div>
+            <div className="text-sm text-gray-400 mb-3">https://recurx.io/pay/prod-12345</div>
             <div className="flex justify-between items-center text-sm">
               <span>100 USDT</span>
               <button className="text-xs bg-blue-600/20 text-blue-400 px-2 py-1 rounded">Copy Link</button>
@@ -436,7 +435,7 @@ function PaymentLinksCard() {
               <span className="font-medium">Donation</span>
               <span className="text-sm text-blue-400">Active</span>
             </div>
-            <div className="text-sm text-gray-400 mb-3">https://recurx.xyz/pay/donate-67890</div>
+            <div className="text-sm text-gray-400 mb-3">https://recurx.io/pay/donate-67890</div>
             <div className="flex justify-between items-center text-sm">
               <span>Any amount</span>
               <button className="text-xs bg-blue-600/20 text-blue-400 px-2 py-1 rounded">Copy Link</button>
