@@ -183,7 +183,7 @@ export default function Page() {
       <header className="container mx-auto px-4 py-20 relative z-10">
         
 
-        <div className="flex flex-col lg:flex-row items-center justify-between mt-16 md:mt-24 gap-8 md:gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between ml:20 mt-10 md:mt-24 gap-8 md:gap-12">
           {/* Left side content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -318,8 +318,8 @@ export default function Page() {
             className="flex-1 relative hidden lg:block"
           >
             <div className="relative w-full h-[500px]">
-              {/* Glowing orb in the center */}
-              {/* <span>RecurX Token</span> */}
+             
+             
               <motion.h2
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -340,7 +340,7 @@ export default function Page() {
         disabled
         className="bg-gray-600 text-white px-6 py-3 rounded-xl text-base font-medium cursor-not-allowed opacity-50"
       >
-        Get Your First Token
+        Launching soon
       </button>
     </motion.div>
 
