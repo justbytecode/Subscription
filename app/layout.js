@@ -7,6 +7,7 @@ import Provider from "@/components/Provider";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import { ToastProvider } from "@/components/ui/toast";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default async function RootLayout({ children }) {
         <ToastContainer />
         {!session && <Navbar />}
         {children}
+        <Analytics/>
         {!session && <Footer />}
        </Provider>
        </ToastProvider>
