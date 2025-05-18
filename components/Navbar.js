@@ -92,6 +92,7 @@ export default function Navbar() {
           className="md:hidden border-t border-gray-800 backdrop-blur-lg max-h-screen"
         >
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4 font-medium h-[100vh]">
+              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/airdrop">Airdrop</MobileNavLink>
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/product">Product</MobileNavLink>
               {/* <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/documentation">Documentation</MobileNavLink> */}
               <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/pricing">Pricing</MobileNavLink>
