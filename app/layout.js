@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import { ToastProvider } from "@/components/ui/toast";
 import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default async function RootLayout({ children }) {
         {!session && <Navbar />}
         {children}
         <Analytics/>
+        <SpeedInsights/>
         {!session && <Footer />}
        </Provider>
        </ToastProvider>
