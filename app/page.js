@@ -288,10 +288,10 @@ export default function Page() {
 
               {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
-                  href="/documentation"
+                  href="/airdrop"
                   className="flex items-center justify-center gap-2 bg-transparent   text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 text-base sm:text-lg font-medium w-full sm:w-auto"
                 >
-                  <span>View Documentation</span>
+                  <span> Token Air Drop</span>
                 </Link>
               </motion.div> */}
             </motion.div>
@@ -336,12 +336,14 @@ export default function Page() {
       transition={{ duration: 0.7, delay: 0.8 }}
       className="flex justify-center mt-4"
     >
-      <button
-        disabled
-        className="bg-gray-600 text-white px-6 py-3 mt-6 rounded-xl text-base font-medium cursor-not-allowed opacity-50"
+      <Link href="/wait-list">
+       <button
+        
+        className="bg-black text-white px-6 py-3 rounded-xl text-base font-medium  opacity-50"
       >
-        Launching soon
+        Get Your Token 
       </button>
+      </Link>
     </motion.div>
 
               {/* Connection lines */}

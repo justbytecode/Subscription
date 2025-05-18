@@ -50,8 +50,9 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center space-x-8">
             <div className="flex-1"></div>
             <div className="flex items-center space-x-8">
+              <NavLink href="/airdrop">Airdrop</NavLink>
               <NavLink href="/product">Product</NavLink>
-              {/* <NavLink href="/documentation">Documentation</NavLink> */}
+              
               <NavLink href="/pricing">Pricing</NavLink>
               <NavLink href="/career">Career</NavLink>
               {/* <NavLink href="/blogs">Blogs</NavLink> */}
