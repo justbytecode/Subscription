@@ -180,7 +180,7 @@ export default function Page() {
       {/* <FloatingParticles /> */}
 
       {/* Hero Section */}
-      <header className="container mx-auto px-4 py-20 relative z-10">
+      <header className="container mx-auto px-[5%] py-20 relative z-10">
         
 
         <div className="flex flex-col lg:flex-row items-center justify-between ml:20 mt-10 md:mt-24 gap-8 md:gap-12">
