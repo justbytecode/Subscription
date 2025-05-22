@@ -112,7 +112,7 @@ const ContactUs = () => {
                     </div>
                     <div>
                       <h4 className="mb-1 text-xl font-bold text-white">Email Address</h4>
-                      <p className="text-base text-gray-400">{"<RecurXEmail>"}</p>
+                      <p className="text-base text-gray-400">{"contact@recurx.xyz"}</p>
                     </div>
                   </motion.div>
                 </div>
