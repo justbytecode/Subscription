@@ -2,24 +2,26 @@ import React from "react";
 import { Instagram, Twitter, Facebook, Youtube, X, FacebookIcon, YoutubeIcon } from "lucide-react";
 import { InstagramLogoIcon } from "@radix-ui/react-icons";
 import { URLS } from "../Constant";
+import { LinkedInIcon } from "../icons/linkedin-icon";
+import { XIcon } from "../icons/x-icon";
 
 const SMBtnContactUs = () => {
   return (
     <div className="flex items-center gap-8 m-auto relative w-full justify-center mb-24">
       {/* Instagram Button */}
-      <SocialButton color="bg-blue-600" borderColor="border-blue-600">
+      {/* <SocialButton color="bg-blue-600" borderColor="border-blue-600">
       <a href={URLS.X_RECURX} target="_blank" rel="noopener noreferrer">
 
 <InstagramLogoIcon className="h-7 w-7 text-white duration-300 font-semibold" />
 </a>
-      </SocialButton>
+      </SocialButton> */}
 
       {/* Twitter/X Button */}
       <SocialButton color="bg-blue-600" borderColor="border-blue-600">
 
       <a href={URLS.X_RECURX} target="_blank" rel="noopener noreferrer">
 
-<X className="h-7 w-7 text-white duration-300 font-semibold" />
+<XIcon className="h-7 w-7 text-white duration-300 font-semibold" />
 </a>
       </SocialButton>
 
@@ -27,18 +29,18 @@ const SMBtnContactUs = () => {
       <SocialButton color="bg-blue-600" borderColor="border-blue-600">
       <a href={URLS.X_RECURX} target="_blank" rel="noopener noreferrer">
 
-        <FacebookIcon className="h-7 w-7 text-white duration-300 font-semibold" />
+        <LinkedInIcon className="h-7 w-7 text-white duration-300 font-semibold" />
       </a>
 
       </SocialButton>
 
       {/* Youtube Button */}
-      <SocialButton color="bg-blue-600" borderColor="border-blue-600">
+      {/* <SocialButton color="bg-blue-600" borderColor="border-blue-600">
 
         <a href={URLS.X_RECURX} target="_blank" rel="noopener noreferrer">
         <YoutubeIcon className="h-7 w-7 text-white duration-300 font-semibold" />
         </a>
-      </SocialButton>
+      </SocialButton> */}
     </div>
   );
 };

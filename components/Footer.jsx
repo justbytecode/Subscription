@@ -3,6 +3,8 @@ import React from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion"
 import { Linkedin, X,  } from 'lucide-react';
 import { URLS } from './Constant';
+import { LinkedInIcon } from './icons/linkedin-icon';
+import { XIcon } from './icons/x-icon';
 
 const Footer = () => {
   return (
@@ -37,10 +39,12 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <a href={URLS.X_RECURX} className="text-white/70 hover:text-white transition-colors">
-            <X size={20} />
+            <XIcon className="h-7 w-7 text-white duration-300 font-semibold" />
+
             </a>
             <a href={URLS.LINKEDIN_RECURX} className="text-white/70 hover:text-white transition-colors cursor-pointer">
-            <Linkedin size={20} />
+            <LinkedInIcon className="h-7 w-7 text-white duration-300 font-semibold" />
+
             </a>
             {/* <a href="#" className="text-white/70 hover:text-white transition-colors">
               <X size={20} />
