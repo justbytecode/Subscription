@@ -39,7 +39,7 @@ const Footer = () => {
             <a href={URLS.X_RECURX} className="text-white/70 hover:text-white transition-colors">
             <X size={20} />
             </a>
-            <a href={URLS.Linkedin} className="text-white/70 hover:text-white transition-colors cursor-pointer">
+            <a href={URLS.LINKEDIN_RECURX} className="text-white/70 hover:text-white transition-colors cursor-pointer">
             <Linkedin size={20} />
             </a>
             {/* <a href="#" className="text-white/70 hover:text-white transition-colors">
