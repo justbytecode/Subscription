@@ -321,28 +321,28 @@ export default function Page() {
              
              
               <motion.h2
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.6 }}
-      className="text-2xl md:text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-emerald-400"
-    >
-      Buy Token and Get Real Life Rewards
-    </motion.h2>
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.6 }}
+                className="text-2xl md:text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-emerald-400"
+              >
+                Buy Token and Get Real Life Rewards
+              </motion.h2>
               <TokenDisplay />
              
               <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.8 }}
-      className="flex justify-center mt-4"
-    >
-      <Link href="/wait-list">
-  <button className=" cursor-pointer bg-gradient-to-r from-indigo-700 via-indigo-600 to-blue-500 hover:from-blue-400 hover:to-blue-400 text-white px-8 py-3 rounded-xl text-base font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300/50 ">
-    Get Your Token
-  </button>
-</Link>
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.8 }}
+                  className="flex justify-center mt-4"
+                >
+                  <Link href="/airdrop">
+                    <button className=" cursor-pointer bg-gradient-to-r from-indigo-700 via-indigo-600 to-blue-500 hover:from-blue-400 hover:to-blue-400 text-white px-8 py-3 rounded-xl text-base font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300/50 ">
+                        Get Your Token
+                    </button>
+                  </Link>
 
-    </motion.div>
+              </motion.div>
 
               {/* Connection lines */}
               <svg className="absolute inset-0 w-full h-full" style={{ zIndex: -1 }}>
