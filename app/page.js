@@ -321,13 +321,15 @@ export default function Page() {
              
              
               <motion.h2
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.6 }}
-                className="text-2xl md:text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-emerald-400"
-              >
-                Buy Token and Get Real Life Rewards
-              </motion.h2>
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.6 }}
+                  className="text-2xl md:text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 drop-shadow-[0_0_10px_rgba(255,215,0,0.5)] animate-pulse"
+                >
+                  {/* slogan goes here */}
+                  Seemless payments for better Future
+            </motion.h2>
+              {/* token goes here  */}
               <TokenDisplay />
              
               <motion.div
