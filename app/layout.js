@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import { ToastProvider } from "@/components/ui/toast";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import FaviconSwitcher from "@/components/FaviconSwitcher";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default async function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
+        <FaviconSwitcher />
         <ToastProvider>
         <ToastContainer/>
         <Provider>
