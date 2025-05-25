@@ -9,7 +9,7 @@ export default function FaviconSwitcher() {
       const favicon = document.querySelector('link[rel="icon"]') || document.createElement('link');
       
       favicon.rel = 'icon';
-      favicon.href = isDark ? '/Recurx_Transparent_dark.ico' : '/Recurx_Transparent_light.ico';
+      favicon.href = isDark ? '/favicon.ico' : '/favicon.ico';
       
       if (!document.querySelector('link[rel="icon"]')) {
         document.head.appendChild(favicon);
