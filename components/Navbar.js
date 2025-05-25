@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -33,7 +34,6 @@ export default function Navbar() {
           ? "bg-black-500 backdrop-blur-sm shadow-sm border-none "
           : "bg-transparent"
       }`}
-      
     >
       <div className="w-full">
         <div className="flex justify-between items-center h-16 md:h-20">
@@ -42,7 +42,14 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold bg-clip-text text-transparent bg-white"
             >
-              RecurX
+              <Image
+                src="/logo_hor_transparent.png"
+                alt="RecurX"
+                width={180}
+                height={70}
+                priority
+                className="object-contain h-12 md:h-16 w-auto"
+              />
             </motion.span>
           </Link>
 
