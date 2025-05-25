@@ -10,6 +10,7 @@ import { ToastProvider } from "@/components/ui/toast";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import FaviconSwitcher from "@/components/FaviconSwitcher";
+import { icons } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "RecurX",
   description: "A Decentralized Subscription Payment Gateway",
+  icons:{
+    icon: "/favicon.ico",
+  }
 };
 
 export default async function RootLayout({ children }) {
