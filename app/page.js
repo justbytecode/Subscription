@@ -1,5 +1,6 @@
 "use client"
-
+import Coin3D from "@/components/Coin3D"
+import { ShieldCheck } from 'lucide-react';
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
@@ -161,7 +162,7 @@ export default function Page() {
       />
 
       {/* Animated grid pattern overlay */}
-      <div className="absolute inset-0 opacity-10">
+      {/* <div className="absolute inset-0 opacity-10">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="smallGrid" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -174,14 +175,37 @@ export default function Page() {
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
-      </div>
+      </div> */}
 
       {/* Floating particles */}
       {/* <FloatingParticles /> */}
 
       {/* Hero Section */}
-      <header className="container mx-auto px-[5%] py-20 relative z-10">
-        
+      <header className="container mx-auto pl-[5%] py-20 relative z-10">
+        {/* SVG Background Layer */}
+           <motion.div 
+              className="hidden lg:block absolute inset-0 bg-[url('/light.svg')] bg-no-repeat bg-contain bg-right pointer-events-none"
+              initial={{ 
+                opacity: 0,
+                filter: "blur(10px) brightness(0.5)",
+                transform: "translateX(5px)"
+              }}
+              animate={{ 
+                opacity: 0.8,
+                filter: "blur(0px) brightness(1)",
+                transform: "translateX(0px) scale(1)"
+              }}
+              transition={{
+                duration: 1.5,
+                delay: 0.3,
+                ease: "easeOut"
+              }}
+              whileHover={{
+                opacity: 1,
+                filter: "blur(0px) brightness(1.2)",
+                transition: { duration: 0.3 }
+              }}
+            />
 
         <div className="flex flex-col lg:flex-row items-center justify-between ml:20 mt-10 md:mt-24 gap-8 md:gap-12">
           {/* Left side content */}
@@ -201,10 +225,18 @@ export default function Page() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 tracking-tight leading-[1.1]"
             >
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
+              {/* <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
                 RecurX
-              </span>
-              <br />
+              </span> */}
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex ">
+                {<ShieldCheck className="h-5.6 w-5.63 text-emerald-400" />}
+                </div>
+                <div className="text-sm text-gray-400  font-normal tracking-wide ">
+                Trusted by <span className="text-blue-400 font-medium">1,000+</span> Merchants worldwide
+                </div>
+              </div>
+              
               <span className="text-white">The Future of</span>
               <br />
               <AnimatePresence mode="wait">
@@ -228,7 +260,7 @@ export default function Page() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-xl text-gray-300 mb-8 leading-relaxed"
+              className="text-xl text-gray-300 mb-8 sm:mb-14 leading-relaxed "
             >
               Create and manage your payments with RecurX, with
               <span className="relative inline-block mx-1">
@@ -243,57 +275,75 @@ export default function Page() {
               powered by blockchain technology.
             </motion.p>
 
-            {/* Feature bullets */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
-              className="mb-8 space-y-3"
-            >
-              <FeatureBullet
-                icon={<Shield className="h-4 w-4 text-emerald-400" />}
-                text="Enterprise-grade security with blockchain technology"
-              />
-              <FeatureBullet
-                icon={<Zap className="h-4 w-4 text-yellow-400" />}
-                text="Lightning-fast transactions across multiple chains"
-              />
-              <FeatureBullet
-                icon={<Globe className="h-4 w-4 text-blue-400" />}
-                text="Global payments with no borders or limitations"
-              />
-            </motion.div>
+            {/* CTA Button - moved to top */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.6 }}
+                className="mb-12 flex justify-start"
+              >
+                <motion.div
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" }}
+                  whileTap={{ scale: 0.95 }}
+                  className="relative group"
+                >
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                  <Link
+                    href="/wait-list"
+                    className="relative flex items-center justify-center gap-2 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-lg transition-all duration-300 text-base sm:text-lg font-medium"
+                  >
+                    Join waitlist
+                    <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </motion.div>
+              </motion.div>
 
-            {/* CTA Buttons */}
+
+          {/* Feature icons in horizontal layout */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full sm:w-auto"
+              className="flex justify-center items-center gap-8 md:gap-12 lg:gap-16"
             >
+              {/* Security Feature */}
               <motion.div
-                whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" }}
-                whileTap={{ scale: 0.95 }}
-                className="relative group"
+                whileHover={{ scale: 1.1 }}
+                className="flex flex-col items-center text-center max-w-xs"
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-                <Link
-                  href="/wait-list"
-                  className="relative flex items-center justify-center gap-2 bg-gradient-to-br from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl shadow-lg transition-all duration-300 text-base sm:text-lg font-medium w-full sm:w-auto"
-                >
-                  Join the Waitlist
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </Link>
+                <div className="bg-emerald-500/20 p-4 rounded-full mb-4 border border-emerald-500/30">
+                  <Shield className="h-6 w-6 text-emerald-400" />
+                </div>
+                <p className="text-white text-sm leading-relaxed">
+                  Enterprise-grade security with blockchain technology
+                </p>
               </motion.div>
 
-              {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Link
-                  href="/airdrop"
-                  className="flex items-center justify-center gap-2 bg-transparent   text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 text-base sm:text-lg font-medium w-full sm:w-auto"
-                >
-                  <span> Token Air Drop</span>
-                </Link>
-              </motion.div> */}
+              {/* Speed Feature */}
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="flex flex-col items-center text-center max-w-xs"
+              >
+                <div className="bg-yellow-500/20 p-4 rounded-full mb-4 border border-yellow-500/30">
+                  <Zap className="h-6 w-6 text-yellow-400" />
+                </div>
+                <p className="text-white text-sm leading-relaxed">
+                  Lightning-fast transactions across multiple chains
+                </p>
+              </motion.div>
+
+              {/* Global Feature */}
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="flex flex-col items-center text-center max-w-xs"
+              >
+                <div className="bg-blue-500/20 p-4 rounded-full mb-4 border border-blue-500/30">
+                  <Globe className="h-6 w-6 text-blue-400" />
+                </div>
+                <p className="text-white text-sm leading-relaxed">
+                  Global payments with no borders or limitations
+                </p>
+              </motion.div>
             </motion.div>
 
             {/* Trust indicators */}
@@ -304,35 +354,39 @@ export default function Page() {
               className="mt-10 flex items-center gap-2"
             >
               
-              <div className="text-sm text-gray-400">
-                Trusted by <span className="text-blue-400 font-medium">1,000+</span> Merchants worldwide
-              </div>
+              
             </motion.div>
           </motion.div>
 
+          
           {/* Right side - 3D visualization */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="flex-1 relative "
+            className="flex-1 relative"
           >
-            <div className="relative w-full h-[500px]">
-             
-             
+           
+            
+            {/* Content Layer */}
+            <div className="relative z-10 w-full h-[500px] flex flex-col justify-center items-center">
               <motion.h2
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.6 }}
-                  className="text-2xl md:text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 drop-shadow-[0_0_10px_rgba(255,215,0,0.5)] animate-pulse"
-                >
-                  {/* slogan goes here */}
-                  Seemless payments for better Future
-            </motion.h2>
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.6 }}
+                className="text-2xl md:text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 drop-shadow-[0_0_10px_rgba(255,215,0,0.5)] animate-pulse"
+              >
+                {/* slogan goes here */}
+                Seamless payments for better Future
+              </motion.h2>
+              
               {/* token goes here  */}
-              <TokenDisplay />
+              {/* <Coin3D /> */}
+              
+              {/* uncomment afterwards coin display*/}
+              {/* <TokenDisplay /> */}
              
-              <motion.div
+              {/* <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.8 }}
@@ -343,11 +397,10 @@ export default function Page() {
                         Get Your Token
                     </button>
                   </Link>
-
-              </motion.div>
+              </motion.div> */}
 
               {/* Connection lines */}
-              <svg className="absolute inset-0 w-full h-full" style={{ zIndex: -1 }}>
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 5 }}>
                 <motion.path
                   d="M200,250 C250,150 350,150 400,250"
                   stroke="url(#blueGradient)"

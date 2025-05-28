@@ -35,60 +35,62 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="w-full">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          <Link href="/" className="flex items-center px-4">
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold bg-clip-text text-transparent bg-white"
-            >
-              <Image
-                src="/logo_hor_transparent.png"
-                alt="RecurX"
-                width={180}
-                height={70}
-                priority
-                className="object-contain h-12 md:h-16 w-auto"
-              />
-            </motion.span>
-          </Link>
+     <div className="w-full px-4">
+  <div className="flex items-center justify-between h-16 md:h-20">
+    {/* Left: Logo */}
+    <div >
+      <Link href="/" className="flex items-center">
+        <motion.span whileHover={{ scale: 1.05 }} className="text-2xl font-bold bg-clip-text text-transparent bg-white">
+          <Image
+            src="/logo_hor_transparent.png"
+            alt="RecurX"
+            width={180}
+            height={70}
+            priority
+            className="object-contain h-12 md:h-16 w-auto lg:ml-35"
+          />
+        </motion.span>
+      </Link>
+    </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <div className="flex-1"></div>
-            <div className="flex items-center space-x-8">
-              <NavLink href="/airdrop">Airdrop</NavLink>
-              <NavLink href="/product">Product</NavLink>
-              
-              <NavLink href="/pricing">Pricing</NavLink>
-              <NavLink href="/career">Career</NavLink>
-              {/* <NavLink href="/blogs">Blogs</NavLink> */}
-              <NavLink href="/team">About us</NavLink>
-              <NavLink href="/contact-us">Contact us</NavLink>
-            </div>
-            <div className="flex-1 flex justify-end mr-5">
-              {/* <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110">
-                <Link href="/signin">Sign In</Link>
-              </Button> */}
-              <Button asChild variant="ghost" className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110">
-                <Link href="/wait-list">Waitlist</Link>
-              </Button>
-            </div>
-          </nav>
+    {/* Center: Navigation */}
+    <div className="hidden md:flex md:items-center md:space-x-6 max-lg:space-x-8  bg-[#1f1c2f] rounded-full px-6 py-2 shadow-lg">
+      <nav className="hidden md:flex flex-1 justify-center items-center space-x-8">
+        <NavLink href="/airdrop" className="text-white">Airdrop</NavLink>
+        <NavLink href="/product" className="text-white">Product</NavLink>
+        <NavLink href="/pricing" className="text-white">Pricing</NavLink>
+        <NavLink href="/career" className="text-white">Career</NavLink>
+        <NavLink href="/team" className="text-white">About us</NavLink>
+        <NavLink href="/contact-us" className="text-white">Contact us</NavLink>
+      </nav>
+    </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-300"
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
-          </div>
-        </div>
-      </div>
+
+    {/* Right: Waitlist Button */}
+    <div className="hidden md:flex justify-end pr-30">
+      <Button
+        asChild
+        variant="ghost"
+        className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110"
+      >
+        <Link href="/wait-list">Waitlist</Link>
+      </Button>
+    </div>
+
+    {/* Mobile Menu Button */}
+    <div className="md:hidden">
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        className="text-gray-300"
+      >
+        {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      </Button>
+    </div>
+  </div>
+</div>
+
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
