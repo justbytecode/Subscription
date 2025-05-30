@@ -10,7 +10,6 @@ import InfiniteMovingCards from "@/components/InfiniteMovingCards"
 import SupportedTokens from "@/components/SupportedTokens"
 import TawkMessengerReact from "@tawk.to/tawk-messenger-react"
 import TokenDisplay from "@/components/token-display"
-import Image from "next/image";
 // Docs component removed as requested
 const randomDecimal = () => (Math.random() * 0.99 + 0.01).toFixed(2)
 
@@ -182,37 +181,34 @@ export default function Page() {
       {/* <FloatingParticles /> */}
 
       {/* Hero Section */}
-      <header className="container mx-auto pl-[5%] py-20 relative z-10">
+      <header className="mx-auto pl-[5%] py-20 relative z-10">
         {/* SVG Background Layer */}
-           {/* <motion.div 
-              className="hidden lg:block absolute inset-0 bg-[url('/light.svg')] bg-no-repeat bg-contain bg-right pointer-events-none"
-              initial={{ 
-                opacity: 0,
-                filter: "blur(10px) brightness(0.5)",
-                transform: "translateX(5px)"
-              }}
-              animate={{ 
-                opacity: 0.8,
-                filter: "blur(0px) brightness(1)",
-                transform: "translateX(0px) scale(1)"
-              }}
-              transition={{
-                duration: 1.5,
-                delay: 0.3,
-                ease: "easeOut"
-              }}
-              whileHover={{
-                opacity: 1,
-                filter: "blur(0px) brightness(1.2)",
-                transition: { duration: 0.3 }
-              }}
-            /> */}
-            <Image
-              src="/light.svg"
-              alt="Background Light"
-              fill
-              className="hidden lg:block object-cover opacity-100 pointer-events-none"
-            />
+        <motion.img
+          src="/light.svg"
+          className="absolute right-0 top-0 z-50"
+          height={1000}
+          width={1000}
+          initial={{ 
+            opacity: 0,
+            filter: "blur(10px) brightness(0.5)",
+            transform: "translateX(5px)"
+          }}
+          animate={{ 
+            opacity: 0.8,
+            filter: "blur(0px) brightness(1)",
+            transform: "translateX(0px) scale(1)"
+          }}
+          transition={{
+            duration: 1.5,
+            delay: 0.3,
+            ease: "easeOut"
+          }}
+          whileHover={{
+            opacity: 1,
+            filter: "blur(0px) brightness(1.2)",
+            transition: { duration: 0.3 }
+          }}
+        />
 
         <div className="flex flex-col lg:flex-row items-center justify-between ml:20 mt-10 md:mt-24 gap-8 md:gap-12">
           {/* Left side content */}
@@ -377,15 +373,15 @@ export default function Page() {
             
             {/* Content Layer */}
             <div className="relative z-10 w-full h-[500px] flex flex-col justify-center items-center">
-              <motion.h2
+              {/* <motion.h2
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.6 }}
                 className="text-2xl md:text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 drop-shadow-[0_0_10px_rgba(255,215,0,0.5)] animate-pulse"
               >
-                {/* slogan goes here */}
                 Seamless payments for better Future
-              </motion.h2>
+              </motion.h2> 
+              */}
               
               {/* token goes here  */}
               {/* <Coin3D /> */}
@@ -444,7 +440,7 @@ export default function Page() {
         </div>
 
         {/* Scroll indicator */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.7 }}
@@ -462,7 +458,7 @@ export default function Page() {
               className="w-1 bg-blue-500 rounded-full"
             />
           </motion.div>
-        </motion.div>
+        </motion.div> */}
       </header>
 
       {/* Features Section */}
