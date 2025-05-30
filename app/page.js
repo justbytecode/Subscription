@@ -10,6 +10,7 @@ import InfiniteMovingCards from "@/components/InfiniteMovingCards"
 import SupportedTokens from "@/components/SupportedTokens"
 import TawkMessengerReact from "@tawk.to/tawk-messenger-react"
 import TokenDisplay from "@/components/token-display"
+import Image from "next/image";
 // Docs component removed as requested
 const randomDecimal = () => (Math.random() * 0.99 + 0.01).toFixed(2)
 
@@ -183,7 +184,7 @@ export default function Page() {
       {/* Hero Section */}
       <header className="container mx-auto pl-[5%] py-20 relative z-10">
         {/* SVG Background Layer */}
-           <motion.div 
+           {/* <motion.div 
               className="hidden lg:block absolute inset-0 bg-[url('/light.svg')] bg-no-repeat bg-contain bg-right pointer-events-none"
               initial={{ 
                 opacity: 0,
@@ -205,6 +206,12 @@ export default function Page() {
                 filter: "blur(0px) brightness(1.2)",
                 transition: { duration: 0.3 }
               }}
+            /> */}
+            <Image
+              src="/light.svg"
+              alt="Background Light"
+              fill
+              className="hidden lg:block object-cover opacity-100 pointer-events-none"
             />
 
         <div className="flex flex-col lg:flex-row items-center justify-between ml:20 mt-10 md:mt-24 gap-8 md:gap-12">
@@ -260,7 +267,7 @@ export default function Page() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-xl text-gray-300 mb-8 sm:mb-14 leading-relaxed "
+              className="text-xl text-gray-300 mb-8 sm:mb-17 leading-relaxed "
             >
               Create and manage your payments with RecurX, with
               <span className="relative inline-block mx-1">
