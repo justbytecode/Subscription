@@ -185,7 +185,7 @@ export default function Page() {
         {/* SVG Background Layer */}
         <motion.img
           src="/light.svg"
-          className="absolute right-0 top-0 z-50"
+          className="absolute right-0 top-0 z-50 max-sm:hidden"
           height={1000}
           width={1000}
           initial={{ 
@@ -303,23 +303,72 @@ export default function Page() {
 
 
           {/* Feature icons in horizontal layout */}
+            {/* large devices */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.8 }}
-              className="flex justify-center items-center gap-8 md:gap-12 lg:gap-16"
+              className="flex   justify-center items-center gap-8 md:gap-12 lg:gap-16 max-sm:hidden"
             >
               {/* Security Feature */}
               <motion.div
                 whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center text-center max-w-xs"
+                className="flex flex-col items-center text-center max-w-[250px] w-full sm:w-auto"
               >
                 <div className="bg-emerald-500/20 p-4 rounded-full mb-4 border border-emerald-500/30">
                   <Shield className="h-6 w-6 text-emerald-400" />
                 </div>
-                <p className="text-white text-sm leading-relaxed">
-                  Enterprise-grade security with blockchain technology
+                <p className="text-white text-sm leading-relaxed ">
+                Enterprise-grade security with blockchain technology
                 </p>
+
+              </motion.div>
+
+              {/* Speed Feature */}
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="flex flex-col items-center text-center max-w-xs"
+              >
+                <div className="bg-yellow-500/20 p-4 rounded-full mb-4 border border-yellow-500/30">
+                  <Zap className="h-6 w-6 text-yellow-400" />
+                </div>
+                <p className="text-white text-sm leading-relaxed">
+                  Lightning-fast transactions across multiple chains
+                </p>
+              </motion.div>
+
+              {/* Global Feature */}
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="flex flex-col items-center text-center max-w-xs"
+              >
+                <div className="bg-blue-500/20 p-4 rounded-full mb-4 border border-blue-500/30">
+                  <Globe className="h-6 w-6 text-blue-400" />
+                </div>
+                <p className="text-white text-sm leading-relaxed">
+                  Global payments with no borders or limitations
+                </p>
+              </motion.div>
+            </motion.div>
+            {/* small devices */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.8 }}
+              className="flex flex-wrap sm:hidden  justify-center items-center gap-8 md:gap-12 lg:gap-16"
+            >
+              {/* Security Feature */}
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="flex flex-col items-center text-center max-w-[250px] w-full sm:w-auto"
+              >
+                <div className="bg-emerald-500/20 p-4 rounded-full mb-4 border border-emerald-500/30">
+                  <Shield className="h-6 w-6 text-emerald-400" />
+                </div>
+                <p className="text-white text-sm leading-relaxed ">
+                Enterprise-grade security with blockchain technology
+                </p>
+
               </motion.div>
 
               {/* Speed Feature */}
@@ -349,7 +398,7 @@ export default function Page() {
               </motion.div>
             </motion.div>
 
-            {/* Trust indicators */}
+            {/* Trust indicators
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -358,7 +407,7 @@ export default function Page() {
             >
               
               
-            </motion.div>
+            </motion.div> */}
           </motion.div>
 
           
@@ -372,7 +421,7 @@ export default function Page() {
            
             
             {/* Content Layer */}
-            <div className="relative z-10 w-full h-[500px] flex flex-col justify-center items-center">
+            <div className="relative z-10 w-full h-[0px] flex flex-col justify-center items-center">
               {/* <motion.h2
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -489,7 +538,7 @@ export default function Page() {
       </section>
 
       {/* Supported Coin Section */}
-      <section className="container mx-auto px-4 py-16 relative z-10">
+      <section className="container mx-auto px-4  relative z-10">
         
         <motion.div
           initial={{ opacity: 0, y: 30 }}

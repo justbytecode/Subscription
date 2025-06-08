@@ -29,68 +29,82 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed z-50 transition-all duration-300 w-full  border-none ${
+      className={`fixed z-50 transition-all duration-300 w-full border-none ${
         isScrolled
-          ? "bg-black-500 backdrop-blur-sm shadow-sm border-none "
+          ? "bg-black/50 backdrop-blur-sm shadow-sm border-none"
           : "bg-transparent"
       }`}
     >
-     <div className="w-full px-4">
-  <div className="flex items-center justify-between h-16 md:h-20">
-    {/* Left: Logo */}
-    <div >
-      <Link href="/" className="flex items-center">
-        <motion.span whileHover={{ scale: 1.05 }} className="text-2xl font-bold bg-clip-text text-transparent bg-white">
-          <Image
-            src="/logo_hor_transparent.png"
-            alt="RecurX"
-            width={180}
-            height={70}
-            priority
-            className="object-contain h-12 md:h-16 w-auto lg:ml-35"
-          />
-        </motion.span>
-      </Link>
-    </div>
+      <div className="w-full px-3 sm:px-4 lg:px-6 xl:px-8">
+        <div className="flex items-center justify-between h-20 sm:h-16 md:h-18 lg:h-20">
+          {/* Left: Logo */}
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center">
+              <motion.span whileHover={{ scale: 1.05 }} className="text-2xl font-bold bg-clip-text text-transparent bg-white">
+                <Image
+                  src="/logo_hor_transparent.png"
+                  alt="RecurX"
+                  width={180}
+                  height={70}
+                  priority
+                  className="object-contain h-13 sm:h-13 md:h-13 lg:h-14 xl:h-16 w-auto"
+                />
+              </motion.span>
+            </Link>
+          </div>
 
-    {/* Center: Navigation */}
-    <div className="hidden md:flex md:items-center md:space-x-6 max-lg:space-x-8  bg-[#1f1c2f] rounded-full px-6 py-2 shadow-lg">
-      <nav className="hidden md:flex flex-1 justify-center items-center space-x-8">
-        <NavLink href="/airdrop" className="text-white">Airdrop</NavLink>
-        <NavLink href="/product" className="text-white">Product</NavLink>
-        <NavLink href="/pricing" className="text-white">Pricing</NavLink>
-        <NavLink href="/career" className="text-white">Career</NavLink>
-        <NavLink href="/team" className="text-white">About us</NavLink>
-        <NavLink href="/contact-us" className="text-white">Contact us</NavLink>
-      </nav>
-    </div>
+          {/* Center: Navigation */}
+          <div className="hidden lg:flex lg:items-center lg:justify-center flex-1 mx-4 xl:mx-8">
+            <div className="bg-[#1f1c2f] rounded-full px-4 xl:px-6 py-2 shadow-lg">
+              <nav className="flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
+                <NavLink href="/airdrop" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Airdrop</NavLink>
+                <NavLink href="/product" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Product</NavLink>
+                <NavLink href="/pricing" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Pricing</NavLink>
+                <NavLink href="/career" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Career</NavLink>
+                <NavLink href="/team" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">About us</NavLink>
+                <NavLink href="/contact-us" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Contact us</NavLink>
+              </nav>
+            </div>
+          </div>
 
+          {/* Medium screens navigation */}
+          <div className="hidden md:flex lg:hidden md:items-center md:justify-center flex-1 mx-2">
+            <div className="bg-[#1f1c2f] rounded-full px-3 py-2 shadow-lg">
+              <nav className="flex items-center space-x-3">
+                <NavLink href="/airdrop" className="text-white text-xs">Airdrop</NavLink>
+                <NavLink href="/product" className="text-white text-xs">Product</NavLink>
+                <NavLink href="/pricing" className="text-white text-xs">Pricing</NavLink>
+                <NavLink href="/career" className="text-white text-xs">Career</NavLink>
+                <NavLink href="/team" className="text-white text-xs">About</NavLink>
+                <NavLink href="/contact-us" className="text-white text-xs">Contact</NavLink>
+              </nav>
+            </div>
+          </div>
 
-    {/* Right: Waitlist Button */}
-    <div className="hidden md:flex justify-end pr-30">
-      <Button
-        asChild
-        variant="ghost"
-        className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110"
-      >
-        <Link href="/wait-list">Waitlist</Link>
-      </Button>
-    </div>
+          {/* Right: Waitlist Button */}
+          <div className="hidden md:flex flex-shrink-0">
+            <Button
+              asChild
+              variant="ghost"
+              className="text-gray-300 hover:text-white hover:bg-blue-600 bg-blue-600 hover:scale-110 text-xs md:text-sm lg:text-base px-3 md:px-4 lg:px-6 py-1 md:py-2"
+            >
+              <Link href="/wait-list">Waitlist</Link>
+            </Button>
+          </div>
 
-    {/* Mobile Menu Button */}
-    <div className="md:hidden">
-      <Button
-        variant="ghost"
-        size="icon"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="text-gray-300"
-      >
-        {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-      </Button>
-    </div>
-  </div>
-</div>
-
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex-shrink-0">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-300 h-8 w-8 sm:h-10 sm:w-10"
+            >
+              {isMobileMenuOpen ? <X className="h-4 w-4 sm:h-5 sm:w-5" /> : <Menu className="h-4 w-4 sm:h-5 sm:w-5" />}
+            </Button>
+          </div>
+        </div>
+      </div>
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
@@ -98,25 +112,32 @@ export default function Navbar() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden border-t border-gray-800 backdrop-blur-lg max-h-screen"
+          className="md:hidden border-t border-gray-800 backdrop-blur-lg"
         >
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4 font-medium h-[100vh]">
-              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/airdrop">Airdrop</MobileNavLink>
-              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/product">Product</MobileNavLink>
-              {/* <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/documentation">Documentation</MobileNavLink> */}
-              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/pricing">Pricing</MobileNavLink>
-              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/career">Career</MobileNavLink>
-              {/* <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/blogs">Blogs</MobileNavLink> */}
-              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/team">About us</MobileNavLink>
-              <MobileNavLink  onClick={() => setIsMobileMenuOpen(false)} href="/contact-us">Contact us</MobileNavLink>
+          <div className="px-3 sm:px-4 py-4 flex flex-col space-y-3 sm:space-y-4 font-medium min-h-screen bg-black/90">
+            <MobileNavLink onClick={() => setIsMobileMenuOpen(false)} href="/airdrop">
+              Airdrop
+            </MobileNavLink>
+            <MobileNavLink onClick={() => setIsMobileMenuOpen(false)} href="/product">
+              Product
+            </MobileNavLink>
+            <MobileNavLink onClick={() => setIsMobileMenuOpen(false)} href="/pricing">
+              Pricing
+            </MobileNavLink>
+            <MobileNavLink onClick={() => setIsMobileMenuOpen(false)} href="/career">
+              Career
+            </MobileNavLink>
+            <MobileNavLink onClick={() => setIsMobileMenuOpen(false)} href="/team">
+              About us
+            </MobileNavLink>
+            <MobileNavLink onClick={() => setIsMobileMenuOpen(false)} href="/contact-us">
+              Contact us
+            </MobileNavLink>
 
             <div className="pt-4 border-t border-gray-800 flex flex-col space-y-3">
-              <Button asChild className="w-full bg-blue-600 text-gray-300 hover:bg-blue-600">
-                {/* <Link href="/signin" onClick={() => setIsMobileMenuOpen(false)}>
-                  Sign In
-                </Link> */}
+              <Button asChild className="w-full bg-blue-600 text-white hover:bg-blue-700 py-3 text-base">
                 <Link href="/wait-list" onClick={() => setIsMobileMenuOpen(false)}>
-                 Waitlist
+                  Waitlist
                 </Link>
               </Button>
             </div>
@@ -127,9 +148,9 @@ export default function Navbar() {
   )
 }
 
-function NavLink({ href, children }) {
+function NavLink({ href, children, className }) {
   return (
-    <Link href={href} className="text-gray-300 hover:text-white transition-colors duration-200">
+    <Link href={href} className={`${className} hover:text-white transition-colors duration-200 whitespace-nowrap`}>
       {children}
     </Link>
   )
@@ -140,10 +161,9 @@ function MobileNavLink({ href, onClick, children }) {
     <Link
       href={href}
       onClick={onClick}
-      className="block py-2 text-gray-300 hover:text-white transition-colors duration-200"
+      className="block py-3 sm:py-4 text-gray-300 hover:text-white transition-colors duration-200 text-base sm:text-lg border-b border-gray-800/50 last:border-b-0"
     >
       {children}
     </Link>
   )
 }
-
