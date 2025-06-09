@@ -7,47 +7,49 @@ import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react"
 // Supported coins data with proper paths
 const supportedCoins = [
   {
-    name: "Bitcoin",
-    symbol: "BTC",
-    path: "/placeholder.svg?height=100&width=100",
-    color: "#F7931A",
-  },
+  name: "Bitcoin",
+  symbol: "BTC",
+  path: "/placeholder.svg?height=100&width=100",
+  color: "#C37000", 
+},
+{
+  name: "Ethereum",
+  symbol: "ETH",
+  path: "/placeholder.svg?height=100&width=100",
+  color: "#3C4CCF", 
+},
+{
+  name: "Tether",
+  symbol: "USDT",
+  path: "/placeholder.svg?height=100&width=100",
+  color: "#1C5F4A",  
+},
+{
+  name: "USD Coin",
+  symbol: "USDC",
+  path: "/placeholder.svg?height=100&width=100",
+  color: "#1B4E9B",
+},
+
   {
-    name: "Ethereum",
-    symbol: "ETH",
-    path: "/placeholder.svg?height=100&width=100",
-    color: "#627EEA",
-  },
-  {
-    name: "Tether",
-    symbol: "USDT",
-    path: "/placeholder.svg?height=100&width=100",
-    color: "#26A17B",
-  },
-  {
-    name: "USD Coin",
-    symbol: "USDC",
-    path: "/placeholder.svg?height=100&width=100",
-    color: "#2775CA",
-  },
-  {
-    name: "Binance Coin",
-    symbol: "BNB",
-    path: "/placeholder.svg?height=100&width=100",
-    color: "#F0B90B",
-  },
-  {
-    name: "Solana",
-    symbol: "SOL",
-    path: "/placeholder.svg?height=100&width=100",
-    color: "#9945FF",
-  },
-  {
-    name: "Cardano",
-    symbol: "ADA",
-    path: "/placeholder.svg?height=100&width=100",
-    color: "#0033AD",
-  },
+  name: "Binance Coin",
+  symbol: "BNB",
+  path: "/placeholder.svg?height=100&width=100",
+  color: "#2A2A2A", 
+},
+{
+  name: "Solana",
+  symbol: "SOL",
+  path: "/placeholder.svg?height=100&width=100",
+  color: "#0D0221",  
+},
+{
+  name: "Cardano",
+  symbol: "ADA",
+  path: "/placeholder.svg?height=100&width=100",
+  color: "#0A0F3C",  
+},
+
   {
     name: "Polkadot",
     symbol: "DOT",
@@ -55,6 +57,17 @@ const supportedCoins = [
     color: "#E6007A",
   },
 ]
+const coinSvgs = {
+  BTC: <img src="/supportedCoins/bitcoin.svg" alt="Bitcoin" className="w-8 h-8" />,
+  ETH: <img src="/supportedCoins/ethereum.svg" alt="Ethereum" className="w-8 h-8" />,
+  USDT: <img src="/supportedCoins/tether.svg" alt="Tether" className="w-8 h-8" />,
+  USDC: <img src="/supportedCoins/usdc.svg" alt="USD Coin" className="w-8 h-8" />,
+  BNB: <img src="/supportedCoins/bnb.svg" alt="Binance Coin" className="w-8 h-8" />,
+  SOL: <img src="/supportedCoins/solana.svg" alt="Solana" className="w-8 h-8" />,
+  ADA: <img src="/supportedCoins/cardano.svg" alt="Cardano" className="w-8 h-8" />,
+  DOT: <img src="/supportedCoins/polkadot.svg" alt="Polkadot" className="w-8 h-8" />,
+};
+
 
 // Token Card Component
 function TokenCard({ coin, isActive }) {
@@ -73,7 +86,14 @@ function TokenCard({ coin, isActive }) {
           className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center"
           style={{ backgroundColor: `${coin.color}40` }}
         >
-          <motion.div
+          <div
+              className="w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center font-bold text-white"
+              style={{ backgroundColor: coin.color }}
+            >
+              {coinSvgs[coin.symbol] || coin.symbol.substring(0, 1)}
+            </div>
+          {/* earlier code */}
+          {/* <motion.div
             animate={{
               scale: [1, 1.1, 1],
               rotate: [0, 5, 0, -5, 0],
@@ -91,7 +111,7 @@ function TokenCard({ coin, isActive }) {
             >
               {coin.symbol.substring(0, 1)}
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
       <h3 className="font-medium text-white">{coin.name}</h3>
@@ -137,32 +157,7 @@ const SupportedTokens = () => {
 
   return (
     <div className="relative py-10 w-full">
-      {/* User controls */}
-      <div className="flex justify-center items-center gap-4 mb-8">
-        <button
-          onClick={handlePrevious}
-          className="p-2 rounded-full bg-blue-900/30 hover:bg-blue-800/50 border border-blue-800/50 transition-colors"
-          aria-label="Previous token"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-
-        <button
-          onClick={togglePause}
-          className="p-2 rounded-full bg-blue-900/30 hover:bg-blue-800/50 border border-blue-800/50 transition-colors"
-          aria-label={isPaused ? "Play" : "Pause"}
-        >
-          {isPaused ? <Play className="h-6 w-6" /> : <Pause className="h-6 w-6" />}
-        </button>
-
-        <button
-          onClick={handleNext}
-          className="p-2 rounded-full bg-blue-900/30 hover:bg-blue-800/50 border border-blue-800/50 transition-colors"
-          aria-label="Next token"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
-      </div>
+      
 
       {/* Mobile view - Grid layout */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:hidden">
@@ -194,6 +189,32 @@ const SupportedTokens = () => {
           </div>
         </div>
       </div>
+      {/* User controls */}
+      <div className="flex justify-center items-center gap-4 mb-8">
+        <button
+          onClick={handlePrevious}
+          className="p-2 rounded-full bg-blue-900/30 hover:bg-blue-800/50 border border-blue-800/50 transition-colors"
+          aria-label="Previous token"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </button>
+{/* this may be uncommented later - subjected to review */}
+        {/* <button
+          onClick={togglePause}
+          className="p-2 rounded-full bg-blue-900/30 hover:bg-blue-800/50 border border-blue-800/50 transition-colors"
+          aria-label={isPaused ? "Play" : "Pause"}
+        >
+          {isPaused ? <Play className="h-6 w-6" /> : <Pause className="h-6 w-6" />}
+        </button> */}
+
+        <button
+          onClick={handleNext}
+          className="p-2 rounded-full bg-blue-900/30 hover:bg-blue-800/50 border border-blue-800/50 transition-colors"
+          aria-label="Next token"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
+      </div>
 
       {/* Token details section */}
       <motion.div
@@ -211,7 +232,8 @@ const SupportedTokens = () => {
               className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white"
               style={{ backgroundColor: supportedCoins[currentIndex].color }}
             >
-              {supportedCoins[currentIndex].symbol.substring(0, 1)}
+              {coinSvgs[supportedCoins[currentIndex].symbol]}
+              
             </div>
           </div>
 
