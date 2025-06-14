@@ -10,6 +10,7 @@ import InfiniteMovingCards from "@/components/InfiniteMovingCards"
 import SupportedTokens from "@/components/SupportedTokens"
 import TawkMessengerReact from "@tawk.to/tawk-messenger-react"
 import TokenDisplay from "@/components/token-display"
+import Image from "next/image";
 // Docs component removed as requested
 const randomDecimal = () => (Math.random() * 0.99 + 0.01).toFixed(2)
 
@@ -123,9 +124,12 @@ export default function Page() {
       window.removeEventListener("mousemove", handleMouseMove)
     }
   }, [])
+  const handleButtonClick = () => {
+    navigate('/wait-list'); 
+  };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden relative">
+    <div className="min-h-screen text-white overflow-hidden relative bg-[#000000]">
       <div className="relative">
         <TawkMessengerReact
           onBeforeLoad={() => {}}
@@ -182,19 +186,19 @@ export default function Page() {
 
       {/* Hero Section */}
       <header className="mx-auto pl-[5%] py-20 relative z-10">
-        {/* SVG Background Layer */}
+      
         <motion.img
-          src="/light.svg"
-          className="absolute right-0 top-0 z-50 max-sm:hidden"
-          height={1000}
-          width={1000}
+          src="/new_background.png" 
+          className="absolute right-0 top-0 z-[-10] max-sm:hidden"
+          height={900}
+          width={900}
           initial={{ 
-            opacity: 0,
+            opacity: 0, // Use a value between 0 (transparent) and 1 (opaque)
             filter: "blur(10px) brightness(0.5)",
             transform: "translateX(5px)"
           }}
           animate={{ 
-            opacity: 0.8,
+            opacity: 0.8, // Final opacity value
             filter: "blur(0px) brightness(1)",
             transform: "translateX(0px) scale(1)"
           }}
@@ -537,6 +541,23 @@ export default function Page() {
         <InfiniteMovingCards />
       </section>
 
+      {/*skip subscription fees */}
+      <section className="w-full flex flex-col items-center justify-center text-center py-12 px-4 bg-[#000000]">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+          Own Your Subscriptions.<br />
+          <span className="text-blue-400">Skip the Fees</span>
+        </h2>
+        <p className="text-gray-400 max-w-md mx-auto mb-6 text-sm sm:text-base">
+          RecurX blends blockchain security with one-click subscription automation — paying or <span className="text-white font-medium">getting paid</span> has never been easier.
+        </p>
+        <img
+          src="/featureSection/stacked_tokens.png"
+          alt="RecurX Coin Stack"
+          className="w-[300px] sm:w-[380px] md:w-[458px] h-auto"
+        />
+      </section>
+
+
       {/* Supported Coin Section */}
       <section className="container mx-auto px-4  relative z-10">
         
@@ -544,7 +565,7 @@ export default function Page() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-center mb-16"
+          className="text-center mb-16 mt-15"
         >
           <h2
             className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight"
@@ -565,6 +586,42 @@ export default function Page() {
         <SupportedTokens />
       </section>
 
+      {/* new section- pre sale access */}
+       <section className="bg-black text-white py-16 px-6 md:px-20">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        {/* Left Image */}
+        <div className="w-full md:w-1/2 flex justify-center">
+          <Image
+            src="/featureSection/page_token.png"
+            alt="RecurX Token Illustration"
+            width={500}
+            height={500}
+            className="w-full max-w-sm md:max-w-md object-contain"
+            priority
+          />
+        </div>
+
+        {/* Right Text Content */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center gap-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+            Introducing our Token <br></br> Powering Fee-Free Crypto Subscriptions
+          </h2>
+
+          <p className="text-gray-400 text-base md:text-lg leading-relaxed">
+            Decentralized, Automated Billing Now Tokenized.<br></br> Join The Future Of Subscription Finance <br></br> With <span className="text-white font-semibold">RecurX</span>
+          </p>
+
+          <div>
+            <button 
+              onClick={handleButtonClick}
+              className="mt-2 px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-400 text-white font-medium hover:from-blue-700 hover:to-blue-500 hover:cursor-pointer transition-all flex items-center gap-2"
+            >
+              Pre-Sale Access
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
       {/* Floating blockchain elements - simplified */}
       <div className="absolute top-1/4 -left-20 opacity-10 animate-pulse">
         <BlockchainElement />

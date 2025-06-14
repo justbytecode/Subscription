@@ -208,42 +208,43 @@ import { Zap, Shield, RefreshCw } from "lucide-react";
 
 const features = [
   {
-    icon: <Zap className="text-yellow-400" />,
+     icon: <img src="/featureSection/redesigned_token.png" alt="Lightning Fast" width={150} height={150} />,
     title: "Lightning Fast",
     description: "Process payments instantly with our optimized blockchain integration",
   },
   {
-    icon: <Shield className="text-emerald-400" />,
+     icon: <img src="/featureSection/secure_private.png" alt="Lightning Fast" width={130} height={130} />,
     title: "Secure & Private",
     description: "End-to-end encryption and decentralized architecture for maximum security",
   },
   {
-    icon: <RefreshCw className="text-blue-400" />,
+     icon: <img src="/featureSection/recurring_payment.png" alt="Lightning Fast" width={200} height={200} />,
     title: "Recurring Payments",
     description: "Set up and manage subscription plans with flexible payment schedules",
   },
   {
-    icon: <Zap className="text-purple-400" />,
+     icon: <img src="/featureSection/global_support.png" alt="Lightning Fast" width={220} height={220} />,
     title: "Global Support",
     description: "Accept payments in multiple currencies from anywhere in the world",
   },
   {
-    icon: <Shield className="text-red-400" />,
+     icon: <img src="/featureSection/native_token.png" alt="Lightning Fast" width={200} height={200} />,
     title: "Smart Contracts",
     description: "Automate complex payment logic with programmable transactions",
   },
 ];
 
 const FeatureCard = ({ icon, title, description }) => (
-  <div className="group relative bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 rounded-xl p-6 flex flex-col gap-4 transition-transform duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_#10b98133]">
-    <div className="w-12 h-12 flex items-center justify-center bg-gray-800 rounded-full group-hover:shadow-[0_0_10px_#10b98133] transition-shadow">
-      {icon}
-    </div>
+  <div className="group relative bg-[#001843] border border-gray-800 rounded-xl p-6 flex flex-col gap-4 transition-transform duration-300 hover:scale-[1.03] hover:shadow-[0_0_20px_#10b98133]">
     <h3 className="text-xl font-semibold text-white">{title}</h3>
     <p className="text-gray-400 text-sm">{description}</p>
 
     {/* Optional glow effect on hover */}
     <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-10 transition duration-300 pointer-events-none bg-gradient-to-br from-green-400/10 to-purple-600/10 blur-md"></div>
+
+    <div className="w-[200px] h-[200px] flex items-center justify-center">
+      {icon}
+    </div>
   </div>
 );
 
