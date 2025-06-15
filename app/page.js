@@ -239,6 +239,33 @@ export default function Page() {
               transition: { duration: 0.3 }
             }}
             />
+            {/* mobile view light  */}
+        <motion.img
+            src="/featureSection/light.png" 
+            className="absolute right-[10%] top-0 z-[-10] sm:hidden"
+            height={900}
+            width={900}
+            initial={{ 
+              opacity: 0, // Use a value between 0 (transparent) and 1 (opaque)
+              filter: "blur(10px) brightness(0.5)",
+              transform: "translateX(5px)"
+            }}
+            animate={{ 
+              opacity: 0.8, // Final opacity value
+              filter: "blur(0px) brightness(1)",
+              transform: "translateX(0px) scale(1)"
+            }}
+            transition={{
+              duration: 1.5,
+              delay: 0.3,
+              ease: "easeOut"
+            }}
+            whileHover={{
+              opacity: 1,
+              filter: "blur(0px) brightness(1.2)",
+              transition: { duration: 0.3 }
+            }}
+            />
 
         <div className="flex flex-col lg:flex-row items-center justify-between ml:20 mt-10 md:mt-24 gap-8 md:gap-12">
           {/* Left side content */}
