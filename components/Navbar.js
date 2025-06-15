@@ -57,7 +57,7 @@ export default function Navbar() {
           <div className="hidden lg:flex lg:items-center lg:justify-center flex-1 mx-4 xl:mx-8">
             <div className="bg-[#1f1c2f] rounded-full px-4 xl:px-6 py-2 shadow-lg">
               <nav className="flex items-center space-x-4 xl:space-x-6 2xl:space-x-8">
-                <NavLink href="/airdrop" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Airdrop</NavLink>
+                {/* <NavLink href="/airdrop" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Airdrop</NavLink> */}
                 <NavLink href="/product" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Product</NavLink>
                 <NavLink href="/pricing" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Pricing</NavLink>
                 <NavLink href="/career" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Career</NavLink>
@@ -71,7 +71,7 @@ export default function Navbar() {
           <div className="hidden md:flex lg:hidden md:items-center md:justify-center flex-1 mx-2">
             <div className="bg-[#1f1c2f] rounded-full px-3 py-2 shadow-lg">
               <nav className="flex items-center space-x-3">
-                <NavLink href="/airdrop" className="text-white text-xs">Airdrop</NavLink>
+                {/* <NavLink href="/airdrop" className="text-white text-xs">Airdrop</NavLink> */}
                 <NavLink href="/product" className="text-white text-xs">Product</NavLink>
                 <NavLink href="/pricing" className="text-white text-xs">Pricing</NavLink>
                 <NavLink href="/career" className="text-white text-xs">Career</NavLink>
@@ -115,9 +115,9 @@ export default function Navbar() {
           className="md:hidden border-t border-gray-800 backdrop-blur-lg"
         >
           <div className="px-3 sm:px-4 py-4 flex flex-col space-y-3 sm:space-y-4 font-medium min-h-screen bg-black/90">
-            <MobileNavLink onClick={() => setIsMobileMenuOpen(false)} href="/airdrop">
+            {/* <MobileNavLink onClick={() => setIsMobileMenuOpen(false)} href="/airdrop">
               Airdrop
-            </MobileNavLink>
+            </MobileNavLink> */}
             <MobileNavLink onClick={() => setIsMobileMenuOpen(false)} href="/product">
               Product
             </MobileNavLink>
