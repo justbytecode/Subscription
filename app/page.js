@@ -358,31 +358,31 @@ export default function Page() {
                 </motion.div>
               </motion.div>
               <motion.img
-          src="/new_background.png" 
-          className="  z-[-10] sm:hidden"
-          height={900}
-          width={900}
-          initial={{ 
-            opacity: 0, // Use a value between 0 (transparent) and 1 (opaque)
-            filter: "blur(10px) brightness(0.5)",
-            transform: "translateX(5px)"
-          }}
-          animate={{ 
-            opacity: 0.8, // Final opacity value
-            filter: "blur(0px) brightness(1)",
-            transform: "translateX(0px) scale(1)"
-          }}
-          transition={{
-            duration: 1.5,
-            delay: 0.3,
-            ease: "easeOut"
-          }}
-          whileHover={{
-            opacity: 1,
-            filter: "blur(0px) brightness(1.2)",
-            transition: { duration: 0.3 }
-          }}
-        />
+                src="/new_background.png" 
+                className="  z-20] sm:hidden"
+                height={900}
+                width={900}
+                initial={{ 
+                  opacity: 0, // Use a value between 0 (transparent) and 1 (opaque)
+                  filter: "blur(10px) brightness(0.5)",
+                  transform: "translateX(5px)"
+                }}
+                animate={{ 
+                  opacity: 0.8, // Final opacity value
+                  filter: "blur(0px) brightness(1)",
+                  transform: "translateX(0px) scale(1)"
+                }}
+                transition={{
+                  duration: 1.5,
+                  delay: 0.3,
+                  ease: "easeOut"
+                }}
+                whileHover={{
+                  opacity: 1,
+                  filter: "blur(0px) brightness(1.2)",
+                  transition: { duration: 0.3 }
+                }}
+              />
             {/* from here only in desktop view */}
             {/* Feature icons in horizontal layout */}
             {/* large devices */}
@@ -564,9 +564,12 @@ export default function Page() {
           >
             Why Choose RecurX ?
           </h2>
-          <p className="text-gray-300 max-w-3xl mx-auto text-xl">
+          <p className="text-gray-300 max-w-3xl mx-auto text-xl max-sm:hidden">
             Our platform combines the best of blockchain technology with user-friendly design to revolutionize
             subscription payments.
+          </p>
+          <p className="text-gray-300 max-w-3xl mx-auto text-xl sm:hidden">
+            Zero‑Fee, Decentralized Subscriptions Powered by Blockchain.
           </p>
         </motion.div>
 

@@ -252,10 +252,10 @@ const InfiniteMovingCards = () => {
   return (
     <section className="min-h-screen bg-black p-6 md:p-12">
       <div className="max-w-6xl mx-auto text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 max-sm:hidden">
           Powerful Subscription Features
         </h2>
-        <p className="text-gray-400 text-lg">
+        <p className="text-gray-400 text-lg max-sm:hidden">
           Everything you need to manage recurring payments globally and securely.
         </p>
       </div>
