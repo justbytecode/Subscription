@@ -1,5 +1,7 @@
+import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-
+import { Motion } from 'react-motion'
+import { motion, AnimatePresence } from "framer-motion"
 const Background = () => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
     useEffect(() => {
@@ -13,6 +15,8 @@ const Background = () => {
         window.removeEventListener("mousemove", handleMouseMove)
       }
     }, [])
+    const MotionImage = motion(Image)
+
   return (
     <>
       <div
@@ -22,18 +26,10 @@ const Background = () => {
           transition: "background 0.3s ease",
         }}
       />
+      
+ 
 
-      {/* Simplified grid pattern overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
+      
     </>
   )
 }

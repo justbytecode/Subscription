@@ -7,6 +7,7 @@ export const TeamMemberCard = ({ member }) => {
   
   return (
     <div className="bg-gray-900/50 rounded-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition duration-300 group h-full backdrop-blur-sm border border-gray-800 hover:border-blue-600/50 duration-400 shadow-xs" >
+      
       <div 
         className="w-56 h-56 mb-4 overflow-hidden rounded-full border-1 border-blue-600 transition-transform duration-300 ease-in-out group-hover:scale-105"
       >
