@@ -138,7 +138,7 @@ export default function TeamPage() {
             </div>
             <motion.img
             src="/about-us/hero.png" 
-            className="absolute right-[0] top-[-15%] z-[-1] max-md:hidden"
+            className="absolute right-[0] top-[-15%] z-[-1] max-sm:hidden"
             height={500}
             width={2000}
             sizes="100vw"
@@ -162,7 +162,7 @@ export default function TeamPage() {
             />
             <motion.img
             src="/about-us/hero.png" 
-            className="absolute right-[0] top-[6%] z-[-1]"
+            className="absolute right-[0] top-[6%] z-[-1] sm:hidden"
             height={5000}
             width={5000}
             sizes="100vw"
