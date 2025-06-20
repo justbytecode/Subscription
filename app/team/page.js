@@ -130,7 +130,7 @@ export default function TeamPage() {
           <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2 }}
+                transition={{ duration: 0.7, delay: 0.2, }}
                 className=" "
           >
             <div className="text-lg sm:text-md md:text-md lg:text-md font-light mt-4 justify-center text-center relative text-gray-300">
@@ -138,7 +138,7 @@ export default function TeamPage() {
             </div>
             <motion.img
             src="/about-us/hero.png" 
-            className="absolute right-[0] top-[-15%] z-[-1] "
+            className="absolute right-[0] top-[-15%] z-[-1] max-md:hidden"
             height={500}
             width={2000}
             sizes="100vw"
@@ -160,6 +160,27 @@ export default function TeamPage() {
             }}
              
             />
+            <motion.img
+            src="/about-us/hero.png" 
+            className="absolute right-[0] top-[6%] z-[-1]"
+            height={5000}
+            width={5000}
+            sizes="100vw"
+            alt="Hero Image"
+            initial={{ 
+              opacity: 0, // Use a value between 0 (transparent) and 1 (opaque)
+              filter: "blur(10px) brightness(0.5)",
+               
+            }}
+            animate={{ 
+              opacity: 0.8, // Final opacity value
+              filter: "blur(0px) brightness(1)",
+              scale: 2,
+            }}
+            
+             
+            />
+            
           </motion.h1>
             <div className="flex justify-center mt-6 ">     
             
@@ -192,7 +213,7 @@ export default function TeamPage() {
               alt="Mission Image"
               width={800}
               height={400}
-              className="mt-6 mx-auto rounded-lg shadow-lg"
+              className="mt-6 mx-auto rounded-lg shadow-lg "
               sizes="(max-width: 768px) 100vw, 50vw"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
