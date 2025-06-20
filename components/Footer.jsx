@@ -110,7 +110,7 @@ const Footer = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <li>
-              <a href="/team" className="text-white/70 hover:text-white transition-colors">
+              <a href="/about-us" className="text-white/70 hover:text-white transition-colors">
                 About us
               </a>
             </li>
