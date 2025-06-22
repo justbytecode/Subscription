@@ -99,7 +99,7 @@ export default function TeamPage() {
   }, [selectedMember])
   const clicked = () => {
     // Navigate to the link - you can customize this URL
-    window.open('/', '_blank'); // Opens in new tab
+    window.open('/wait-list'); // Opens in new tab
     // Or use: window.location.href = '/'; // Navigate in same tab
   };
   return (
