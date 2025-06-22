@@ -1011,7 +1011,7 @@ export default function ProductPage() {
               
             </div> */}
 
-            <div className=" p-8 md:p-12 lg:p-16 text-white flex p-10 ">
+            <div className=" p-8 md:p-12 lg:p-16 text-white flex ">
               <div className="text-center  mx-auto">
                 <motion.h2
                   className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
