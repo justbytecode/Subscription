@@ -319,7 +319,14 @@ export default function ProductPage() {
             eliminate transaction costs forever.
           </motion.p>
 
-          <motion.div variants={itemVariants} className="relative flex justify-center items-center mt-8">
+          <motion.div variants={itemVariants} className="relative flex flex-col justify-center items-center mt-8">
+            <Image
+              src="/product/up.svg" // Replace with your image path
+            alt="Illustration of Decentralized Payments"
+            width={400}
+            height={210}
+            className="rounded-xl shadow-lg mb-10 sm:hidden "
+            />
             <Image
               src="/product/dash.png" // Replace with your image path
               alt="Illustration of Decentralized Payments"
@@ -332,7 +339,7 @@ export default function ProductPage() {
             alt="Illustration of Decentralized Payments"
             width={400}
             height={410}
-            className="absolute top-12 right-70 translate-x-1/2 -translate-y-1/2 shadow-md"
+            className="absolute top-12 right-70 translate-x-1/2 -translate-y-1/2 shadow-md max-sm:hidden"
             />
           </motion.div>
 
