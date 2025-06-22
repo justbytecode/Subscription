@@ -321,21 +321,22 @@ export default function ProductPage() {
 
           <motion.div variants={itemVariants} className="relative flex flex-col justify-center items-center mt-8">
             <Image
-              src="/product/up.svg" // Replace with your image path
+              src="/product/up.svg" 
             alt="Illustration of Decentralized Payments"
             width={400}
             height={210}
             className="rounded-xl shadow-lg mb-10 sm:hidden "
             />
             <Image
-              src="/product/dash.png" // Replace with your image path
+              src="/product/dash.png" 
               alt="Illustration of Decentralized Payments"
               width={900}
               height={900}
               className="rounded-xl shadow-lg"
             />
+          
             <Image 
-            src="/product/up.svg" // Replace with your image path
+            src="/product/up.svg" 
             alt="Illustration of Decentralized Payments"
             width={400}
             height={410}
@@ -996,8 +997,8 @@ export default function ProductPage() {
       </div>
 
       {/* CTA Section with enhanced animations */}
-      <div id="contact" className="py-20 relative">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="contact" className="py-20  ">
+        <div className=" mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="rounded-3xl overflow-hidden relative"
             initial={{ opacity: 0, y: 30 }}
@@ -1006,34 +1007,12 @@ export default function ProductPage() {
             transition={{ duration: 0.8 }}
           >
             {/* Animated background elements with enhanced effects */}
-            <div className="absolute inset-0 overflow-hidden">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute rounded-full bg-white/10"
-                  style={{
-                    width: Math.random() * 300 + 50,
-                    height: Math.random() * 300 + 50,
-                    top: `${Math.random() * 100}%`,
-                    left: `${Math.random() * 100}%`,
-                  }}
-                  animate={{
-                    x: [Math.random() * 100 - 50, Math.random() * 100 - 50],
-                    y: [Math.random() * 100 - 50, Math.random() * 100 - 50],
-                    opacity: [0.1, 0.3, 0.1],
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: Math.random() * 10 + 10,
-                    repeat: Number.POSITIVE_INFINITY,
-                    repeatType: "reverse",
-                  }}
-                />
-              ))}
-            </div>
+            {/* <div className="absolute inset-0 overflow-hidden">
+              
+            </div> */}
 
-            <div className="relative p-8 md:p-12 lg:p-16 text-white">
-              <div className="text-center max-w-3xl mx-auto">
+            <div className=" p-8 md:p-12 lg:p-16 text-white flex p-10 ">
+              <div className="text-center  mx-auto">
                 <motion.h2
                   className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
                   initial={{ opacity: 0, y: 20 }}
@@ -1071,6 +1050,15 @@ export default function ProductPage() {
                   </motion.a>
                 </motion.div>
               </div>
+              
+                <Image
+                  src="/product/dash.png" 
+                  alt="Illustration of Decentralized Payments"
+                  width={600}
+                  height={600}
+                  className="rounded-xl shadow-lg "
+                />
+              
             </div>
           </motion.div>
         </div>
