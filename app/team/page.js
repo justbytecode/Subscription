@@ -103,7 +103,7 @@ export default function TeamPage() {
     // Or use: window.location.href = '/'; // Navigate in same tab
   };
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white pt-16 sm:pt-20 md:pt-24 pb-12 md:pb-16 relative overflow-x-hidden  ">
+    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white pt-16 sm:pt-20 md:pt-24 pb-12 md:pb-16 relative overflow-x-hidden z-10 ">
       {/* Background elements */}
       <Background/>
       
