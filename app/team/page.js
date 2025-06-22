@@ -7,7 +7,16 @@ import { Twitter, Linkedin, Github, Globe, X } from "lucide-react"
 import { TeamMemberCard } from "@/components/TeamMemberCard"
 import Background from "@/components/Background"
 import Link from "next/link"
-
+import SpotlightCard from "@/components/SpotlightCard/SpotlightCard"
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import RecurXAdvantageSection from "@/components/AboutUsCard"
 
 const teamMembers = [{
   name: "Mani Pal",
@@ -94,7 +103,7 @@ export default function TeamPage() {
     // Or use: window.location.href = '/'; // Navigate in same tab
   };
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white pt-16 sm:pt-20 md:pt-24 pb-12 md:pb-16 relative overflow-x-hidden z-[-10]">
+    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white pt-16 sm:pt-20 md:pt-24 pb-12 md:pb-16 relative overflow-x-hidden  ">
       {/* Background elements */}
       <Background/>
       
@@ -220,7 +229,24 @@ export default function TeamPage() {
               transition={{ duration: 0.5, delay: 0.3 }}/>
           </motion.div>
          
-
+         {/* cards */}
+         <RecurXAdvantageSection/>
+         {/* <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+            className="mt-55 text-center max-w-4xl mx-auto px-4 flex"
+          >
+            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+             first 
+            </SpotlightCard>
+            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+             first 
+            </SpotlightCard>
+            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+             first 
+            </SpotlightCard>
+          </motion.div> */}
       <motion.div
         className="xl:py-42 md:py-20 py-10 xl:px-0 px-10"
         initial={{ opacity: 0, y: 20 }}

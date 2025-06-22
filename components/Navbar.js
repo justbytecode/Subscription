@@ -61,7 +61,7 @@ export default function Navbar() {
                 <NavLink href="/product" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Product</NavLink>
                 <NavLink href="/pricing" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Pricing</NavLink>
                 <NavLink href="/career" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Career</NavLink>
-                <NavLink href="/about-us" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">About us</NavLink>
+                <NavLink href="/team" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">About us</NavLink>
                 <NavLink href="/contact-us" className="text-white text-sm xl:text-base transition-transform duration-200 ease-in-out hover:scale-110 ">Contact us</NavLink>
               </nav>
             </div>
