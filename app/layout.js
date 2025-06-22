@@ -26,7 +26,7 @@ export const metadata = {
   title: "RecurX",
   description: "A Decentralized Subscription Payment Gateway",
   icons:{
-    icon: "/favicon.ico",
+    icon: "/favicon/favicon.ico",
   }
 };
 

@@ -130,7 +130,7 @@ export default function Page() {
 
   return (
     <div className="min-h-screen text-white overflow-hidden relative bg-[#000000]">
-      <div className="relative">
+      {/* <div className="relative">
         <TawkMessengerReact
           onBeforeLoad={() => {}}
           onStatusChange={() => {}}
@@ -154,7 +154,7 @@ export default function Page() {
           propertyId="67e50a774040b31908c84848"
           widgetId="1injsi3ti"
         />
-      </div>
+      </div> */}
 
       {/* Enhanced animated background with multiple layers */}
       <div
@@ -213,6 +213,59 @@ export default function Page() {
             transition: { duration: 0.3 }
           }}
         />
+        <motion.img
+            src="/featureSection/light.png" 
+            className="absolute right-20 top-0 z-[-10] max-sm:hidden"
+            height={900}
+            width={900}
+            initial={{ 
+              opacity: 0, // Use a value between 0 (transparent) and 1 (opaque)
+              filter: "blur(10px) brightness(0.5)",
+              transform: "translateX(5px)"
+            }}
+            animate={{ 
+              opacity: 0.8, // Final opacity value
+              filter: "blur(0px) brightness(1)",
+              transform: "translateX(0px) scale(1)"
+            }}
+            transition={{
+              duration: 1.5,
+              delay: 0.3,
+              ease: "easeOut"
+            }}
+            whileHover={{
+              opacity: 1,
+              filter: "blur(0px) brightness(1.2)",
+              transition: { duration: 0.3 }
+            }}
+            />
+            {/* mobile view light  */}
+        <motion.img
+            src="/featureSection/light.png" 
+            className="absolute right-[10%] top-0 z-[-10] sm:hidden"
+            height={900}
+            width={900}
+            initial={{ 
+              opacity: 0, // Use a value between 0 (transparent) and 1 (opaque)
+              filter: "blur(10px) brightness(0.5)",
+              transform: "translateX(5px)"
+            }}
+            animate={{ 
+              opacity: 0.8, // Final opacity value
+              filter: "blur(0px) brightness(1)",
+              transform: "translateX(0px) scale(1)"
+            }}
+            transition={{
+              duration: 1.5,
+              delay: 0.3,
+              ease: "easeOut"
+            }}
+            whileHover={{
+              opacity: 1,
+              filter: "blur(0px) brightness(1.2)",
+              transition: { duration: 0.3 }
+            }}
+            />
 
         <div className="flex flex-col lg:flex-row items-center justify-between ml:20 mt-10 md:mt-24 gap-8 md:gap-12">
           {/* Left side content */}
@@ -304,15 +357,40 @@ export default function Page() {
                   </Link>
                 </motion.div>
               </motion.div>
-
-
-          {/* Feature icons in horizontal layout */}
+              <motion.img
+                src="/new_background.png" 
+                className="  z-20] sm:hidden"
+                height={900}
+                width={900}
+                initial={{ 
+                  opacity: 0, // Use a value between 0 (transparent) and 1 (opaque)
+                  filter: "blur(10px) brightness(0.5)",
+                  transform: "translateX(5px)"
+                }}
+                animate={{ 
+                  opacity: 0.8, // Final opacity value
+                  filter: "blur(0px) brightness(1)",
+                  transform: "translateX(0px) scale(1)"
+                }}
+                transition={{
+                  duration: 1.5,
+                  delay: 0.3,
+                  ease: "easeOut"
+                }}
+                whileHover={{
+                  opacity: 1,
+                  filter: "blur(0px) brightness(1.2)",
+                  transition: { duration: 0.3 }
+                }}
+              />
+            {/* from here only in desktop view */}
+            {/* Feature icons in horizontal layout */}
             {/* large devices */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.8 }}
-              className="flex   justify-center items-center gap-8 md:gap-12 lg:gap-16 max-sm:hidden"
+              className="flex   justify-center items-center gap-8 md:gap-12 lg:gap-16 max-sm:hidden "
             >
               {/* Security Feature */}
               <motion.div
@@ -355,53 +433,7 @@ export default function Page() {
               </motion.div>
             </motion.div>
             {/* small devices */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.8 }}
-              className="flex flex-wrap sm:hidden  justify-center items-center gap-8 md:gap-12 lg:gap-16"
-            >
-              {/* Security Feature */}
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center text-center max-w-[250px] w-full sm:w-auto"
-              >
-                <div className="bg-emerald-500/20 p-4 rounded-full mb-4 border border-emerald-500/30">
-                  <Shield className="h-6 w-6 text-emerald-400" />
-                </div>
-                <p className="text-white text-sm leading-relaxed ">
-                Enterprise-grade security with blockchain technology
-                </p>
-
-              </motion.div>
-
-              {/* Speed Feature */}
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center text-center max-w-xs"
-              >
-                <div className="bg-yellow-500/20 p-4 rounded-full mb-4 border border-yellow-500/30">
-                  <Zap className="h-6 w-6 text-yellow-400" />
-                </div>
-                <p className="text-white text-sm leading-relaxed">
-                  Lightning-fast transactions across multiple chains
-                </p>
-              </motion.div>
-
-              {/* Global Feature */}
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="flex flex-col items-center text-center max-w-xs"
-              >
-                <div className="bg-blue-500/20 p-4 rounded-full mb-4 border border-blue-500/30">
-                  <Globe className="h-6 w-6 text-blue-400" />
-                </div>
-                <p className="text-white text-sm leading-relaxed">
-                  Global payments with no borders or limitations
-                </p>
-              </motion.div>
-            </motion.div>
-
+             
             {/* Trust indicators
             <motion.div
               initial={{ opacity: 0 }}
@@ -532,9 +564,12 @@ export default function Page() {
           >
             Why Choose RecurX ?
           </h2>
-          <p className="text-gray-300 max-w-3xl mx-auto text-xl">
+          <p className="text-gray-300 max-w-3xl mx-auto text-xl max-sm:hidden">
             Our platform combines the best of blockchain technology with user-friendly design to revolutionize
             subscription payments.
+          </p>
+          <p className="text-gray-300 max-w-3xl mx-auto text-xl sm:hidden">
+            Zero‑Fee, Decentralized Subscriptions Powered by Blockchain.
           </p>
         </motion.div>
 

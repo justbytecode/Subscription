@@ -20,6 +20,7 @@ import {
   Link2,
   BitcoinIcon,
 } from "lucide-react"
+import Image from "next/image"
 
 export default function ProductPage() {
   const { scrollYProgress } = useScroll()
@@ -292,6 +293,7 @@ export default function ProductPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white overflow-hidden relative font-sans">
+      
       {/* Hero Section with improved animations */}
       <motion.div className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" style={{ opacity, y }}>
         <motion.div className="text-center" variants={containerVariants} initial="hidden" animate="visible">
@@ -317,6 +319,30 @@ export default function ProductPage() {
             eliminate transaction costs forever.
           </motion.p>
 
+          <motion.div variants={itemVariants} className="relative flex flex-col justify-center items-center mt-8">
+            <Image
+              src="/product/up.svg" // Replace with your image path
+            alt="Illustration of Decentralized Payments"
+            width={400}
+            height={210}
+            className="rounded-xl shadow-lg mb-10 sm:hidden "
+            />
+            <Image
+              src="/product/dash.png" // Replace with your image path
+              alt="Illustration of Decentralized Payments"
+              width={900}
+              height={900}
+              className="rounded-xl shadow-lg"
+            />
+            <Image 
+            src="/product/up.svg" // Replace with your image path
+            alt="Illustration of Decentralized Payments"
+            width={400}
+            height={410}
+            className="absolute top-12 right-70 translate-x-1/2 -translate-y-1/2 shadow-md max-sm:hidden"
+            />
+          </motion.div>
+
           {/* <motion.div className="flex flex-wrap justify-center gap-4 mb-12" variants={itemVariants}>
             <motion.a
               href="/signin"
@@ -329,7 +355,7 @@ export default function ProductPage() {
           </motion.div> */}
 
           {/* Highlighted Features with improved animations */}
-          <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto" variants={containerVariants}>
+          {/* <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto" variants={containerVariants}>
             {highlightedFeatures.map((feature, index) => (
               <motion.div
                 key={index}
@@ -347,13 +373,14 @@ export default function ProductPage() {
                 <span className="text-sm font-medium">{feature.title}</span>
               </motion.div>
             ))}
-          </motion.div>
+          </motion.div> */}
+
         </motion.div>
       </motion.div>
          
 
         {/* QR Code Demo Section - New Section */}
-      <div className="py-20 relative">
+      <div className=" relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"

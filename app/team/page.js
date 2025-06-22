@@ -6,11 +6,22 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Twitter, Linkedin, Github, Globe, X } from "lucide-react"
 import { TeamMemberCard } from "@/components/TeamMemberCard"
 import Background from "@/components/Background"
+import Link from "next/link"
+import SpotlightCard from "@/components/SpotlightCard/SpotlightCard"
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import RecurXAdvantageSection from "@/components/AboutUsCard"
 
 const teamMembers = [{
   name: "Mani Pal",
   role: "Founder & CTO",
-  image: "/mani.jpg",
+  image: "/team-profile/mani.jpg",
   bio: "With 5+ years in software engineering and blockchain, Mani leads RecurX’s technical vision. He architects AI-driven, cryptocurrency-integrated solutions, ensuring seamless automation and innovation.",
   social: {
     twitter: "#",
@@ -22,7 +33,7 @@ const teamMembers = [{
 {
   name: "Ishita Gupta",
   role: "Co-Founder & CEO",
-  image: "/ishita.jpeg",
+  image: "/team-profile/ishita.jpeg",
   bio: "With 5+ years in fintech and blockchain, Ishita drives RecurX’s growth and operations. She ensures compliance while shaping innovative payment solutions.",
   social: {
     twitter: "https://x.com/Ishita2210",
@@ -33,7 +44,7 @@ const teamMembers = [{
 {
   name: "Yug Rathod",
   role: "Co-Founder & COO",
-  image: "/yug.jpeg",
+  image: "/team-profile/yug.jpeg",
   bio: "With expertise in distributed systems and cryptography, Yug ensures RecurX’s security and scalability. He drives technical strategy while advancing blockchain-powered payment infrastructure.",
   social: {
     twitter: "https://x.com/YugRath77227664",
@@ -86,13 +97,156 @@ export default function TeamPage() {
       document.body.style.overflow = "auto"
     }
   }, [selectedMember])
-
+  const clicked = () => {
+    // Navigate to the link - you can customize this URL
+    window.open('/', '_blank'); // Opens in new tab
+    // Or use: window.location.href = '/'; // Navigate in same tab
+  };
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white pt-16 sm:pt-20 md:pt-24 pb-12 md:pb-16 relative overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white pt-16 sm:pt-20 md:pt-24 pb-12 md:pb-16 relative overflow-x-hidden z-10 ">
       {/* Background elements */}
       <Background/>
+      
+      <div className="transparent mt-15">
+      {/* hero section for about us begins here*/}
+      <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              >
+           
+          <div className="flex justify-center ">     
+          <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 ">
+            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] " />
+            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+              About Us
+            </span>
+          </button>
+          </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+                className="text-2xl sm:text-5xl md:text-6xl lg:text-7xl font-bold  tracking-tight leading-[1.1] justify-center text-center "
+              >
+            <div className="bg-clip-text mb-2 text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-emerald-400 ">
+              Redefining Subscriptions
+            </div>
+
+            <div className="">for a Decentralized World</div>
+          </motion.h1>
+          <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.2, }}
+                className=" "
+          >
+            <div className="text-lg sm:text-md md:text-md lg:text-md font-light mt-4 justify-center text-center relative text-gray-300">
+              We're building the future of subscription payments, one where businesses and users <br></br> have total control, zero fees, and global reach powered by blockchain.
+            </div>
+            <motion.img
+            src="/about-us/hero.png" 
+            className="absolute right-[0] top-[-15%] z-[-1] max-sm:hidden"
+            height={500}
+            width={2000}
+            sizes="100vw"
+            alt="Hero Image"
+            initial={{ 
+              opacity: 0, // Use a value between 0 (transparent) and 1 (opaque)
+              filter: "blur(10px) brightness(0.5)",
+              transform: "translateX(5px)"
+            }}
+            animate={{ 
+              opacity: 0.8, // Final opacity value
+              filter: "blur(0px) brightness(1)",
+              transform: "translateX(0px) scale(1)"
+            }}
+            transition={{
+              duration: 1.5,
+              delay: 0.3,
+              ease: "easeOut"
+            }}
+             
+            />
+            <motion.img
+            src="/about-us/hero.png" 
+            className="absolute right-[0] top-[6%] z-[-1] sm:hidden"
+            height={5000}
+            width={5000}
+            sizes="100vw"
+            alt="Hero Image"
+            initial={{ 
+              opacity: 0, // Use a value between 0 (transparent) and 1 (opaque)
+              filter: "blur(10px) brightness(0.5)",
+               
+            }}
+            animate={{ 
+              opacity: 0.8, // Final opacity value
+              filter: "blur(0px) brightness(1)",
+              scale: 2,
+            }}
+            
+             
+            />
+            
+          </motion.h1>
+            <div className="flex justify-center mt-6 ">     
+            
+            <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50  " onClick={clicked}>
+              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)] "  />
+              <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl ">
+                Try RecurX Now
+              </span>
+              </button>
+      
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+            className="mt-55 text-center max-w-4xl mx-auto px-4"
+          >
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight text-white mt-10">
+              Our Mission Is Simple
+            </h1>
+
+            <p className="mt-6 text-base sm:text-lg md:text-xl text-gray-300 font-light leading-relaxed">
+              To eliminate unnecessary fees, middlemen, and payment barriers from <br className="hidden sm:block" />
+              recurring transactions. We empower people to operate globally, securely, <br className="hidden sm:block" />
+              and autonomously through the power of blockchain technology.
+            </p>
+            <Image
+              src="/about-us/tokenRecurx.png"
+              alt="Mission Image"
+              width={800}
+              height={400}
+              className="mt-6 mx-auto rounded-lg shadow-lg "
+              sizes="(max-width: 768px) 100vw, 50vw"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}/>
+          </motion.div>
+         
+         {/* cards */}
+         <RecurXAdvantageSection/>
+         {/* <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+            className="mt-55 text-center max-w-4xl mx-auto px-4 flex"
+          >
+            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+             first 
+            </SpotlightCard>
+            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+             first 
+            </SpotlightCard>
+            <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+             first 
+            </SpotlightCard>
+          </motion.div> */}
       <motion.div
         className="xl:py-42 md:py-20 py-10 xl:px-0 px-10"
         initial={{ opacity: 0, y: 20 }}
@@ -107,6 +261,8 @@ export default function TeamPage() {
           adapt to customer needs, and create cutting-edge solutions.
         </p>
       </motion.div>
+
+      
 
         {/* Render Team Cards */}
         <motion.div variants={container} className="flex flex-wrap">
